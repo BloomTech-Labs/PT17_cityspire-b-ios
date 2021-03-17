@@ -10,50 +10,25 @@ import UIKit
 import MapKit
 
 class SearchViewController: UIViewController {
+    
     // MARK: - Properties
+    
     var searchResponse = Map()
     var network = NetworkClient()
     var city = ""
     var state = ""
     
     // MARK: Outlets
+    
     @IBOutlet weak var backgroundGradient: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackgroundColor()
-        // Do any additional setup after loading the view.
     }
     
-    // MARK: - Background gradient
-    
-    /// Sets the gradient colors for the background view
-    func setGradientBackgroundColor() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor(named: "LightBlue")!.cgColor, UIColor(named: "MedBlue")!.cgColor ]
-        gradientLayer.shouldRasterize = true
-        backgroundGradient.layer.addSublayer(gradientLayer)
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-    }
-    
-    /// Creates a string based on the search query entered by the user
-    func createStringURL(_ input: String) {
-        var address = input
-        for char in address {
-            if char == "," {
-                address = address.replacingOccurrences(of: city, with: "")
-                state = address
-                state = state.replacingOccurrences(of: ",", with: "")
-                state = state.replacingOccurrences(of: " ", with: "")
-                return
-            } else {
-                city.append(char)
-            }
-        }
-    }
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMap" {
@@ -76,27 +51,88 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Private Functions
+    
+    /// Sets the gradient colors for the background view
+    private func setGradientBackgroundColor() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor(named: "LightBlue")!.cgColor, UIColor(named: "MedBlue")!.cgColor ]
+        gradientLayer.shouldRasterize = true
+        backgroundGradient.layer.addSublayer(gradientLayer)
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+    }
+    
+    /// checks for correct format of search bar text, populates city, state, and searchResponse.cityName
+    /// - Parameter text: accepts a string
+    /// - Returns: returns true if valid format, otherwise false
+    private func formatText(_ text: String?) -> Bool {
+        city = ""
+        state = ""
+        guard var text = text else {
+            return false
+        }
+        for char in text {
+            if char == "," {
+                text = text.replacingOccurrences(of: city, with: "")
+                state = text.uppercased()
+                state = state.replacingOccurrences(of: ",", with: "")
+                state = state.replacingOccurrences(of: " ", with: "")
+                break
+            } else {
+                city.append(char)
+            }
+        }
+        city = city.capitalized
+        if state.count != 2 || city.count < 2 {
+            return false
+        }
+        searchResponse.cityName = city + ", " + state
+        return true
+    }
+    
+    /// called in searchBarSearchButtonClicked after successfully formatting text
+    /// performs a search with MapKit, correcting city name spelling as needed
+    /// presents user with alert to cofirm city, and upon confirmation, performs segue to city details
+    private func conductSearch() {
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = searchResponse.cityName
+        let activeSearch = MKLocalSearch(request: searchRequest)
+        
+        activeSearch.start { (response, error) in
+            if response == nil || response?.mapItems.first?.pointOfInterestCategory != nil {
+                Alert.showBasicAlert(on: self, with: "City Not Found", message: "Please try again.")
+            } else {
+                guard let cityName = response?.mapItems.first?.name else {
+                    Alert.showBasicAlert(on: self, with: "City Not Found", message: "Please try again.")
+                    return
+                }
+                let alert = UIAlertController(title: "View Details for \(cityName), \(self.state)?", message: nil, preferredStyle: .alert)
+                let noButton = UIAlertAction(title: "Re-enter City", style: .default)
+                let yesButton = UIAlertAction(title: "View City", style: .default) { _ in
+                    self.city = cityName
+                    self.searchResponse.cityName = cityName + ", " + self.state
+                    self.searchResponse.long = (response?.boundingRegion.center.longitude)!
+                    self.searchResponse.lat = (response?.boundingRegion.center.latitude)!
+                    self.performSegue(withIdentifier: "toMap", sender: self)
+                }
+                alert.addAction(noButton)
+                alert.addAction(yesButton)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let searchRequest = MKLocalSearch.Request()
-        
-        searchRequest.naturalLanguageQuery = searchBar.text
-        let activeSearch = MKLocalSearch(request: searchRequest)
-        
-        activeSearch.start { (response, error) in
-            if response == nil {
-                Alert.showBasicAlert(on: self, with: "Invalid Input", message: "Please use the format of \"City, State\"")
-            } else {
-                self.searchResponse.long = (response?.boundingRegion.center.longitude)!
-                self.searchResponse.lat = (response?.boundingRegion.center.latitude)!
-                self.searchResponse.cityName = searchBar.text!
-                self.createStringURL(searchBar.text!)
-                self.performSegue(withIdentifier: "toMap", sender: self)
-                
-                
-            }
+        let text = searchBar.text
+        guard formatText(text) else {
+            Alert.showBasicAlert(on: self, with: "Please Enter a Valid City & State", message: "example: San Francisco, CA")
+            return
         }
+        conductSearch()
     }
 }
