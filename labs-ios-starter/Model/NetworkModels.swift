@@ -9,7 +9,7 @@
 import Foundation
 
 /// Struct to use when encoding data for api POST calls
-struct PostParans: Encodable {
+struct PostParams: Encodable {
     let city: String
     let state: String
 }
