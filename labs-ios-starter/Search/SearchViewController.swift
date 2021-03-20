@@ -23,32 +23,41 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var backgroundGradient: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackgroundColor()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchBar.text = ""
     }
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMap" {
-            let vc = segue.destination as! MapScreenViewController
-            vc.searchItem = searchResponse
-            
-            network.getWalkability(city: city, state: state) { (walkability, error) in
-                if error != nil {
-                    DispatchQueue.main.async {
-                        vc.performSegue(withIdentifier: "unwindToSearch", sender: self)
-                    }
-                    return
-                }
-                DispatchQueue.main.async {
-                    vc.walkability = walkability
-                    vc.setUpViews()
-                    vc.counterForBlurView -= 1
-                    vc.checkCounter()
-                }
-            }
+            let mapVC = segue.destination as! MapViewController
+            mapVC.city = searchResponse
+//            let vc = segue.destination as! MapScreenViewController
+//            vc.searchItem = searchResponse
+//
+//            network.getWalkability(city: city, state: state) { (walkability, error) in
+//                if error != nil {
+//                    DispatchQueue.main.async {
+//                        vc.performSegue(withIdentifier: "unwindToSearch", sender: self)
+//                    }
+//                    return
+//                }
+//                DispatchQueue.main.async {
+//                    vc.walkability = walkability
+//                    vc.setUpViews()
+//                    vc.counterForBlurView -= 1
+//                    vc.checkCounter()
+//                }
+//            }
         }
     }
     
@@ -109,7 +118,7 @@ class SearchViewController: UIViewController {
                     Alert.showBasicAlert(on: self, with: "City Not Found", message: "Please try again.")
                     return
                 }
-                let alert = UIAlertController(title: "View Details for \(cityName), \(self.state)?", message: nil, preferredStyle: .alert)
+                let alert = UIAlertController(title: "View Details for\n\(cityName), \(self.state)?", message: nil, preferredStyle: .alert)
                 let noButton = UIAlertAction(title: "Re-enter City", style: .default)
                 let yesButton = UIAlertAction(title: "View City", style: .default) { _ in
                     self.city = cityName

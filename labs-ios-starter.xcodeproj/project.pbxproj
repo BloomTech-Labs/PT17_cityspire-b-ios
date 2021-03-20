@@ -12,6 +12,11 @@
 		11A646542602E12A0004CF5D /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A646532602E12A0004CF5D /* ApiController.swift */; };
 		11A6465E2602E4400004CF5D /* CityDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A6465D2602E4400004CF5D /* CityDashboardViewController.swift */; };
 		11A646622602E44B0004CF5D /* CityDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A646612602E44B0004CF5D /* CityDashboard.storyboard */; };
+		1A26003C2604F65700BDE6EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26003B2604F65700BDE6EA /* MapViewController.swift */; };
+		1A260040260505F500BDE6EA /* POIAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26003F260505F500BDE6EA /* POIAnnotation.swift */; };
+		1A26004526050F7600BDE6EA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26004426050F7600BDE6EA /* Constants.swift */; };
+		1A26004926054DDF00BDE6EA /* POICategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26004826054DDF00BDE6EA /* POICategory.swift */; };
+		1A26004D26055EB600BDE6EA /* POITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26004C26055EB600BDE6EA /* POITableViewCell.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
 		466C4276249A8748007D033E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4275249A8748007D033E /* SceneDelegate.swift */; };
@@ -62,6 +67,11 @@
 		11A646532602E12A0004CF5D /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		11A6465D2602E4400004CF5D /* CityDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDashboardViewController.swift; sourceTree = "<group>"; };
 		11A646612602E44B0004CF5D /* CityDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityDashboard.storyboard; sourceTree = "<group>"; };
+		1A26003B2604F65700BDE6EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		1A26003F260505F500BDE6EA /* POIAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIAnnotation.swift; sourceTree = "<group>"; };
+		1A26004426050F7600BDE6EA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1A26004826054DDF00BDE6EA /* POICategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POICategory.swift; sourceTree = "<group>"; };
+		1A26004C26055EB600BDE6EA /* POITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POITableViewCell.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466C4273249A8748007D033E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,7 +175,7 @@
 				46BEB4EF24C98ED900FE0CD1 /* Login */,
 				11A646482602E0A20004CF5D /* City Dashboard */,
 				C3BEDE8625C2722C006BF31A /* Search */,
-				C3BEDE8725C2723D006BF31A /* Map Screen */,
+				C3BEDE8725C2723D006BF31A /* MapScreen */,
 				C3BEDE8825C27249006BF31A /* Favorites */,
 				46BEB4EA24C98EA300FE0CD1 /* Helpers */,
 				465DAA2724BD0BC100D94C24 /* App Lifecycle */,
@@ -184,6 +194,7 @@
 				46BEB4E624C98D8900FE0CD1 /* Notifications.swift */,
 				46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */,
 				C31B35AA25DB7BB300F5436E /* NetworkClient.swift */,
+				1A26004426050F7600BDE6EA /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -231,13 +242,17 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		C3BEDE8725C2723D006BF31A /* Map Screen */ = {
+		C3BEDE8725C2723D006BF31A /* MapScreen */ = {
 			isa = PBXGroup;
 			children = (
 				C3BEDE8C25C2728D006BF31A /* MapScreen.storyboard */,
 				C33AB37F25D1137200DAD194 /* MapScreenViewController.swift */,
+				1A26003B2604F65700BDE6EA /* MapViewController.swift */,
+				1A26003F260505F500BDE6EA /* POIAnnotation.swift */,
+				1A26004826054DDF00BDE6EA /* POICategory.swift */,
+				1A26004C26055EB600BDE6EA /* POITableViewCell.swift */,
 			);
-			path = "Map Screen";
+			path = MapScreen;
 			sourceTree = "<group>";
 		};
 		C3BEDE8825C27249006BF31A /* Favorites */ = {
@@ -382,6 +397,7 @@
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				11A6465E2602E4400004CF5D /* CityDashboardViewController.swift in Sources */,
 				C31B35AB25DB7BB300F5436E /* NetworkClient.swift in Sources */,
+				1A26004526050F7600BDE6EA /* Constants.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				112570D726058C750016480A /* CityDashboardCollectionViewCell.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
@@ -391,9 +407,13 @@
 				C31B35AE25DB7E3000F5436E /* NetworkModels.swift in Sources */,
 				C33AB38025D1137200DAD194 /* MapScreenViewController.swift in Sources */,
 				11A646542602E12A0004CF5D /* ApiController.swift in Sources */,
+				1A26003C2604F65700BDE6EA /* MapViewController.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
+				1A26004926054DDF00BDE6EA /* POICategory.swift in Sources */,
+				1A26004D26055EB600BDE6EA /* POITableViewCell.swift in Sources */,
+				1A260040260505F500BDE6EA /* POIAnnotation.swift in Sources */,
 				C3BEDE9925C2733B006BF31A /* FavoritesViewController.swift in Sources */,
 				F363987C25CEEA53008C5102 /* StyledButton.swift in Sources */,
 				C380305625E4C2F400CB8B60 /* CitySpire.xcdatamodeld in Sources */,
