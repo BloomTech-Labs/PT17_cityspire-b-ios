@@ -127,20 +127,20 @@
                     <connections>
                         <outlet property="backgroundGradient" destination="frE-Ow-IiM" id="TtY-Mr-TBD"/>
                         <outlet property="searchBar" destination="rWl-W9-8WM" id="jz9-6h-A42"/>
-                        <segue destination="9k4-1Y-ICJ" kind="presentation" identifier="toMap" modalPresentationStyle="fullScreen" id="mza-cw-6BN"/>
+                        <segue destination="9k4-1Y-ICJ" kind="presentation" identifier="toCityDashboard" modalPresentationStyle="fullScreen" id="mza-cw-6BN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9yE-FL-ajC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="489.85507246376818" y="129.91071428571428"/>
         </scene>
-        <!--MapScreen-->
+        <!--CityDashboard-->
         <scene sceneID="UZL-Rt-hic">
             <objects>
-                <viewControllerPlaceholder storyboardName="MapScreen" id="9k4-1Y-ICJ" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="CityDashboard" id="9k4-1Y-ICJ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IoP-4t-8Gx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="65"/>
+            <point key="canvasLocation" x="1120" y="172"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="ENq-cX-3NS">
@@ -150,7 +150,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yh7-Nd-T0L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="121"/>
+            <point key="canvasLocation" x="1110" y="74"/>
         </scene>
     </scenes>
     <resources>

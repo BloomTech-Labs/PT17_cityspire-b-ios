@@ -28,7 +28,7 @@ struct NetworkClient {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         
-        let body = PostParans(city: city, state: state)
+        let body = PostParams(city: city, state: state)
         guard let jsonData = try? JSONEncoder().encode(body) else { return }
         request.httpBody = jsonData
         

@@ -13,42 +13,53 @@ class SearchViewController: UIViewController {
     
     // MARK: - Properties
     
-    var searchResponse = Map()
+    var city = City(cityName: "", cityState: "")
     var network = NetworkClient()
-    var city = ""
-    var state = ""
+    var cityName = ""
+    var stateName = ""
+    let controller = ApiController()
     
     // MARK: Outlets
     
     @IBOutlet weak var backgroundGradient: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackgroundColor()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchBar.text = ""
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toMap" {
-            let vc = segue.destination as! MapScreenViewController
-            vc.searchItem = searchResponse
-            
-            network.getWalkability(city: city, state: state) { (walkability, error) in
-                if error != nil {
-                    DispatchQueue.main.async {
-                        vc.performSegue(withIdentifier: "unwindToSearch", sender: self)
-                    }
-                    return
-                }
-                DispatchQueue.main.async {
-                    vc.walkability = walkability
-                    vc.setUpViews()
-                    vc.counterForBlurView -= 1
-                    vc.checkCounter()
-                }
-            }
+        if segue.identifier == "toCityDashboard" {
+            let cityDashboardVC = segue.destination as! CityDashboardViewController
+            cityDashboardVC.city = city
+            cityDashboardVC.controller = controller
+//            let vc = segue.destination as! MapScreenViewController
+//            vc.searchItem = searchResponse
+//
+//            network.getWalkability(city: city, state: state) { (walkability, error) in
+//                if error != nil {
+//                    DispatchQueue.main.async {
+//                        vc.performSegue(withIdentifier: "unwindToSearch", sender: self)
+//                    }
+//                    return
+//                }
+//                DispatchQueue.main.async {
+//                    vc.walkability = walkability
+//                    vc.setUpViews()
+//                    vc.counterForBlurView -= 1
+//                    vc.checkCounter()
+//                }
+//            }
         }
     }
     
@@ -69,27 +80,27 @@ class SearchViewController: UIViewController {
     /// - Parameter text: accepts a string
     /// - Returns: returns true if valid format, otherwise false
     private func formatText(_ text: String?) -> Bool {
-        city = ""
-        state = ""
+        cityName = ""
+        stateName = ""
         guard var text = text else {
             return false
         }
         for char in text {
             if char == "," {
-                text = text.replacingOccurrences(of: city, with: "")
-                state = text.uppercased()
-                state = state.replacingOccurrences(of: ",", with: "")
-                state = state.replacingOccurrences(of: " ", with: "")
+                text = text.replacingOccurrences(of: cityName, with: "")
+                stateName = text.uppercased()
+                stateName = stateName.replacingOccurrences(of: ",", with: "")
+                stateName = stateName.replacingOccurrences(of: " ", with: "")
                 break
             } else {
-                city.append(char)
+                cityName.append(char)
             }
         }
-        city = city.capitalized
-        if state.count != 2 || city.count < 2 {
+        cityName = cityName.capitalized
+        if stateName.count != 2 || cityName.count < 2 {
             return false
         }
-        searchResponse.cityName = city + ", " + state
+        city.cityName = cityName + ", " + stateName
         return true
     }
     
@@ -98,7 +109,7 @@ class SearchViewController: UIViewController {
     /// presents user with alert to cofirm city, and upon confirmation, performs segue to city details
     private func conductSearch() {
         let searchRequest = MKLocalSearch.Request()
-        searchRequest.naturalLanguageQuery = searchResponse.cityName
+        searchRequest.naturalLanguageQuery = city.cityName
         let activeSearch = MKLocalSearch(request: searchRequest)
         
         activeSearch.start { (response, error) in
@@ -109,14 +120,18 @@ class SearchViewController: UIViewController {
                     Alert.showBasicAlert(on: self, with: "City Not Found", message: "Please try again.")
                     return
                 }
-                let alert = UIAlertController(title: "View Details for \(cityName), \(self.state)?", message: nil, preferredStyle: .alert)
+                let alert = UIAlertController(title: "View Details for\n\(cityName), \(self.stateName)?", message: nil, preferredStyle: .alert)
                 let noButton = UIAlertAction(title: "Re-enter City", style: .default)
                 let yesButton = UIAlertAction(title: "View City", style: .default) { _ in
-                    self.city = cityName
-                    self.searchResponse.cityName = cityName + ", " + self.state
-                    self.searchResponse.long = (response?.boundingRegion.center.longitude)!
-                    self.searchResponse.lat = (response?.boundingRegion.center.latitude)!
-                    self.performSegue(withIdentifier: "toMap", sender: self)
+                    self.cityName = cityName
+                    self.city.cityName = cityName
+                    self.city.cityState = self.stateName
+                    self.city.longitude = (response?.boundingRegion.center.longitude)!
+                    self.city.latitude = (response?.boundingRegion.center.latitude)!
+                    self.controller.fetchCityData(city: self.city) { city in
+                        self.city = city
+                        self.performSegue(withIdentifier: "toCityDashboard", sender: self)
+                    }
                 }
                 alert.addAction(noButton)
                 alert.addAction(yesButton)
