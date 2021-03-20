@@ -89,7 +89,7 @@
                                 <connections>
                                     <action selector="mapButtonTapped:" destination="69W-ve-xzZ" eventType="touchUpInside" id="8Kx-mO-XgX"/>
                                     <action selector="mapButtonTapped:" destination="6dv-8n-cwv" eventType="touchUpInside" id="kau-cL-3Sp"/>
-                                    <segue destination="Wwu-9L-BgQ" kind="show" identifier="MapSegue" id="2uH-C9-jPl"/>
+                                    <segue destination="Wwu-9L-BgQ" kind="presentation" identifier="MapSegue" modalPresentationStyle="fullScreen" id="2uH-C9-jPl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79Q-YI-zcB">
@@ -133,6 +133,14 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2d-nG-JLR">
+                                <rect key="frame" x="26" y="44" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="6dv-8n-cwv" eventType="touchUpInside" id="xCU-p3-Vgn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xra-x5-JAS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

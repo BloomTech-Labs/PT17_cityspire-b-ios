@@ -21,7 +21,7 @@ class MapViewController: UIViewController {
     
     // MARK: - Properties
     
-    var city: Map?
+    var city: City?
     let categories = CategoryList()
     var span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     var mapItems: [POIAnnotation] = []
@@ -88,7 +88,7 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         let annotations = mapView.annotations
         mapView.removeAnnotations(annotations)
-        let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(city.lat, city.long)
+        let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(city.latitude, city.longitude)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: true)
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: ReuseIdentifier.poiAnnotation)

@@ -17,6 +17,7 @@
 		1A26004526050F7600BDE6EA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26004426050F7600BDE6EA /* Constants.swift */; };
 		1A26004926054DDF00BDE6EA /* POICategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26004826054DDF00BDE6EA /* POICategory.swift */; };
 		1A26004D26055EB600BDE6EA /* POITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26004C26055EB600BDE6EA /* POITableViewCell.swift */; };
+		1A2600572605AF7500BDE6EA /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2600562605AF7500BDE6EA /* Cache.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
 		466C4276249A8748007D033E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4275249A8748007D033E /* SceneDelegate.swift */; };
@@ -72,6 +73,7 @@
 		1A26004426050F7600BDE6EA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1A26004826054DDF00BDE6EA /* POICategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POICategory.swift; sourceTree = "<group>"; };
 		1A26004C26055EB600BDE6EA /* POITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POITableViewCell.swift; sourceTree = "<group>"; };
+		1A2600562605AF7500BDE6EA /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466C4273249A8748007D033E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				C34804ED25D4F640007CEA5A /* Alert.swift */,
 				C31B35AD25DB7E3000F5436E /* NetworkModels.swift */,
 				11A646442602DF890004CF5D /* City.swift */,
+				1A2600562605AF7500BDE6EA /* Cache.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				C37D6E3625D07F150025842E /* FavoritesCollectionViewCell.swift in Sources */,
 				C31B35AE25DB7E3000F5436E /* NetworkModels.swift in Sources */,
 				C33AB38025D1137200DAD194 /* MapScreenViewController.swift in Sources */,
+				1A2600572605AF7500BDE6EA /* Cache.swift in Sources */,
 				11A646542602E12A0004CF5D /* ApiController.swift in Sources */,
 				1A26003C2604F65700BDE6EA /* MapViewController.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
