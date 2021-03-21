@@ -8,10 +8,11 @@
 
 import UIKit
 
-class CityDashboardViewController: UIViewController, UICollectionViewDataSource {
+class CityDashboardViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var populationLabel: UILabel!
     @IBOutlet weak var cityDashboardCollectionView: UICollectionView!
     @IBOutlet weak var pinToProfileButton: UIButton!
     @IBOutlet weak var mapButton: UIButton!
@@ -19,9 +20,8 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource 
     // MARK: - Properties
     var city: City?
     var similarCities: [City] = []
-    var cityProperties: [Int?] {
-        return [city?.livability, city?.walkability, city?.traffic, city?.pollution, city?.crime, city?.rentalPrice]
-    }
+    var cityProperties: [String] = ["Livability", "Walkability", "Crime", "Air Quality", "Traffic", "Rental Price"]
+    var cityDummyData: [Float] = [0.75, 0.4, 0.2, 0.5, 1, 0.35]
     var controller: ApiController?
     
     // MARK: - Actions
@@ -41,8 +41,10 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapButton.layer.cornerRadius = 15
-        pinToProfileButton.layer.cornerRadius = 15
+        mapButton.layer.cornerRadius = 12
+        pinToProfileButton.layer.cornerRadius = 12
+        cityDashboardCollectionView.delegate = self
+        cityDashboardCollectionView.dataSource = self
         updateViews()
         // Do any additional setup after loading the view.
     }
@@ -50,7 +52,9 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource 
     // MARK - Methods
     private func updateViews() {
         guard let city = city else { return }
-        cityNameLabel.text = city.cityName
+        cityNameLabel.text = city.cityName + ", " + city.cityState
+        populationLabel.text = "Population: 1,117,000"
+//        populationLabel.text = "\(city.population)"
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -62,8 +66,10 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityDashboardCell", for: indexPath) as! CityDashboardCollectionViewCell
         
         let cityProperty = cityProperties[indexPath.item]
-        cell.cityPropertyNameLabel.text = "\(cityProperties[indexPath.row])"
-        // cell swift ui view load progress bar
+        cell.cityPropertyNameLabel.text = "\(cityProperty)"
+        let cityPropertyValue = cityDummyData[indexPath.item]
+        cell.propertyValueLabel.text = "\(cityPropertyValue)"
+        cell.progressBarView.setTrackedProgressWithAnimation(duration: 1.0, value: cityPropertyValue)
         return cell
     }
 
@@ -77,5 +83,3 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource 
     }
 
 }
-
-
