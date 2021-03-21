@@ -13,11 +13,8 @@ import MapKit
 class FavoritesCollectionViewCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
-    @IBOutlet var mapView: MKMapView!
+    
     @IBOutlet var cityTitleLabel: UILabel!
     @IBOutlet var favoriteButton: UIButton!
-    @IBOutlet var livabiltyLabel: UILabel!
-    @IBOutlet var walkabilityLabel: UILabel!
-    @IBOutlet var avgIncomeLabel: UILabel!
     
 }

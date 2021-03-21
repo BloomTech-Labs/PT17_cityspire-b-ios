@@ -10,19 +10,67 @@ import Foundation
 import MapKit
 
 struct City: Codable {
+    
+    enum Keys: String, CodingKey {
+        case latitude
+        case longitude
+        case rental_price
+        case crime
+        case air_quality_index
+        case population
+        case diversity_index
+        case walkability
+        case livability
+        case recommendations
+        
+        enum recommendationKeys: String, CodingKey {
+            case city
+            case state
+        }
+    }
+    
     var cityName: String
     var cityState: String
     var latitude: CLLocationDegrees = 0
     var longitude: CLLocationDegrees = 0
+    var population: Int?
     var livability: Int?
     var walkability: Int?
-    var traffic: Int?
-    var crime: Int?
+    var traffic: Int? // not on Whimsical data model
+    var diversityIndex: Int?
+    var crime: String?
     var rentalPrice: Int?
-    var pollution: Int?
+    var airQuality: String?
+    var recommendations: [Recommendation] = []
     
     init(cityName: String, cityState: String) {
         self.cityName = cityName
         self.cityState = cityState
+    }
+    
+    init(from decoder: Decoder) throws {
+        cityName = "City"
+        cityState = "State"
+        let container = try decoder.container(keyedBy: Keys.self)
+        latitude = try container.decodeIfPresent(Double.self, forKey: .latitude) ?? 0
+        longitude = try container.decodeIfPresent(Double.self, forKey: .longitude) ?? 0
+        population = try container.decodeIfPresent(Int.self, forKey: .population)
+        livability = try container.decodeIfPresent(Int.self, forKey: .livability)
+        walkability = try container.decodeIfPresent(Int.self, forKey: .walkability)
+        diversityIndex = try container.decodeIfPresent(Int.self, forKey: .diversity_index)
+        crime = try container.decodeIfPresent(String.self, forKey: .crime)
+        rentalPrice = try container.decodeIfPresent(Int.self, forKey: .rental_price)
+        airQuality = try container.decodeIfPresent(String.self, forKey: .air_quality_index)
+        recommendations = try container.decodeIfPresent([Recommendation].self, forKey: .recommendations) ?? []
+    }
+}
+
+struct Recommendation: Codable {
+    var city: String
+    var state: String
+    
+    init(city: String, state: String) {
+        self.city = city
+        self.state = state
     }
 }
