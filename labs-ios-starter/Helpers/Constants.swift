@@ -10,5 +10,26 @@ import Foundation
 
 enum ReuseIdentifier {
     static let poiAnnotation = "poiAnnotationView"
+    static let favAnnotation = "favAnnotationView"
     static let poiTableViewCell = "poiCell"
+}
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+}
+
+enum NetworkError: Error {
+    case noData
+    case failedLogin
+    case noToken
+    case tryAgain
+    case failedDecoding
+    case failedEncoding
+    case failedResponse
+    case noIdentifier
+    case noRep
+    case otherError
 }

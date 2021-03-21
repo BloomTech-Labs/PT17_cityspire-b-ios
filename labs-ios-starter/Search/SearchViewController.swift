@@ -61,6 +61,10 @@ class SearchViewController: UIViewController {
 //                }
 //            }
         }
+        else if segue.identifier == "searchToFavorites" {
+            let favoritesVC = segue.destination as! FavoritesViewController
+            favoritesVC.controller = controller
+        }
     }
     
     // MARK: - Private Functions

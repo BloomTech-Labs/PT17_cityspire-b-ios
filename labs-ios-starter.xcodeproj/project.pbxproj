@@ -19,6 +19,12 @@
 		1A26004926054DDF00BDE6EA /* POICategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26004826054DDF00BDE6EA /* POICategory.swift */; };
 		1A26004D26055EB600BDE6EA /* POITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26004C26055EB600BDE6EA /* POITableViewCell.swift */; };
 		1A2600572605AF7500BDE6EA /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2600562605AF7500BDE6EA /* Cache.swift */; };
+		1A26005B2606892800BDE6EA /* Favorite+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26005A2606892800BDE6EA /* Favorite+Convenience.swift */; };
+		1A26005F2606B47400BDE6EA /* FavAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26005E2606B47400BDE6EA /* FavAnnotation.swift */; };
+		1A2600632606C8CE00BDE6EA /* NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2600622606C8CE00BDE6EA /* NetworkDataLoader.swift */; };
+		1A2600672606C90500BDE6EA /* URLSession+NetworkDL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2600662606C90500BDE6EA /* URLSession+NetworkDL.swift */; };
+		1A26006B2606C99800BDE6EA /* MockLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26006A2606C99800BDE6EA /* MockLoader.swift */; };
+		1A26006F2606C9DC00BDE6EA /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26006E2606C9DB00BDE6EA /* MockData.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
 		466C4276249A8748007D033E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4275249A8748007D033E /* SceneDelegate.swift */; };
@@ -76,6 +82,12 @@
 		1A26004826054DDF00BDE6EA /* POICategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POICategory.swift; sourceTree = "<group>"; };
 		1A26004C26055EB600BDE6EA /* POITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POITableViewCell.swift; sourceTree = "<group>"; };
 		1A2600562605AF7500BDE6EA /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		1A26005A2606892800BDE6EA /* Favorite+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorite+Convenience.swift"; sourceTree = "<group>"; };
+		1A26005E2606B47400BDE6EA /* FavAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavAnnotation.swift; sourceTree = "<group>"; };
+		1A2600622606C8CE00BDE6EA /* NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataLoader.swift; sourceTree = "<group>"; };
+		1A2600662606C90500BDE6EA /* URLSession+NetworkDL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+NetworkDL.swift"; sourceTree = "<group>"; };
+		1A26006A2606C99800BDE6EA /* MockLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoader.swift; sourceTree = "<group>"; };
+		1A26006E2606C9DB00BDE6EA /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466C4273249A8748007D033E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +212,10 @@
 				46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */,
 				C31B35AA25DB7BB300F5436E /* NetworkClient.swift */,
 				1A26004426050F7600BDE6EA /* Constants.swift */,
+				1A2600622606C8CE00BDE6EA /* NetworkDataLoader.swift */,
+				1A2600662606C90500BDE6EA /* URLSession+NetworkDL.swift */,
+				1A26006A2606C99800BDE6EA /* MockLoader.swift */,
+				1A26006E2606C9DB00BDE6EA /* MockData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -213,6 +229,7 @@
 				C31B35AD25DB7E3000F5436E /* NetworkModels.swift */,
 				11A646442602DF890004CF5D /* City.swift */,
 				1A2600562605AF7500BDE6EA /* Cache.swift */,
+				1A26005A2606892800BDE6EA /* Favorite+Convenience.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,6 +284,7 @@
 				C3BEDE8F25C272A0006BF31A /* Favorites.storyboard */,
 				C3BEDE9825C2733B006BF31A /* FavoritesViewController.swift */,
 				C37D6E3525D07F150025842E /* FavoritesCollectionViewCell.swift */,
+				1A26005E2606B47400BDE6EA /* FavAnnotation.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -398,21 +416,27 @@
 			files = (
 				C3BEDE9325C2731D006BF31A /* SearchViewController.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
+				1A2600632606C8CE00BDE6EA /* NetworkDataLoader.swift in Sources */,
 				C34804EB25D4E9C3007CEA5A /* Map.swift in Sources */,
 				C34804EE25D4F640007CEA5A /* Alert.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
 				11A6465E2602E4400004CF5D /* CityDashboardViewController.swift in Sources */,
+				1A2600672606C90500BDE6EA /* URLSession+NetworkDL.swift in Sources */,
+				1A26005F2606B47400BDE6EA /* FavAnnotation.swift in Sources */,
 				C31B35AB25DB7BB300F5436E /* NetworkClient.swift in Sources */,
 				1A26004526050F7600BDE6EA /* Constants.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				112570D726058C750016480A /* CityDashboardCollectionViewCell.swift in Sources */,
+				1A26006F2606C9DC00BDE6EA /* MockData.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
 				F35C107F25C791E0000AA795 /* CardView.swift in Sources */,
 				C37D6E3625D07F150025842E /* FavoritesCollectionViewCell.swift in Sources */,
 				C31B35AE25DB7E3000F5436E /* NetworkModels.swift in Sources */,
 				C33AB38025D1137200DAD194 /* MapScreenViewController.swift in Sources */,
+				1A26005B2606892800BDE6EA /* Favorite+Convenience.swift in Sources */,
 				1A2600572605AF7500BDE6EA /* Cache.swift in Sources */,
+				1A26006B2606C99800BDE6EA /* MockLoader.swift in Sources */,
 				11A646542602E12A0004CF5D /* ApiController.swift in Sources */,
 				1A26003C2604F65700BDE6EA /* MapViewController.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,

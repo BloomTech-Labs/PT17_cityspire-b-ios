@@ -319,7 +319,6 @@
                         <outlet property="popUpView" destination="YWh-bY-hc2" id="0UN-33-2lH"/>
                         <outlet property="rentalPriceLabel" destination="Qqf-vy-Mid" id="QoC-Bk-Mgq"/>
                         <outlet property="walkabilityLabel" destination="CZF-Jl-7B7" id="l70-Sn-kHY"/>
-                        <segue destination="VlK-ee-2GT" kind="presentation" identifier="unwindToSearch" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="TYc-z5-gAZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6p-Ja-brA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -506,14 +505,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ij-jr-ncj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="376.81159420289856" y="960.26785714285711"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="7yy-nP-CQS">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Search" id="VlK-ee-2GT" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iM8-wD-8Zt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="956" y="181"/>
         </scene>
     </scenes>
     <resources>

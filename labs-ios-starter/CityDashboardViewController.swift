@@ -19,11 +19,18 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource,
     
     // MARK: - Properties
     var city: City?
-    var similarCities: [City] = []
     var cityProperties: [String] = ["Livability", "Walkability", "Crime", "Air Quality", "Traffic", "Rental Price"]
     var cityDummyData: [Float] = [0.75, 0.4, 0.2, 0.5, 1, 0.35]
+    var favorites: [Favorite] = []
+    var favorited: Favorite? = nil
     var controller: ApiController?
-    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    // var cityProperties: [Int?] {
+    //     let crime = controller?.stringToInt(word: city?.crime ?? "")
+    //     let airQuality = controller?.stringToInt(word: city?.airQuality ?? "")
+    //     return [city?.livability, city?.walkability, city?.traffic, airQuality, crime, city?.rentalPrice]
+    // }
+
     // MARK: - Actions
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -31,7 +38,29 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource,
     }
     
     @IBAction func pinToProfileButtonTapped(_ sender: UIButton) {
-        
+        guard let cityName = city?.cityName,
+              let stateName = city?.cityState,
+              let latitude = city?.latitude,
+              let longitude = city?.longitude else { return }
+        if let favorite = favorited {
+            context.delete(favorite)
+            favorited = nil
+            // toggle appearance of pin button - not in favorites
+        } else {
+            let favorite = Favorite(cityName: cityName,
+                                    stateName: stateName,
+                                    latitude: latitude,
+                                    longitude: longitude,
+                                    context: context)
+            favorited = favorite
+            // toggle appearance of pin button - in favorites
+        }
+        do {
+            try context.save()
+        }
+        catch {
+            print("error saving data")
+        }
     }
     
     @IBAction func mapButtonTapped(_ sender: UIButton) {
@@ -55,6 +84,22 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource,
         cityNameLabel.text = city.cityName + ", " + city.cityState
         populationLabel.text = "Population: 1,117,000"
 //        populationLabel.text = "\(city.population)"
+        fetchFavorites()
+    }
+    
+    private func fetchFavorites() {
+        do {
+            self.favorites = try context.fetch(Favorite.fetchRequest())
+            for favorite in favorites {
+                if favorite.cityName == city?.cityName && favorite.stateName == city?.cityState {
+                    favorited = favorite
+                    // toggle appearance of pin button - in favorites
+                }
+            }
+        }
+        catch {
+            print("error fetching data")
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
