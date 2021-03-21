@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		112570D726058C750016480A /* CityDashboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112570D626058C750016480A /* CityDashboardCollectionViewCell.swift */; };
+		112570DB2605A1F40016480A /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112570DA2605A1F40016480A /* CircularProgressBarView.swift */; };
 		11A646452602DF890004CF5D /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A646442602DF890004CF5D /* City.swift */; };
 		11A646542602E12A0004CF5D /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A646532602E12A0004CF5D /* ApiController.swift */; };
 		11A6465E2602E4400004CF5D /* CityDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A6465D2602E4400004CF5D /* CityDashboardViewController.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		112570D626058C750016480A /* CityDashboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDashboardCollectionViewCell.swift; sourceTree = "<group>"; };
+		112570DA2605A1F40016480A /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		11A646442602DF890004CF5D /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		11A646532602E12A0004CF5D /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		11A6465D2602E4400004CF5D /* CityDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDashboardViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				11A6465D2602E4400004CF5D /* CityDashboardViewController.swift */,
 				11A646612602E44B0004CF5D /* CityDashboard.storyboard */,
 				112570D626058C750016480A /* CityDashboardCollectionViewCell.swift */,
+				112570DA2605A1F40016480A /* CircularProgressBarView.swift */,
 			);
 			name = "City Dashboard";
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				C380305625E4C2F400CB8B60 /* CitySpire.xcdatamodeld in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
 				11A646452602DF890004CF5D /* City.swift in Sources */,
+				112570DB2605A1F40016480A /* CircularProgressBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

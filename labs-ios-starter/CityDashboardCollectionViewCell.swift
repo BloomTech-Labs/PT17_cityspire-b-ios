@@ -10,9 +10,20 @@ import UIKit
 
 class CityDashboardCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    
     // MARK: - Outlets
     @IBOutlet weak var cityPropertyNameLabel: UILabel!
-    @IBOutlet weak var progressBarView: UIView!
+    @IBOutlet weak var propertyValueLabel: UILabel!
+    @IBOutlet weak var progressBarView: CircularProgressBarView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        updateCircleProgressBarView()
+    }
     
+    private func updateCircleProgressBarView() {
+        progressBarView.untrackedProgressColor = UIColor.gray
+        progressBarView.setTrackedProgressWithAnimation(duration: 1.0, value: 0.7)
+    }
 }
