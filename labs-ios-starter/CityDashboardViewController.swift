@@ -8,9 +8,10 @@
 
 import UIKit
 
-class CityDashboardViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CityDashboardViewController: UIViewController {
     
     // MARK: - Outlets
+    
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var populationLabel: UILabel!
     @IBOutlet weak var cityDashboardCollectionView: UICollectionView!
@@ -18,18 +19,23 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var mapButton: UIButton!
     
     // MARK: - Properties
+    
+    var controller: ApiController?
     var city: City?
-    var cityProperties: [String] = ["Livability", "Walkability", "Crime", "Air Quality", "Traffic", "Rental Price"]
-    var cityDummyData: [Float] = [0.75, 0.4, 0.2, 0.5, 1, 0.35]
+    var propertyData: [PropertyData] = []
     var favorites: [Favorite] = []
     var favorited: Favorite? = nil
-    var controller: ApiController?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    // var cityProperties: [Int?] {
-    //     let crime = controller?.stringToInt(word: city?.crime ?? "")
-    //     let airQuality = controller?.stringToInt(word: city?.airQuality ?? "")
-    //     return [city?.livability, city?.walkability, city?.traffic, airQuality, crime, city?.rentalPrice]
-    // }
+    
+    // MARK: - View Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getPropertyData()
+        cityDashboardCollectionView.delegate = self
+        cityDashboardCollectionView.dataSource = self
+        updateViews()
+    }
 
     // MARK: - Actions
     
@@ -45,7 +51,7 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource,
         if let favorite = favorited {
             context.delete(favorite)
             favorited = nil
-            // toggle appearance of pin button - not in favorites
+            pinToProfileButton.setImage(UIImage(systemName: "pin"), for: .normal)
         } else {
             let favorite = Favorite(cityName: cityName,
                                     stateName: stateName,
@@ -53,7 +59,7 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource,
                                     longitude: longitude,
                                     context: context)
             favorited = favorite
-            // toggle appearance of pin button - in favorites
+            pinToProfileButton.setImage(UIImage(systemName: "pin.fill"), for: .normal)
         }
         do {
             try context.save()
@@ -63,27 +69,28 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource,
         }
     }
     
-    @IBAction func mapButtonTapped(_ sender: UIButton) {
-        
-    }
-    
+    // MARK: - Navigation
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        mapButton.layer.cornerRadius = 12
-        pinToProfileButton.layer.cornerRadius = 12
-        cityDashboardCollectionView.delegate = self
-        cityDashboardCollectionView.dataSource = self
-        updateViews()
-        // Do any additional setup after loading the view.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MapSegue" {
+            let mapVC = segue.destination as! MapViewController
+            mapVC.city = city
+        }
     }
     
-    // MARK - Methods
+    // MARK: - Private Functions
+    
     private func updateViews() {
         guard let city = city else { return }
         cityNameLabel.text = city.cityName + ", " + city.cityState
-        populationLabel.text = "Population: 1,117,000"
-//        populationLabel.text = "\(city.population)"
+        populationLabel.text = "Population: unknown"
+        if let population = city.population {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            if let popString = formatter.string(from: NSNumber(value: population)) {
+                populationLabel.text = "Population: \(popString)"
+            }
+        }
         fetchFavorites()
     }
     
@@ -93,7 +100,7 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource,
             for favorite in favorites {
                 if favorite.cityName == city?.cityName && favorite.stateName == city?.cityState {
                     favorited = favorite
-                    // toggle appearance of pin button - in favorites
+                    pinToProfileButton.setImage(UIImage(systemName: "pin.fill"), for: .normal)
                 }
             }
         }
@@ -102,29 +109,63 @@ class CityDashboardViewController: UIViewController, UICollectionViewDataSource,
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cityProperties.count
-    }
-    
-    // TODO: Populate cells with properties
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityDashboardCell", for: indexPath) as! CityDashboardCollectionViewCell
+    private func getPropertyData() {
+        guard let city = city else { return }
         
-        let cityProperty = cityProperties[indexPath.item]
-        cell.cityPropertyNameLabel.text = "\(cityProperty)"
-        let cityPropertyValue = cityDummyData[indexPath.item]
-        cell.propertyValueLabel.text = "\(cityPropertyValue)"
-        cell.progressBarView.setTrackedProgressWithAnimation(duration: 1.0, value: cityPropertyValue)
-        return cell
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MapSegue" {
-            let mapVC = segue.destination as! MapViewController
-            mapVC.city = city
+        // Livability
+        if let livability = city.livability,
+           livability != 0 {
+            let property = PropertyData(propertyLabel: "Livability", valueLabel: "\(livability)", percentage: Float(livability) / 100)
+            propertyData.append(property)
+        }
+        
+        // Walkability
+        if let walkability = city.walkability,
+           walkability != 0 {
+            let property = PropertyData(propertyLabel: "Walkability", valueLabel: "\(walkability)", percentage: Float(walkability) / 100)
+            propertyData.append(property)
+        }
+        
+        // Diversity Score
+        if let diversity = city.diversityIndex,
+           diversity != 0 {
+            let property = PropertyData(propertyLabel: "Diversity Index", valueLabel: "\(diversity)", percentage: Float(diversity) / 100)
+            propertyData.append(property)
+        }
+        
+        // Crime
+        if let crime = city.crime,
+           let crimeScore = controller?.stringToInt(word: crime) {
+            let property = PropertyData(propertyLabel: "Crime", valueLabel: "\(crime)", percentage: Float(crimeScore) / 100)
+            propertyData.append(property)
+        }
+        
+        // Air Quality
+        if let airQuality = city.airQuality,
+           let airScore = controller?.stringToInt(word: airQuality) {
+            let property = PropertyData(propertyLabel: "Air Quality", valueLabel: "\(airQuality)", percentage: Float(airScore) / 100)
+            propertyData.append(property)
+        }
+        
+        // Rental Price
+        if let rentalPrice = city.rentalPrice,
+           rentalPrice != 0 {
+            let property = PropertyData(propertyLabel: "Rental Price", valueLabel: "$\(rentalPrice)", percentage: Float(rentalPrice) / 3600)
+            propertyData.append(property)
         }
     }
+}
 
+extension CityDashboardViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return propertyData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityDashboardCell", for: indexPath) as! CityDashboardCollectionViewCell
+        cell.cityPropertyNameLabel.text = propertyData[indexPath.item].propertyLabel
+        cell.propertyValueLabel.text = propertyData[indexPath.item].valueLabel
+        cell.progressBarView.setTrackedProgressWithAnimation(duration: 1.0, value: propertyData[indexPath.item].percentage)
+        return cell
+    }
 }

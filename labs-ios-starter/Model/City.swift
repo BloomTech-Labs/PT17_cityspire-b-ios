@@ -68,9 +68,13 @@ struct City: Codable {
 struct Recommendation: Codable {
     var city: String
     var state: String
+    var latitude: Double
+    var longitude: Double
     
-    init(city: String, state: String) {
+    init(city: String, state: String, latitude: Double, longitude: Double) {
         self.city = city
         self.state = state
+        self.latitude = latitude
+        self.longitude = longitude
     }
 }

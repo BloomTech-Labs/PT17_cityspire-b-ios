@@ -22,23 +22,33 @@ let validSFJSON = """
   "recommendations": [
     {
       "city": "Seattle",
-      "state": "WA"
+      "state": "WA",
+      "latitude": 47.598457541981766,
+      "longitude": -122.28600702714175
     },
     {
       "city": "Portland",
-      "state": "OR"
+      "state": "OR",
+      "latitude": 45.54294095464973,
+      "longitude": -122.65438546892256
     },
     {
       "city": "Austin",
-      "state": "TX"
+      "state": "TX",
+      "latitude": 30.30799450600118,
+      "longitude": -97.74993596132845
     },
     {
       "city": "New York",
-      "state": "NY"
+      "state": "NY",
+      "latitude": 40.70728095173828,
+      "longitude": -74.02256537228823
     },
     {
       "city": "Boston",
-      "state": "MA"
+      "state": "MA",
+      "latitude": 42.3243932353924,
+      "longitude": -71.01447454188019
     }
   ]
 }

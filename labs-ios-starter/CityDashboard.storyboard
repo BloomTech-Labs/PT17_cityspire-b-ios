@@ -167,6 +167,12 @@
                                         <state key="normal" image="pin" catalog="system">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="pinToProfileButtonTapped:" destination="6dv-8n-cwv" eventType="touchUpInside" id="m8S-bc-tm9"/>
                                         </connections>
@@ -181,9 +187,13 @@
                                         <state key="normal" image="map" catalog="system">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="mapButtonTapped:" destination="69W-ve-xzZ" eventType="touchUpInside" id="8Kx-mO-XgX"/>
-                                            <action selector="mapButtonTapped:" destination="6dv-8n-cwv" eventType="touchUpInside" id="kau-cL-3Sp"/>
                                             <segue destination="Wwu-9L-BgQ" kind="presentation" identifier="MapSegue" modalPresentationStyle="fullScreen" id="2uH-C9-jPl"/>
                                         </connections>
                                     </button>
@@ -222,7 +232,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQy-aU-bCa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="69W-ve-xzZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-391.304347826087" y="207.58928571428569"/>
         </scene>

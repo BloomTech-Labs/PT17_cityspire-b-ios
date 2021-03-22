@@ -70,10 +70,8 @@ class ApiController {
                         var newCityData = try JSONDecoder().decode(City.self, from: data)
                         newCityData.cityName = city.cityName
                         newCityData.cityState = city.cityState
-                        if newCityData.latitude == 0 || newCityData.longitude == 0 {
-                            newCityData.latitude = city.latitude
-                            newCityData.longitude = city.longitude
-                        }
+                        newCityData.latitude = city.latitude
+                        newCityData.longitude = city.longitude
                         completion(newCityData)
                     } catch {
                         NSLog("Error decoding city data: \(error)")
