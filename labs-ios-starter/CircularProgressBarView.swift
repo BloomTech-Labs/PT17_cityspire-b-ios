@@ -37,7 +37,7 @@ class CircularProgressBarView: UIView {
 
     func createCircularPath() {
         self.backgroundColor = UIColor.clear
-        self.layer.cornerRadius = self.frame.size.width / 2 // makes a circle
+        self.layer.cornerRadius = self.frame.size.width / 2
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2, y: frame.size.height / 2), radius: (frame.size.width - 1.5) / 2, startAngle: CGFloat(-0.5 * .pi), endAngle: CGFloat(1.5 * .pi), clockwise: true)
 
         untrackedProgressLayer.path = circlePath.cgPath
@@ -59,6 +59,17 @@ class CircularProgressBarView: UIView {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
         animation.fromValue = 0
+        if value <= 0.05 {
+            trackedProgressLayer.strokeColor = UIColor.systemRed.cgColor
+        } else if value > 0.05 && value <= 0.3 {
+            trackedProgressLayer.strokeColor = UIColor.systemOrange.cgColor
+        } else if value > 0.3 && value <= 0.5 {
+            trackedProgressLayer.strokeColor = UIColor.systemYellow.cgColor
+        } else if value > 0.5 && value <= 0.75 {
+            trackedProgressLayer.strokeColor = UIColor.systemGreen.cgColor
+        } else if value > 0.75 && value <= 1 {
+            trackedProgressLayer.strokeColor = UIColor.green.cgColor
+        }
         animation.toValue = value
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         trackedProgressLayer.strokeEnd = CGFloat(value)

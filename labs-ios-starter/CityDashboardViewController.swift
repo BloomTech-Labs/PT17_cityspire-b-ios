@@ -15,6 +15,7 @@ class CityDashboardViewController: UIViewController {
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var populationLabel: UILabel!
     @IBOutlet weak var cityDashboardCollectionView: UICollectionView!
+    @IBOutlet weak var similarCitiesCollectionView: UICollectionView!
     @IBOutlet weak var pinToProfileButton: UIButton!
     @IBOutlet weak var mapButton: UIButton!
     
@@ -34,6 +35,8 @@ class CityDashboardViewController: UIViewController {
         getPropertyData()
         cityDashboardCollectionView.delegate = self
         cityDashboardCollectionView.dataSource = self
+        similarCitiesCollectionView.delegate = self
+        similarCitiesCollectionView.dataSource = self
         updateViews()
     }
 
@@ -158,14 +161,34 @@ class CityDashboardViewController: UIViewController {
 
 extension CityDashboardViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return propertyData.count
+        if collectionView == self.cityDashboardCollectionView {
+            return propertyData.count
+        }
+        if let city = city {
+            return city.recommendations.count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityDashboardCell", for: indexPath) as! CityDashboardCollectionViewCell
-        cell.cityPropertyNameLabel.text = propertyData[indexPath.item].propertyLabel
-        cell.propertyValueLabel.text = propertyData[indexPath.item].valueLabel
-        cell.progressBarView.setTrackedProgressWithAnimation(duration: 1.0, value: propertyData[indexPath.item].percentage)
-        return cell
+        if collectionView == self.cityDashboardCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityDashboardCell", for: indexPath) as! CityDashboardCollectionViewCell
+            cell.cityPropertyNameLabel.text = propertyData[indexPath.item].propertyLabel
+            cell.propertyValueLabel.text = propertyData[indexPath.item].valueLabel
+            cell.progressBarView.setTrackedProgressWithAnimation(duration: 1.0, value: propertyData[indexPath.item].percentage)
+            return cell
+        }
+        
+        if collectionView == self.similarCitiesCollectionView {
+            if let city = city {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SimilarCitiesCell", for: indexPath) as! SimilarCityCollectionViewCell
+                cell.similarCityNameLabel.text = "\(city.recommendations[indexPath.row].city),"
+                cell.similarCityStateLabel.text = city.recommendations[indexPath.row].state
+                cell.layer.borderWidth = 3
+                cell.layer.borderColor = UIColor.black.cgColor
+                return cell
+            }
+        }
+        return UICollectionViewCell()
     }
 }
