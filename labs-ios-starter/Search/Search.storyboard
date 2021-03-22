@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -87,9 +88,10 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66d-ah-7SF">
-                                <rect key="frame" x="351" y="44" width="36" height="34"/>
+                                <rect key="frame" x="367" y="44" width="20" height="22"/>
                                 <accessibility key="accessibilityConfiguration" identifier="favoritesButton" label="Favorites Button"/>
-                                <state key="normal" image="favoriteButton"/>
+                                <color key="tintColor" name="AccentYellow"/>
+                                <state key="normal" image="pin.fill" catalog="system"/>
                                 <connections>
                                     <segue destination="RGt-l3-Amp" kind="presentation" identifier="searchToFavorites" modalPresentationStyle="fullScreen" id="10j-ZQ-uI4"/>
                                 </connections>
@@ -154,8 +156,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="favoriteButton" width="35.5" height="33.5"/>
+        <image name="pin.fill" catalog="system" width="119" height="128"/>
         <image name="touristMap" width="961" height="743"/>
+        <namedColor name="AccentYellow">
+            <color red="0.94900000095367432" green="0.70999997854232788" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

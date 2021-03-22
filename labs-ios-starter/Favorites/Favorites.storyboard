@@ -62,7 +62,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hj-Vw-4aT">
                                                             <rect key="frame" x="354.5" y="0.0" width="39.5" height="100"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="favoriteButton"/>
-                                                            <state key="normal" image="favoriteButton"/>
+                                                            <state key="normal" image="pin.slash.fill" catalog="system"/>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -132,7 +132,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="favoriteButton" width="35.5" height="33.5"/>
+        <image name="pin.slash.fill" catalog="system" width="116" height="128"/>
         <namedColor name="DarkBlue">
             <color red="0.063000001013278961" green="0.27099999785423279" blue="0.45100000500679016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
