@@ -12,6 +12,7 @@ enum ReuseIdentifier {
     static let poiAnnotation = "poiAnnotationView"
     static let favAnnotation = "favAnnotationView"
     static let poiTableViewCell = "poiCell"
+    static let homeScreenCell = "homeScreenCell"
 }
 
 enum HTTPMethod: String {

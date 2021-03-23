@@ -87,6 +87,7 @@
                     <connections>
                         <segue destination="o9A-9L-jW8" kind="presentation" identifier="ModalAddProfile" id="vYb-th-yYx"/>
                         <segue destination="aOC-qF-9qB" kind="presentation" identifier="ShowDetailProfileList" modalPresentationStyle="fullScreen" id="Tfb-bT-2YH"/>
+                        <segue destination="5br-8Y-TMp" kind="presentation" identifier="toHomeScreen" modalPresentationStyle="fullScreen" id="Ykv-BY-Xzm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcT-Mn-ZnW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -102,6 +103,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XU-Dw-F8B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2231" y="84"/>
+        </scene>
+        <!--HomeScreen-->
+        <scene sceneID="Yvt-GX-jNl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeScreen" id="5br-8Y-TMp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iaP-en-d3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2277" y="-3"/>
         </scene>
         <!--MapScreen-->
         <scene sceneID="i7S-yD-IgK">
