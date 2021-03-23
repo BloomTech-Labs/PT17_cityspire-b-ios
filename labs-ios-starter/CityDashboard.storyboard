@@ -111,36 +111,54 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WwL-gZ-20c">
-                                <rect key="frame" x="20" y="666" width="374" height="216"/>
+                                <rect key="frame" x="20" y="656" width="374" height="126"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Uyu-gT-Fx6">
-                                    <size key="itemSize" width="128" height="95"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PqM-ce-D1h">
+                                    <size key="itemSize" width="200" height="70"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SimilarCitiesCell" id="iXm-95-J0L">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="95"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" reuseIdentifier="SimilarCitiesCell" id="iXm-95-J0L" customClass="SimilarCityCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="200" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yzN-fe-uFD">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rE4-cf-oqV">
-                                                    <rect key="frame" x="26" y="37.5" width="76.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Dki-7j-BRK">
+                                                    <rect key="frame" x="5" y="11" width="190" height="48"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rE4-cf-oqV">
+                                                            <rect key="frame" x="0.0" y="0.0" width="190" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City state" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7h-nu-oqP">
+                                                            <rect key="frame" x="0.0" y="27.5" width="190" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="rE4-cf-oqV" firstAttribute="centerX" secondItem="Dki-7j-BRK" secondAttribute="centerX" id="05G-RI-hG1"/>
+                                                        <constraint firstItem="p7h-nu-oqP" firstAttribute="centerX" secondItem="Dki-7j-BRK" secondAttribute="centerX" id="Vt9-I3-ODi"/>
+                                                        <constraint firstAttribute="width" constant="190" id="k8y-a9-Z9v"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rE4-cf-oqV" firstAttribute="centerY" secondItem="yzN-fe-uFD" secondAttribute="centerY" id="2uY-9s-r17"/>
-                                                <constraint firstItem="rE4-cf-oqV" firstAttribute="centerX" secondItem="yzN-fe-uFD" secondAttribute="centerX" id="bxP-oZ-YaO"/>
+                                                <constraint firstItem="Dki-7j-BRK" firstAttribute="centerY" secondItem="yzN-fe-uFD" secondAttribute="centerY" id="2d4-fd-Ozu"/>
+                                                <constraint firstItem="Dki-7j-BRK" firstAttribute="centerX" secondItem="yzN-fe-uFD" secondAttribute="centerX" id="bv5-XS-uFW"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="128" height="95"/>
+                                        <size key="customSize" width="200" height="70"/>
                                         <connections>
+                                            <outlet property="similarCityNameLabel" destination="rE4-cf-oqV" id="vH7-tL-FD4"/>
+                                            <outlet property="similarCityStateLabel" destination="p7h-nu-oqP" id="5v0-vx-Lj8"/>
                                             <segue destination="6dv-8n-cwv" kind="presentation" identifier="ToNextCity" modalPresentationStyle="fullScreen" id="9fu-t9-pNa"/>
                                         </connections>
                                     </collectionViewCell>
@@ -211,14 +229,14 @@
                             <constraint firstItem="gMl-1O-aft" firstAttribute="top" secondItem="wgc-Vr-GdK" secondAttribute="bottom" constant="19" id="8Vf-Kg-wNo"/>
                             <constraint firstItem="wgc-Vr-GdK" firstAttribute="trailing" secondItem="WwL-gZ-20c" secondAttribute="trailing" id="K32-eN-QSU"/>
                             <constraint firstItem="wgc-Vr-GdK" firstAttribute="top" secondItem="JU5-ZB-vDD" secondAttribute="bottom" constant="10" id="NCP-es-Gns"/>
-                            <constraint firstItem="WwL-gZ-20c" firstAttribute="bottom" secondItem="xra-x5-JAS" secondAttribute="bottom" constant="20" id="QXc-Th-GRU"/>
+                            <constraint firstItem="WwL-gZ-20c" firstAttribute="bottom" secondItem="xra-x5-JAS" secondAttribute="bottom" constant="-80" id="QXc-Th-GRU"/>
                             <constraint firstItem="wgc-Vr-GdK" firstAttribute="height" secondItem="KhP-uL-QbC" secondAttribute="height" multiplier="0.5" id="RwW-UR-thN"/>
                             <constraint firstItem="WwL-gZ-20c" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" constant="20" id="TCn-tW-80O"/>
                             <constraint firstItem="xra-x5-JAS" firstAttribute="trailing" secondItem="WwL-gZ-20c" secondAttribute="trailing" constant="20" id="bLf-ff-Fxl"/>
                             <constraint firstItem="P25-Id-cVF" firstAttribute="top" secondItem="xra-x5-JAS" secondAttribute="top" constant="2" id="fjJ-e3-obR"/>
                             <constraint firstItem="JU5-ZB-vDD" firstAttribute="top" secondItem="xra-x5-JAS" secondAttribute="top" constant="26" id="jYy-o1-3to"/>
                             <constraint firstItem="wgc-Vr-GdK" firstAttribute="leading" secondItem="JU5-ZB-vDD" secondAttribute="leading" id="mhA-or-uqg"/>
-                            <constraint firstItem="WwL-gZ-20c" firstAttribute="top" secondItem="gMl-1O-aft" secondAttribute="bottom" constant="20" id="nHK-Og-NU0"/>
+                            <constraint firstItem="WwL-gZ-20c" firstAttribute="top" secondItem="gMl-1O-aft" secondAttribute="bottom" constant="10" id="nHK-Og-NU0"/>
                             <constraint firstItem="JU5-ZB-vDD" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" constant="20" id="qYE-qr-gle"/>
                             <constraint firstItem="P25-Id-cVF" firstAttribute="leading" secondItem="JU5-ZB-vDD" secondAttribute="trailing" constant="20" id="wVX-3c-e1v"/>
                         </constraints>
@@ -229,6 +247,7 @@
                         <outlet property="mapButton" destination="zwA-d9-XEJ" id="ox4-mx-yUi"/>
                         <outlet property="pinToProfileButton" destination="79Q-YI-zcB" id="sc6-Iw-Wtk"/>
                         <outlet property="populationLabel" destination="8YC-J3-bhI" id="EOS-zL-EB1"/>
+                        <outlet property="similarCitiesCollectionView" destination="WwL-gZ-20c" id="pUH-Fs-SIO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQy-aU-bCa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
