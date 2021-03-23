@@ -26,6 +26,8 @@ struct City: Codable {
         enum recommendationKeys: String, CodingKey {
             case city
             case state
+            case latitude
+            case longitude
         }
     }
     
@@ -62,19 +64,5 @@ struct City: Codable {
         rentalPrice = try container.decodeIfPresent(Int.self, forKey: .rental_price)
         airQuality = try container.decodeIfPresent(String.self, forKey: .air_quality_index)
         recommendations = try container.decodeIfPresent([Recommendation].self, forKey: .recommendations) ?? []
-    }
-}
-
-struct Recommendation: Codable {
-    var city: String
-    var state: String
-    var latitude: Double
-    var longitude: Double
-    
-    init(city: String, state: String, latitude: Double, longitude: Double) {
-        self.city = city
-        self.state = state
-        self.latitude = latitude
-        self.longitude = longitude
     }
 }

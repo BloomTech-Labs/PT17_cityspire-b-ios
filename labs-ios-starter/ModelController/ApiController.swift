@@ -36,6 +36,31 @@ class ApiController {
         }
     }
     
+    func fetchTopCities(completion: @escaping ([Recommendation]) -> Void) {
+        // edit networking code when endpoint is available
+        let path = "top_cities"
+        guard let request = getRequest(url: baseURL, urlPathComponent: path) else {
+            completion([])
+            return
+        }
+        dataLoader.dataRequest(with: request) { data, response, error in
+            self.checkResponse(for: "fetchTopCities", data, response, error) { result in
+                switch result {
+                case .success(let data):
+                    do { // replace topCitiesData with data once endpoint is available
+                        let cities = try JSONDecoder().decode(TopCities.self, from: topCitiesData)
+                        completion(cities.top_cities)
+                    } catch {
+                        NSLog("Error decoding top cities data: \(error)")
+                        completion([])
+                    }
+                default:
+                    completion([])
+                }
+            }
+        }
+    }
+    
     func stringToInt(word: String) -> Int { // edit once list is available from DS
         switch word {
         case "Poor", "Very Low":

@@ -27,6 +27,10 @@
 		1A26006B2606C99800BDE6EA /* MockLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26006A2606C99800BDE6EA /* MockLoader.swift */; };
 		1A26006F2606C9DC00BDE6EA /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26006E2606C9DB00BDE6EA /* MockData.swift */; };
 		1A2600752608122900BDE6EA /* PropertyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2600742608122900BDE6EA /* PropertyData.swift */; };
+		1A26007B260916D700BDE6EA /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26007A260916D700BDE6EA /* Recommendation.swift */; };
+		1A26007F2609174B00BDE6EA /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26007E2609174B00BDE6EA /* HomeScreenViewController.swift */; };
+		1A260084260917A800BDE6EA /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A260083260917A800BDE6EA /* HomeScreen.storyboard */; };
+		1A26008A260920B800BDE6EA /* HomeScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A260089260920B800BDE6EA /* HomeScreenCollectionViewCell.swift */; };
 		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
 		466C4276249A8748007D033E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4275249A8748007D033E /* SceneDelegate.swift */; };
@@ -92,6 +96,10 @@
 		1A26006A2606C99800BDE6EA /* MockLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoader.swift; sourceTree = "<group>"; };
 		1A26006E2606C9DB00BDE6EA /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		1A2600742608122900BDE6EA /* PropertyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyData.swift; sourceTree = "<group>"; };
+		1A26007A260916D700BDE6EA /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
+		1A26007E2609174B00BDE6EA /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		1A260083260917A800BDE6EA /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
+		1A260089260920B800BDE6EA /* HomeScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCollectionViewCell.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466C4273249A8748007D033E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +170,16 @@
 			name = "City Dashboard";
 			sourceTree = "<group>";
 		};
+		1A2600822609175200BDE6EA /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1A260083260917A800BDE6EA /* HomeScreen.storyboard */,
+				1A26007E2609174B00BDE6EA /* HomeScreenViewController.swift */,
+				1A260089260920B800BDE6EA /* HomeScreenCollectionViewCell.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
 		465DAA2724BD0BC100D94C24 /* App Lifecycle */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +214,7 @@
 				46BEB4EB24C98EB400FE0CD1 /* Model */,
 				46BEB4EC24C98EBB00FE0CD1 /* ModelController */,
 				46BEB4EF24C98ED900FE0CD1 /* Login */,
+				1A2600822609175200BDE6EA /* HomeScreen */,
 				11A646482602E0A20004CF5D /* City Dashboard */,
 				C3BEDE8625C2722C006BF31A /* Search */,
 				C3BEDE8725C2723D006BF31A /* MapScreen */,
@@ -236,6 +255,7 @@
 				11A646442602DF890004CF5D /* City.swift */,
 				1A2600562605AF7500BDE6EA /* Cache.swift */,
 				1A26005A2606892800BDE6EA /* Favorite+Convenience.swift */,
+				1A26007A260916D700BDE6EA /* Recommendation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -401,6 +421,7 @@
 				C3BEDE9025C272A0006BF31A /* Favorites.storyboard in Resources */,
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
 				C3BEDE8A25C27271006BF31A /* Search.storyboard in Resources */,
+				1A260084260917A800BDE6EA /* HomeScreen.storyboard in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
 				F35C107C25C78949000AA795 /* Colors.xcassets in Resources */,
 			);
@@ -429,6 +450,7 @@
 				11A6465E2602E4400004CF5D /* CityDashboardViewController.swift in Sources */,
 				1A2600672606C90500BDE6EA /* URLSession+NetworkDL.swift in Sources */,
 				1A26005F2606B47400BDE6EA /* FavAnnotation.swift in Sources */,
+				1A26007F2609174B00BDE6EA /* HomeScreenViewController.swift in Sources */,
 				C31B35AB25DB7BB300F5436E /* NetworkClient.swift in Sources */,
 				1A26004526050F7600BDE6EA /* Constants.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
@@ -448,6 +470,8 @@
 				1A2600752608122900BDE6EA /* PropertyData.swift in Sources */,
 				1A26003C2604F65700BDE6EA /* MapViewController.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
+				1A26008A260920B800BDE6EA /* HomeScreenCollectionViewCell.swift in Sources */,
+				1A26007B260916D700BDE6EA /* Recommendation.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
 				1A26004926054DDF00BDE6EA /* POICategory.swift in Sources */,
