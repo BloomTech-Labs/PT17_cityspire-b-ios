@@ -50,6 +50,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oy1-cv-lqr">
                                 <rect key="frame" x="129" y="822" width="156" height="30"/>
                                 <state key="normal" title="Get Recommendations"/>
+                                <connections>
+                                    <action selector="surveyButtonPressed:" destination="bBn-I6-bWl" eventType="touchUpInside" id="lOL-C9-ZHf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89z-zt-Puh">
                                 <rect key="frame" x="312" y="65" width="82" height="83"/>
