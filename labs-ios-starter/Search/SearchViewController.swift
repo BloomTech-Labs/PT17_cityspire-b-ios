@@ -41,7 +41,7 @@ class SearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCityDashboard" {
             let cityDashboardVC = segue.destination as! CityDashboardViewController
-            cityDashboardVC.city = city
+            cityDashboardVC.cityStack.append(city)
             cityDashboardVC.controller = controller
 //            let vc = segue.destination as! MapScreenViewController
 //            vc.searchItem = searchResponse

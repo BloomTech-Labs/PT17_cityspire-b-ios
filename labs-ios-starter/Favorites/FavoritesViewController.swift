@@ -63,9 +63,10 @@ class FavoritesViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "favoritesToCity" {
+        if segue.identifier == "favoritesToCity",
+           let city = city {
             let cityDashboardVC = segue.destination as! CityDashboardViewController
-            cityDashboardVC.city = city
+            cityDashboardVC.cityStack.append(city)
             cityDashboardVC.controller = controller
         }
     }
