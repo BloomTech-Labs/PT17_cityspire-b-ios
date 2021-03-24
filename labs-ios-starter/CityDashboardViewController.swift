@@ -22,11 +22,25 @@ class CityDashboardViewController: UIViewController {
     // MARK: - Properties
     
     var controller: ApiController?
-    var city: City?
     var propertyData: [PropertyData] = []
     var favorites: [Favorite] = []
     var favorited: Favorite? = nil
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var cityStack: [City] = [] {
+        didSet {
+            currentCity = cityStack.last
+        }
+    }
+    var currentCity: City? {
+        didSet {
+            if isViewLoaded {
+                getPropertyData()
+                updateViews()
+                cityDashboardCollectionView.reloadData()
+                similarCitiesCollectionView.reloadData()
+            }
+        }
+    }
     
     // MARK: - View Lifecycle
     
@@ -39,18 +53,22 @@ class CityDashboardViewController: UIViewController {
         similarCitiesCollectionView.dataSource = self
         updateViews()
     }
-
+    
     // MARK: - Actions
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if cityStack.count > 1 {
+            cityStack.popLast()
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func pinToProfileButtonTapped(_ sender: UIButton) {
-        guard let cityName = city?.cityName,
-              let stateName = city?.cityState,
-              let latitude = city?.latitude,
-              let longitude = city?.longitude else { return }
+        guard let cityName = currentCity?.cityName,
+              let stateName = currentCity?.cityState,
+              let latitude = currentCity?.latitude,
+              let longitude = currentCity?.longitude else { return }
         if let favorite = favorited {
             context.delete(favorite)
             favorited = nil
@@ -73,18 +91,19 @@ class CityDashboardViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let currentCity = currentCity else { return }
         if segue.identifier == "MapSegue" {
             let mapVC = segue.destination as! MapViewController
-            mapVC.city = city
+            mapVC.city = currentCity
         }
     }
     
     // MARK: - Private Functions
     
     private func updateViews() {
-        guard let city = city else { return }
+        guard let city = currentCity else { return }
         cityNameLabel.text = city.cityName + ", " + city.cityState
         populationLabel.text = "Population: unknown"
         if let population = city.population {
@@ -101,7 +120,7 @@ class CityDashboardViewController: UIViewController {
         do {
             self.favorites = try context.fetch(Favorite.fetchRequest())
             for favorite in favorites {
-                if favorite.cityName == city?.cityName && favorite.stateName == city?.cityState {
+                if favorite.cityName == currentCity?.cityName && favorite.stateName == currentCity?.cityState {
                     favorited = favorite
                     pinToProfileButton.setImage(UIImage(systemName: "pin.fill"), for: .normal)
                 }
@@ -113,7 +132,7 @@ class CityDashboardViewController: UIViewController {
     }
     
     private func getPropertyData() {
-        guard let city = city else { return }
+        guard let city = currentCity else { return }
         
         // Livability
         if let livability = city.livability,
@@ -164,7 +183,7 @@ extension CityDashboardViewController: UICollectionViewDataSource, UICollectionV
         if collectionView == self.cityDashboardCollectionView {
             return propertyData.count
         }
-        if let city = city {
+        if let city = currentCity {
             return city.recommendations.count
         }
         return 0
@@ -180,15 +199,28 @@ extension CityDashboardViewController: UICollectionViewDataSource, UICollectionV
         }
         
         if collectionView == self.similarCitiesCollectionView {
-            if let city = city {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SimilarCitiesCell", for: indexPath) as! SimilarCityCollectionViewCell
-                cell.similarCityNameLabel.text = "\(city.recommendations[indexPath.row].city),"
-                cell.similarCityStateLabel.text = city.recommendations[indexPath.row].state
+            if let city = currentCity?.recommendations[indexPath.item] {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.homeScreenCell, for: indexPath) as! HomeScreenCollectionViewCell
+                cell.city = city
                 cell.layer.borderWidth = 3
                 cell.layer.borderColor = UIColor.black.cgColor
                 return cell
             }
         }
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let nextCity = currentCity?.recommendations[indexPath.item] else { return }
+        let cityName = nextCity.city
+        let stateName = nextCity.state
+        controller?.fetchCityData(city: City(cityName: cityName, cityState: stateName), completion: { city in
+            DispatchQueue.main.async {
+                var newCity = city
+                newCity.latitude = nextCity.latitude
+                newCity.longitude = nextCity.longitude
+                self.cityStack.append(newCity)
+            }
+        })
     }
 }

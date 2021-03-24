@@ -54,7 +54,7 @@ class HomeScreenViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "homeToCityDashboard" {
             let cityDashboardVC = segue.destination as! CityDashboardViewController
-            cityDashboardVC.city = city
+            cityDashboardVC.cityStack.append(city)
             cityDashboardVC.controller = controller
         }
         else if segue.identifier == "homeToFavorites" {
@@ -173,12 +173,14 @@ extension HomeScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         let cityName = city.city
         let stateName = city.state
         controller.fetchCityData(city: City(cityName: cityName, cityState: stateName), completion: { topCity in
-            self.city = topCity
-            if self.city.latitude == 0 || self.city.longitude == 0 {
-                self.city.latitude = city.latitude
-                self.city.longitude = city.longitude
+            DispatchQueue.main.async {
+                self.city = topCity
+                if self.city.latitude == 0 || self.city.longitude == 0 {
+                    self.city.latitude = city.latitude
+                    self.city.longitude = city.longitude
+                }
+                self.performSegue(withIdentifier: "homeToCityDashboard", sender: self)
             }
-            self.performSegue(withIdentifier: "homeToCityDashboard", sender: self)
         })
     }
 }
