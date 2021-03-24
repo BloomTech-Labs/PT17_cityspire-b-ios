@@ -80,7 +80,7 @@ class MapViewController: UIViewController {
     
     private func setUpView() {
         guard let city = city else { return }
-        cityLabel.text = city.cityName
+        cityLabel.text = city.cityName + ", " + city.cityState
         pickerView.delegate = self
         pickerView.dataSource = self
         tableView.delegate = self

@@ -16,7 +16,7 @@ class ApiController {
     let dataLoader: NetworkDataLoader
     private let cache = Cache<String, City>()
 
-//    init(dataLoader: NetworkDataLoader = URLSession.shared) {
+//    init(dataLoader: NetworkDataLoader = URLSession.shared) { // replace next line with this when api is available
     init(dataLoader: NetworkDataLoader = MockLoader(data: validSFJSON)) {
         self.dataLoader = dataLoader
     }
