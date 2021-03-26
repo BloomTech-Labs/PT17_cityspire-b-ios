@@ -17,10 +17,6 @@ class FavoritesViewController: UIViewController {
     
     @IBOutlet var colletionView: UICollectionView!
     @IBOutlet private var mapView: MKMapView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     // MARK: - Properties
 
@@ -29,14 +25,47 @@ class FavoritesViewController: UIViewController {
     var city: City?
     var controller: ApiController?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var tabDelegate: TabButtonDelegate?
+    
+    // MARK: - View Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         mapView.delegate = self
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: ReuseIdentifier.favAnnotation)
         fetchFavorites()
     }
+    
+    // MARK: - Navigation
 
-    func fetchFavorites() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "favoritesToCity",
+           let city = city {
+            let cityDashboardVC = segue.destination as! CityDashboardViewController
+            cityDashboardVC.cityStack.append(city)
+            cityDashboardVC.controller = controller
+            cityDashboardVC.tabDelegate = self
+        }
+    }
+
+    // MARK: - IBActions
+    
+    @IBAction func homeButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        dismiss(animated: false) {
+            self.tabDelegate?.settingsSelected()
+        }
+    }
+    
+    // MARK: - Private Functions
+    
+    private func fetchFavorites() {
         do {
             self.favorites = try context.fetch(Favorite.fetchRequest())
             DispatchQueue.main.async {
@@ -58,23 +87,6 @@ class FavoritesViewController: UIViewController {
         catch {
             print("error fetching data")
         }
-    }
-    
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "favoritesToCity",
-           let city = city {
-            let cityDashboardVC = segue.destination as! CityDashboardViewController
-            cityDashboardVC.cityStack.append(city)
-            cityDashboardVC.controller = controller
-        }
-    }
-
-    // MARK: - IBActions
-    
-    @IBAction func backNavigationButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -133,5 +145,20 @@ extension FavoritesViewController: MKMapViewDelegate {
         detailView.fav = fav
         annotationView.detailCalloutAccessoryView = detailView
         return annotationView
+    }
+}
+
+extension FavoritesViewController: TabButtonDelegate {
+    func homeSelected() {
+        dismiss(animated: false, completion: nil)
+    }
+    
+    func pinsSelected() {
+    }
+    
+    func settingsSelected() {
+        dismiss(animated: false) {
+            self.tabDelegate?.settingsSelected()
+        }
     }
 }

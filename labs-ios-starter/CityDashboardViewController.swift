@@ -18,10 +18,12 @@ class CityDashboardViewController: UIViewController {
     @IBOutlet weak var similarCitiesCollectionView: UICollectionView!
     @IBOutlet weak var pinToProfileButton: UIButton!
     @IBOutlet weak var mapButton: UIButton!
+    @IBOutlet private var backButton: UIButton!
     
     // MARK: - Properties
     
     var controller: ApiController?
+    var tabDelegate: TabButtonDelegate?
     var propertyData: [PropertyData] = []
     var favorites: [Favorite] = []
     var favorited: Favorite? = nil
@@ -60,7 +62,8 @@ class CityDashboardViewController: UIViewController {
         if cityStack.count > 1 {
             var _ = cityStack.popLast()
         } else {
-            dismiss(animated: true, completion: nil)
+            backButton.isEnabled = false
+            backButton.setTitleColor(.clear, for: .normal)
         }
     }
     
@@ -90,6 +93,24 @@ class CityDashboardViewController: UIViewController {
         }
     }
     
+    @IBAction func homeButtonPressed(_ sender: Any) {
+        dismiss(animated: false) {
+            self.tabDelegate?.homeSelected()
+        }
+    }
+    
+    @IBAction func pinButtonPressed(_ sender: Any) {
+        dismiss(animated: false) {
+            self.tabDelegate?.pinsSelected()
+        }
+    }
+    
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        dismiss(animated: false) {
+            self.tabDelegate?.settingsSelected()
+        }
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -104,6 +125,10 @@ class CityDashboardViewController: UIViewController {
     
     private func updateViews() {
         guard let city = currentCity else { return }
+        if cityStack.count == 1 {
+            backButton.isEnabled = false
+            backButton.setTitleColor(.clear, for: .normal)
+        }
         cityNameLabel.text = city.cityName + ", " + city.cityState
         populationLabel.text = "Population: unknown"
         if let population = city.population {
@@ -211,16 +236,20 @@ extension CityDashboardViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let nextCity = currentCity?.recommendations[indexPath.item] else { return }
-        let cityName = nextCity.city
-        let stateName = nextCity.state
-        controller?.fetchCityData(city: City(cityName: cityName, cityState: stateName), completion: { city in
-            DispatchQueue.main.async {
-                var newCity = city
-                newCity.latitude = nextCity.latitude
-                newCity.longitude = nextCity.longitude
-                self.cityStack.append(newCity)
-            }
-        })
+        if collectionView == self.similarCitiesCollectionView {
+            guard let nextCity = currentCity?.recommendations[indexPath.item] else { return }
+            let cityName = nextCity.city
+            let stateName = nextCity.state
+            controller?.fetchCityData(city: City(cityName: cityName, cityState: stateName), completion: { city in
+                DispatchQueue.main.async {
+                    var newCity = city
+                    newCity.latitude = nextCity.latitude
+                    newCity.longitude = nextCity.longitude
+                    self.cityStack.append(newCity)
+                    self.backButton.isEnabled = true
+                    self.backButton.setTitleColor(.systemBlue, for: .normal)
+                }
+            })
+        }
     }
 }

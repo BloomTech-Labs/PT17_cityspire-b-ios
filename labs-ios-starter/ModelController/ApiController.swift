@@ -46,7 +46,7 @@ class ApiController {
         dataLoader.dataRequest(with: request) { data, response, error in
             self.checkResponse(for: "fetchTopCities", data, response, error) { result in
                 switch result {
-                case .success(let data):
+                case .success(_): // replace _ with let data when data is available
                     do { // replace topCitiesData with data once endpoint is available
                         let cities = try JSONDecoder().decode(TopCities.self, from: topCitiesData)
                         completion(cities.top_cities)
