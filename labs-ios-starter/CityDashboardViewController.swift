@@ -211,16 +211,18 @@ extension CityDashboardViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let nextCity = currentCity?.recommendations[indexPath.item] else { return }
-        let cityName = nextCity.city
-        let stateName = nextCity.state
-        controller?.fetchCityData(city: City(cityName: cityName, cityState: stateName), completion: { city in
-            DispatchQueue.main.async {
-                var newCity = city
-                newCity.latitude = nextCity.latitude
-                newCity.longitude = nextCity.longitude
-                self.cityStack.append(newCity)
-            }
-        })
+        if collectionView == self.similarCitiesCollectionView {
+            guard let nextCity = currentCity?.recommendations[indexPath.item] else { return }
+            let cityName = nextCity.city
+            let stateName = nextCity.state
+            controller?.fetchCityData(city: City(cityName: cityName, cityState: stateName), completion: { city in
+                DispatchQueue.main.async {
+                    var newCity = city
+                    newCity.latitude = nextCity.latitude
+                    newCity.longitude = nextCity.longitude
+                    self.cityStack.append(newCity)
+                }
+            })
+        }
     }
 }

@@ -95,35 +95,31 @@ class MapViewController: UIViewController {
     }
     
     private func requestPointsOfInterest(category: POICategory) {
-        if #available(iOS 14.0, *) {
-            if span.latitudeDelta > 0.03 {
-                span.latitudeDelta = 0.03
-                span.longitudeDelta = 0.03
-                zoomSlider.setValue(0.07, animated: true)
-                mapView.setRegion(MKCoordinateRegion(center: mapView.region.center, span: span), animated: true)
+        if span.latitudeDelta > 0.03 {
+            span.latitudeDelta = 0.03
+            span.longitudeDelta = 0.03
+            zoomSlider.setValue(0.07, animated: true)
+            mapView.setRegion(MKCoordinateRegion(center: mapView.region.center, span: span), animated: true)
+        }
+        mapView.removeAnnotations(mapItems)
+        mapItems = []
+        tableView.reloadData()
+        let request = MKLocalPointsOfInterestRequest(coordinateRegion: mapView.region)
+        request.pointOfInterestFilter = MKPointOfInterestFilter(including: [category.category])
+        let search = MKLocalSearch(request: request)
+        search.start { (response, error) in
+            guard let response = response else {
+                Alert.showBasicAlert(on: self, with: "Sorry!", message: "Your search did not return any results. Try centering the map on the area you want to search")
+                return
             }
-            mapView.removeAnnotations(mapItems)
-            mapItems = []
-            tableView.reloadData()
-            let request = MKLocalPointsOfInterestRequest(coordinateRegion: mapView.region)
-            request.pointOfInterestFilter = MKPointOfInterestFilter(including: [category.category])
-            let search = MKLocalSearch(request: request)
-            search.start { (response, error) in
-                guard let response = response else {
-                    Alert.showBasicAlert(on: self, with: "Sorry!", message: "Your search did not return any results. Try centering the map on the area you want to search")
-                    return
-                }
-                let items = response.mapItems
-                for item in items {
-                    let coordinate = item.placemark.coordinate
-                    let annotation = POIAnnotation(coordinate: coordinate, name: item.name, category: category)
-                    self.mapItems.append(annotation)
-                }
-                self.mapView.addAnnotations(self.mapItems)
-                self.tableView.reloadData()
+            let items = response.mapItems
+            for item in items {
+                let coordinate = item.placemark.coordinate
+                let annotation = POIAnnotation(coordinate: coordinate, name: item.name, category: category)
+                self.mapItems.append(annotation)
             }
-        } else {
-            Alert.showBasicAlert(on: self, with: "Feature not Available", message: "This features is only available with iOS 14.0 and above.")
+            self.mapView.addAnnotations(self.mapItems)
+            self.tableView.reloadData()
         }
     }
 

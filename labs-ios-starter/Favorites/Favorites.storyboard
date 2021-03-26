@@ -66,7 +66,6 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="4jT-R8-b6T" firstAttribute="width" secondItem="NZJ-Gy-RMc" secondAttribute="width" multiplier="0.9" id="NTT-uU-hv9"/>
                                                         <constraint firstItem="6hj-Vw-4aT" firstAttribute="width" secondItem="NZJ-Gy-RMc" secondAttribute="width" multiplier="0.100254" id="r0p-Ue-fs2"/>
                                                     </constraints>
                                                 </stackView>
