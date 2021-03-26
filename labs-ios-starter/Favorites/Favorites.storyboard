@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,20 +21,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinned Cities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20Q-gm-Sg9">
-                                <rect key="frame" x="235" y="64" width="159" height="33.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <rect key="frame" x="20" y="64" width="191.5" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obf-4I-huU">
-                                <rect key="frame" x="20" y="64" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="backNavigationButtonPressed:" destination="fhG-KI-gxj" eventType="touchUpInside" id="yM1-Rp-ec6"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Ce-gk-cqj">
-                                <rect key="frame" x="0.0" y="341.5" width="414" height="520.5"/>
+                                <rect key="frame" x="0.0" y="349" width="414" height="457"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N8d-Jz-nGY">
                                     <size key="itemSize" width="414" height="232"/>
@@ -91,23 +85,64 @@
                                 </connections>
                             </collectionView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="atX-ce-iZz">
-                                <rect key="frame" x="0.0" y="107.5" width="414" height="224"/>
+                                <rect key="frame" x="0.0" y="115" width="414" height="224"/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnn-GI-Lwu">
+                                <rect key="frame" x="0.0" y="816" width="414" height="80"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="lmC-uV-KKu">
+                                        <rect key="frame" x="88" y="23" width="238.5" height="27"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDr-Mr-tW1">
+                                                <rect key="frame" x="0.0" y="0.0" width="29.5" height="27"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="house.fill" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="homeButtonPressed:" destination="fhG-KI-gxj" eventType="touchUpInside" id="aDc-Tl-VpT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2e-pU-F0u">
+                                                <rect key="frame" x="109.5" y="0.0" width="23.5" height="27"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="pin.fill" catalog="system" symbolScale="large"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vP-jb-Hg8">
+                                                <rect key="frame" x="213" y="0.0" width="25.5" height="27"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="settingsButtonPressed:" destination="fhG-KI-gxj" eventType="touchUpInside" id="13r-fy-gXD"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="LTA-DA-HDd"/>
+                                    <constraint firstItem="lmC-uV-KKu" firstAttribute="centerX" secondItem="pnn-GI-Lwu" secondAttribute="centerX" id="OtW-M0-W3y"/>
+                                    <constraint firstAttribute="bottom" secondItem="lmC-uV-KKu" secondAttribute="bottom" constant="30" id="gFm-66-c6e"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AhX-OJ-OTO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="AhX-OJ-OTO" firstAttribute="trailing" secondItem="5Ce-gk-cqj" secondAttribute="trailing" id="7sB-O2-XPB"/>
+                            <constraint firstItem="pnn-GI-Lwu" firstAttribute="top" secondItem="5Ce-gk-cqj" secondAttribute="bottom" constant="10" id="8No-MO-rdz"/>
                             <constraint firstItem="5Ce-gk-cqj" firstAttribute="leading" secondItem="AhX-OJ-OTO" secondAttribute="leading" id="HdI-9n-ter"/>
-                            <constraint firstItem="AhX-OJ-OTO" firstAttribute="bottom" secondItem="5Ce-gk-cqj" secondAttribute="bottom" id="UZH-wH-AVq"/>
+                            <constraint firstItem="AhX-OJ-OTO" firstAttribute="trailing" secondItem="pnn-GI-Lwu" secondAttribute="trailing" id="P9A-uf-vFi"/>
                             <constraint firstItem="atX-ce-iZz" firstAttribute="trailing" secondItem="AhX-OJ-OTO" secondAttribute="trailing" id="Ver-de-SqX"/>
                             <constraint firstItem="atX-ce-iZz" firstAttribute="height" secondItem="6Pg-Lc-WNU" secondAttribute="height" multiplier="0.25" id="a59-Gv-ONc"/>
-                            <constraint firstItem="AhX-OJ-OTO" firstAttribute="trailing" secondItem="20Q-gm-Sg9" secondAttribute="trailing" constant="20" id="bPM-Jv-I2q"/>
+                            <constraint firstItem="pnn-GI-Lwu" firstAttribute="leading" secondItem="AhX-OJ-OTO" secondAttribute="leading" id="dBW-2k-two"/>
                             <constraint firstItem="5Ce-gk-cqj" firstAttribute="top" secondItem="atX-ce-iZz" secondAttribute="bottom" constant="10" id="e2P-zL-hda"/>
+                            <constraint firstItem="20Q-gm-Sg9" firstAttribute="leading" secondItem="AhX-OJ-OTO" secondAttribute="leading" constant="20" id="eN8-fa-s9y"/>
+                            <constraint firstAttribute="bottom" secondItem="pnn-GI-Lwu" secondAttribute="bottom" id="fVF-iR-1F6"/>
                             <constraint firstItem="atX-ce-iZz" firstAttribute="leading" secondItem="AhX-OJ-OTO" secondAttribute="leading" id="hWg-1b-Jmr"/>
-                            <constraint firstItem="obf-4I-huU" firstAttribute="top" secondItem="AhX-OJ-OTO" secondAttribute="top" constant="20" id="jtW-ek-AxT"/>
                             <constraint firstItem="atX-ce-iZz" firstAttribute="top" secondItem="20Q-gm-Sg9" secondAttribute="bottom" constant="10" id="koL-2T-7cA"/>
-                            <constraint firstItem="obf-4I-huU" firstAttribute="leading" secondItem="AhX-OJ-OTO" secondAttribute="leading" constant="20" id="nsz-os-035"/>
                             <constraint firstItem="20Q-gm-Sg9" firstAttribute="top" secondItem="AhX-OJ-OTO" secondAttribute="top" constant="20" id="xoZ-1c-9PP"/>
                         </constraints>
                     </view>
@@ -131,6 +166,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="pin.fill" catalog="system" width="119" height="128"/>
         <image name="pin.slash.fill" catalog="system" width="116" height="128"/>
         <namedColor name="DarkBlue">
             <color red="0.063000001013278961" green="0.27099999785423279" blue="0.45100000500679016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -140,6 +178,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

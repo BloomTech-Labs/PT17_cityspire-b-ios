@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -19,27 +20,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wgc-Vr-GdK">
-                                <rect key="frame" x="20" y="154" width="374" height="472"/>
+                                <rect key="frame" x="20" y="154" width="374" height="476"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="cGc-On-eLv">
-                                    <size key="itemSize" width="335" height="228"/>
+                                    <size key="itemSize" width="335" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CityDashboardCell" id="1cf-Tr-VXd" customClass="CityDashboardCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="19.5" y="0.0" width="335" height="228"/>
+                                        <rect key="frame" x="19.5" y="0.0" width="335" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ye7-lL-PD0">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="228"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9qu-52-zw3" customClass="CircularProgressBarView" customModule="labs_ios_starter" customModuleProvider="target">
-                                                    <rect key="frame" x="28" y="15" width="122" height="178"/>
+                                                    <rect key="frame" x="28" y="15" width="122" height="150"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qv4-N9-vAS">
-                                                            <rect key="frame" x="40" y="79" width="42" height="20.5"/>
+                                                            <rect key="frame" x="40" y="65" width="42" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -53,10 +54,10 @@
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hS5-Om-yFt">
-                                                    <rect key="frame" x="155" y="0.0" width="175" height="228"/>
+                                                    <rect key="frame" x="155" y="0.0" width="175" height="200"/>
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RMh-Wi-QWv">
-                                                            <rect key="frame" x="10" y="0.0" width="155" height="228"/>
+                                                            <rect key="frame" x="10" y="0.0" width="155" height="200"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                             <color key="textColor" systemColor="labelColor"/>
@@ -70,7 +71,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City property" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccw-aE-svc">
-                                                    <rect key="frame" x="28" y="203" width="122" height="25"/>
+                                                    <rect key="frame" x="28" y="175" width="122" height="25"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -91,7 +92,7 @@
                                                 <constraint firstItem="Ccw-aE-svc" firstAttribute="top" secondItem="9qu-52-zw3" secondAttribute="bottom" constant="10" id="w0O-qM-cKq"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="335" height="228"/>
+                                        <size key="customSize" width="335" height="200"/>
                                         <connections>
                                             <outlet property="cityPropertyNameLabel" destination="Ccw-aE-svc" id="3Oa-Zs-LiY"/>
                                             <outlet property="progressBarView" destination="9qu-52-zw3" id="Wgc-p0-7kT"/>
@@ -101,16 +102,16 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Cities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMl-1O-aft">
-                                <rect key="frame" x="20" y="646" width="174" height="36"/>
+                                <rect key="frame" x="20" y="640" width="174" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WwL-gZ-20c">
-                                <rect key="frame" x="20" y="692" width="374" height="150"/>
+                                <rect key="frame" x="20" y="676" width="374" height="130"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="ZFA-1n-CJS"/>
+                                    <constraint firstAttribute="height" constant="130" id="ZFA-1n-CJS"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PqM-ce-D1h">
                                     <size key="itemSize" width="150" height="120"/>
@@ -120,7 +121,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="homeScreenCell" id="fhu-dv-DgY" customClass="HomeScreenCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="15" width="150" height="120"/>
+                                        <rect key="frame" x="0.0" y="5" width="150" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fhS-uy-QUd">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
@@ -247,25 +248,72 @@ CA</string>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JG-qF-5Pb">
+                                <rect key="frame" x="0.0" y="816" width="414" height="80"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="D7B-bZ-iKB">
+                                        <rect key="frame" x="88" y="23" width="238.5" height="27"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEm-Bi-W8O">
+                                                <rect key="frame" x="0.0" y="0.0" width="29.5" height="27"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="house.fill" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="homeButtonPressed:" destination="6dv-8n-cwv" eventType="touchUpInside" id="hAF-r5-jEr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vep-7p-PD8">
+                                                <rect key="frame" x="109.5" y="0.0" width="23.5" height="27"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="pin.fill" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pinButtonPressed:" destination="6dv-8n-cwv" eventType="touchUpInside" id="qgU-Ip-Z1l"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LN2-HR-YUw">
+                                                <rect key="frame" x="213" y="0.0" width="25.5" height="27"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="settingsButtonPressed:" destination="6dv-8n-cwv" eventType="touchUpInside" id="p0y-tT-17h"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="D7B-bZ-iKB" secondAttribute="bottom" constant="30" id="7mS-93-6pz"/>
+                                    <constraint firstItem="D7B-bZ-iKB" firstAttribute="centerX" secondItem="2JG-qF-5Pb" secondAttribute="centerX" id="qmL-KB-mlT"/>
+                                    <constraint firstAttribute="height" constant="80" id="qos-VF-jAS"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xra-x5-JAS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gMl-1O-aft" firstAttribute="top" secondItem="wgc-Vr-GdK" secondAttribute="bottom" constant="20" id="8Vf-Kg-wNo"/>
+                            <constraint firstItem="2JG-qF-5Pb" firstAttribute="top" secondItem="WwL-gZ-20c" secondAttribute="bottom" constant="10" id="0oL-Up-yLy"/>
+                            <constraint firstItem="2JG-qF-5Pb" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" id="26U-CZ-h5w"/>
+                            <constraint firstItem="gMl-1O-aft" firstAttribute="top" secondItem="wgc-Vr-GdK" secondAttribute="bottom" constant="10" id="8Vf-Kg-wNo"/>
                             <constraint firstItem="wgc-Vr-GdK" firstAttribute="top" secondItem="X7s-TN-1Ht" secondAttribute="bottom" constant="20" id="A8d-Ix-T84"/>
                             <constraint firstItem="xra-x5-JAS" firstAttribute="trailing" secondItem="wgc-Vr-GdK" secondAttribute="trailing" constant="20" id="DJV-u9-Avz"/>
                             <constraint firstItem="X7s-TN-1Ht" firstAttribute="top" secondItem="xra-x5-JAS" secondAttribute="top" id="GfR-Ig-Wyd"/>
                             <constraint firstItem="xra-x5-JAS" firstAttribute="trailing" secondItem="X7s-TN-1Ht" secondAttribute="trailing" constant="20" id="Kfd-dl-Mhe"/>
                             <constraint firstItem="WwL-gZ-20c" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" constant="20" id="TCn-tW-80O"/>
-                            <constraint firstItem="xra-x5-JAS" firstAttribute="bottom" secondItem="WwL-gZ-20c" secondAttribute="bottom" constant="20" id="XCT-H6-uBl"/>
                             <constraint firstItem="xra-x5-JAS" firstAttribute="trailing" secondItem="WwL-gZ-20c" secondAttribute="trailing" constant="20" id="bLf-ff-Fxl"/>
                             <constraint firstItem="X7s-TN-1Ht" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" constant="20" id="hlw-bZ-Du2"/>
                             <constraint firstItem="wgc-Vr-GdK" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" constant="20" id="lu0-ha-nt2"/>
                             <constraint firstItem="gMl-1O-aft" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" constant="20" id="mi1-W8-Cqf"/>
-                            <constraint firstItem="WwL-gZ-20c" firstAttribute="top" secondItem="gMl-1O-aft" secondAttribute="bottom" constant="10" id="nHK-Og-NU0"/>
+                            <constraint firstItem="WwL-gZ-20c" firstAttribute="top" secondItem="gMl-1O-aft" secondAttribute="bottom" id="nHK-Og-NU0"/>
+                            <constraint firstItem="xra-x5-JAS" firstAttribute="trailing" secondItem="2JG-qF-5Pb" secondAttribute="trailing" id="sbg-0t-kP8"/>
+                            <constraint firstAttribute="bottom" secondItem="2JG-qF-5Pb" secondAttribute="bottom" id="urv-zs-ieV"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="l2d-nG-JLR" id="lvQ-vb-rqP"/>
                         <outlet property="cityDashboardCollectionView" destination="wgc-Vr-GdK" id="Xwq-wI-Xft"/>
                         <outlet property="cityNameLabel" destination="Qen-Oz-npl" id="tT9-6h-Yyj"/>
                         <outlet property="mapButton" destination="zwA-d9-XEJ" id="ox4-mx-yUi"/>
@@ -290,8 +338,11 @@ CA</string>
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="pin" catalog="system" width="119" height="128"/>
+        <image name="pin.fill" catalog="system" width="119" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -9,19 +9,22 @@
 import UIKit
 import MapKit
 
+protocol TabButtonDelegate {
+    func homeSelected()
+    func pinsSelected()
+    func settingsSelected()
+}
+
 class HomeScreenViewController: UIViewController {
     
     // MARK: - Outlets
     
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var searchBar: UISearchBar!
-    @IBOutlet private var pinButton: UIButton!
-    @IBOutlet private var surveyButton: UIButton!
     
     // MARK: - Properties
     
     let controller = ApiController()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var topCities: [Recommendation] = []
     var city = City(cityName: "", cityState: "")
     var cityName = ""
@@ -40,13 +43,6 @@ class HomeScreenViewController: UIViewController {
     func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         searchBar.text = ""
-        fetchFavoriteCount()
-    }
-    
-    // MARK: - Actions
-    
-    @IBAction func surveyButtonPressed(_ sender: Any) {
-        Alert.showBasicAlert(on: self, with: "New Feature Coming Soon!", message: "Soon you'll be able to answer a few questions and get a list of recommended cities.")
     }
 
     // MARK: - Navigation
@@ -56,30 +52,21 @@ class HomeScreenViewController: UIViewController {
             let cityDashboardVC = segue.destination as! CityDashboardViewController
             cityDashboardVC.cityStack.append(city)
             cityDashboardVC.controller = controller
-        }
-        else if segue.identifier == "homeToFavorites" {
+            cityDashboardVC.tabDelegate = self
+        } else if segue.identifier == "homeToFavorites" {
             let favoritesVC = segue.destination as! FavoritesViewController
             favoritesVC.controller = controller
+            favoritesVC.tabDelegate = self
+        } else if segue.identifier == "toSettings" {
+            let settingsVC = segue.destination as! SettingsViewController
+            settingsVC.tabDelegate = self
         }
     }
     
     // MARK: - Private Functions
     
     private func updateViews() {
-        fetchFavoriteCount()
         fetchTopCities()
-    }
-    
-    private func fetchFavoriteCount() {
-        do {
-            let favorites = try context.fetch(Favorite.fetchRequest())
-            DispatchQueue.main.async {
-                self.pinButton.setTitle("\(favorites.count)", for: .normal)
-            }
-        }
-        catch {
-            print("error fetching data")
-        }
     }
     
     private func fetchTopCities() {
@@ -193,5 +180,18 @@ extension HomeScreenViewController: UISearchBarDelegate {
             return
         }
         conductSearch()
+    }
+}
+
+extension HomeScreenViewController: TabButtonDelegate {
+    func homeSelected() {
+    }
+    
+    func pinsSelected() {
+        performSegue(withIdentifier: "homeToFavorites", sender: self)
+    }
+    
+    func settingsSelected() {
+        performSegue(withIdentifier: "toSettings", sender: self)
     }
 }
