@@ -58,7 +58,7 @@ class CityDashboardViewController: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         if cityStack.count > 1 {
-            cityStack.popLast()
+            var _ = cityStack.popLast()
         } else {
             dismiss(animated: true, completion: nil)
         }
