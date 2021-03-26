@@ -35,7 +35,7 @@ class MapViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func backButtonPressed(_ sender: Any) {
+    @IBAction func doneButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
