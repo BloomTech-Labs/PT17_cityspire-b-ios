@@ -18,6 +18,7 @@ class MapViewController: UIViewController {
     @IBOutlet private var zoomSlider: UISlider!
     @IBOutlet private var pickerView: UIPickerView!
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var tableOutline: UIView!
     
     // MARK: - Properties
     
@@ -79,6 +80,8 @@ class MapViewController: UIViewController {
     // MARK: - Private Functions
     
     private func setUpView() {
+        tableView.isHidden = true
+        tableOutline.isHidden = true
         guard let city = city else { return }
         cityLabel.text = city.cityName + ", " + city.cityState
         pickerView.delegate = self
@@ -119,6 +122,8 @@ class MapViewController: UIViewController {
                 self.mapItems.append(annotation)
             }
             self.mapView.addAnnotations(self.mapItems)
+            self.tableView.isHidden = false
+            self.tableOutline.isHidden = false
             self.tableView.reloadData()
         }
     }
@@ -129,6 +134,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let poi = annotation as? POIAnnotation else { return nil }
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: ReuseIdentifier.poiAnnotation, for: poi) as! MKMarkerAnnotationView
+        annotationView.markerTintColor = UIColor(named: "DarkAccentGreen")
         annotationView.titleVisibility = .hidden
         annotationView.canShowCallout = true
         annotationView.displayPriority = .required
@@ -148,14 +154,21 @@ extension MapViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         categories.cats.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        categories.cats[row].plural
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let pickerLabel = UILabel()
+        pickerLabel.font = UIFont(name: "TrebuchetMS", size: 18)
+        pickerLabel.textAlignment = .center
+        pickerLabel.text = categories.cats[row].plural
+        pickerLabel.textColor = UIColor(named: "DarkBlue")
+        return pickerLabel
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         mapView.removeAnnotations(mapItems)
         mapItems = []
         tableView.reloadData()
+        self.tableView.isHidden = true
+        self.tableOutline.isHidden = true
     }
 }
 

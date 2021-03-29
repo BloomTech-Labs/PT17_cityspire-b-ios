@@ -67,6 +67,8 @@ class HomeScreenViewController: UIViewController {
     
     private func updateViews() {
         fetchTopCities()
+        searchBar.searchTextField.backgroundColor = UIColor(named: "PalestBlue")
+        searchBar.searchTextField.textColor = UIColor(named: "DarkBlue")
     }
     
     private func fetchTopCities() {

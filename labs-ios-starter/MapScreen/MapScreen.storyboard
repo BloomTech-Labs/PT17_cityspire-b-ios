@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,62 +18,91 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRC-ob-9vH">
-                                <rect key="frame" x="20" y="84" width="127" height="34"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="20" y="84" width="134" height="33"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="28"/>
+                                <color key="textColor" name="DarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8k-aR-EGQ">
+                                <rect key="frame" x="20" y="127" width="374" height="289"/>
+                                <color key="backgroundColor" name="AccentGreen"/>
+                            </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5QZ-hu-4Or">
-                                <rect key="frame" x="20" y="138" width="374" height="269"/>
+                                <rect key="frame" x="30" y="137" width="354" height="269"/>
                             </mapView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.089999999999999997" translatesAutoresizingMaskIntoConstraints="NO" id="FSG-R6-Fac">
-                                <rect key="frame" x="56" y="423" width="302" height="31"/>
+                                <rect key="frame" x="56" y="422" width="302" height="31"/>
+                                <color key="tintColor" name="MedBlue"/>
                                 <connections>
                                     <action selector="zoomChangedValue:" destination="ZX6-zN-gSw" eventType="valueChanged" id="7I2-LU-Jaa"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jV-Hw-Mms" userLabel="Zoom Out">
-                                <rect key="frame" x="20" y="427" width="18" height="22"/>
+                                <rect key="frame" x="20" y="426" width="18" height="22"/>
+                                <color key="tintColor" name="MedBlue"/>
                                 <state key="normal" image="minus" catalog="system"/>
                                 <connections>
                                     <action selector="zoomOutPressed:" destination="ZX6-zN-gSw" eventType="touchUpInside" id="6df-u4-wd7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiB-2i-nrF" userLabel="Zoom In">
-                                <rect key="frame" x="376" y="427" width="18" height="22"/>
+                                <rect key="frame" x="376" y="426" width="18" height="22"/>
+                                <color key="tintColor" name="MedBlue"/>
                                 <state key="normal" image="plus" catalog="system"/>
                                 <connections>
                                     <action selector="zoomInPressed:" destination="ZX6-zN-gSw" eventType="touchUpInside" id="Vaa-da-Wpl"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOY-ft-eM1">
-                                <rect key="frame" x="0.0" y="469" width="414" height="80"/>
+                                <rect key="frame" x="50" y="468" width="314" height="80"/>
+                                <color key="backgroundColor" name="PalestBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Kiu-dj-lrk"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oh3-6n-IEg">
-                                <rect key="frame" x="111.5" y="569" width="191" height="30"/>
-                                <state key="normal" title="Search for Points of Interest"/>
+                                <rect key="frame" x="85" y="568" width="244" height="30"/>
+                                <color key="backgroundColor" name="MedBlue"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
+                                <state key="normal" title="Search for Points of Interest">
+                                    <color key="titleColor" name="OffWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="poiChosen" destination="ZX6-zN-gSw" eventType="touchUpInside" id="dTJ-rR-6c9"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZh-hF-JFJ">
+                                <rect key="frame" x="28" y="616" width="358" height="243"/>
+                                <color key="backgroundColor" name="AccentGreen"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Vl-KN-dUE">
-                                <rect key="frame" x="20" y="619" width="374" height="223"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="30" y="618" width="354" height="239"/>
+                                <color key="backgroundColor" name="PalestBlue"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="poiCell" id="P2A-iq-YF3" customClass="POITableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="354" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P2A-iq-YF3" id="Kmw-YE-Wwb">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="354" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaO-gF-PgB">
-                                                    <rect key="frame" x="20" y="11.5" width="334" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="20" y="12" width="314" height="20"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <color key="textColor" name="DarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -83,6 +112,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="eaO-gF-PgB" secondAttribute="trailing" id="lQM-ip-ke3"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="PaleBlue"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="eaO-gF-PgB" id="JGL-7d-IEL"/>
                                         </connections>
@@ -91,7 +121,7 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JOp-jZ-oKz">
                                 <rect key="frame" x="177" y="64" width="60" height="6"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <color key="backgroundColor" name="VeryLightBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="6" id="3b8-N0-Z1e"/>
                                     <constraint firstAttribute="width" constant="60" id="Fk2-kn-1MR"/>
@@ -104,41 +134,52 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTp-E1-eqo">
-                                <rect key="frame" x="357" y="84" width="37" height="30"/>
-                                <state key="normal" title="Done"/>
+                                <rect key="frame" x="355" y="84" width="39" height="32"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" name="MedBlue"/>
+                                </state>
                                 <connections>
                                     <action selector="doneButtonPressed:" destination="ZX6-zN-gSw" eventType="touchUpInside" id="GJz-q4-nFo"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H9E-Ns-GRf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="OffWhite"/>
                         <constraints>
-                            <constraint firstItem="5QZ-hu-4Or" firstAttribute="leading" secondItem="H9E-Ns-GRf" secondAttribute="leading" constant="20" id="43w-tL-dQf"/>
+                            <constraint firstItem="5QZ-hu-4Or" firstAttribute="leading" secondItem="H9E-Ns-GRf" secondAttribute="leading" constant="30" id="43w-tL-dQf"/>
+                            <constraint firstItem="f8k-aR-EGQ" firstAttribute="centerX" secondItem="5QZ-hu-4Or" secondAttribute="centerX" id="68J-LN-pcx"/>
                             <constraint firstItem="hOY-ft-eM1" firstAttribute="top" secondItem="NiB-2i-nrF" secondAttribute="bottom" constant="20" id="6ff-Sr-DeB"/>
+                            <constraint firstItem="CZh-hF-JFJ" firstAttribute="width" secondItem="6Vl-KN-dUE" secondAttribute="width" constant="4" id="8wy-Xz-tWE"/>
+                            <constraint firstItem="CZh-hF-JFJ" firstAttribute="centerX" secondItem="6Vl-KN-dUE" secondAttribute="centerX" id="ADf-kG-WNI"/>
+                            <constraint firstItem="CZh-hF-JFJ" firstAttribute="height" secondItem="6Vl-KN-dUE" secondAttribute="height" constant="4" id="DqK-8H-ron"/>
                             <constraint firstItem="H9E-Ns-GRf" firstAttribute="trailing" secondItem="NiB-2i-nrF" secondAttribute="trailing" constant="20" id="IqE-Tq-3zI"/>
                             <constraint firstItem="NiB-2i-nrF" firstAttribute="top" secondItem="5QZ-hu-4Or" secondAttribute="bottom" constant="20" id="JDL-KB-4tA"/>
                             <constraint firstItem="NiB-2i-nrF" firstAttribute="leading" secondItem="FSG-R6-Fac" secondAttribute="trailing" constant="20" id="Ll4-Wt-CjU"/>
-                            <constraint firstItem="hOY-ft-eM1" firstAttribute="trailing" secondItem="H9E-Ns-GRf" secondAttribute="trailing" id="MLb-Rg-2S5"/>
+                            <constraint firstItem="hOY-ft-eM1" firstAttribute="trailing" secondItem="H9E-Ns-GRf" secondAttribute="trailing" constant="-50" id="MLb-Rg-2S5"/>
                             <constraint firstItem="6Vl-KN-dUE" firstAttribute="top" secondItem="Oh3-6n-IEg" secondAttribute="bottom" constant="20" id="Nmv-6h-m4R"/>
-                            <constraint firstItem="H9E-Ns-GRf" firstAttribute="trailing" secondItem="5QZ-hu-4Or" secondAttribute="trailing" constant="20" id="OmS-4y-43j"/>
+                            <constraint firstItem="H9E-Ns-GRf" firstAttribute="trailing" secondItem="5QZ-hu-4Or" secondAttribute="trailing" constant="30" id="OmS-4y-43j"/>
                             <constraint firstItem="FSG-R6-Fac" firstAttribute="centerY" secondItem="9jV-Hw-Mms" secondAttribute="centerY" id="QTb-Ej-GIP"/>
                             <constraint firstItem="Oh3-6n-IEg" firstAttribute="centerX" secondItem="AU7-yg-V0I" secondAttribute="centerX" id="SZP-U3-ogk"/>
                             <constraint firstItem="NRC-ob-9vH" firstAttribute="top" secondItem="H9E-Ns-GRf" secondAttribute="top" constant="40" id="UUr-fj-CeO"/>
                             <constraint firstItem="5QZ-hu-4Or" firstAttribute="height" secondItem="AU7-yg-V0I" secondAttribute="height" multiplier="0.3" id="YDO-2d-P77"/>
                             <constraint firstItem="9jV-Hw-Mms" firstAttribute="leading" secondItem="H9E-Ns-GRf" secondAttribute="leading" constant="20" id="YGl-Z2-9yM"/>
-                            <constraint firstItem="6Vl-KN-dUE" firstAttribute="leading" secondItem="H9E-Ns-GRf" secondAttribute="leading" constant="20" id="a5w-if-wpH"/>
+                            <constraint firstItem="CZh-hF-JFJ" firstAttribute="centerY" secondItem="6Vl-KN-dUE" secondAttribute="centerY" id="ZMs-vL-IOy"/>
+                            <constraint firstItem="f8k-aR-EGQ" firstAttribute="centerY" secondItem="5QZ-hu-4Or" secondAttribute="centerY" id="Zfj-IY-GEY"/>
+                            <constraint firstItem="6Vl-KN-dUE" firstAttribute="leading" secondItem="H9E-Ns-GRf" secondAttribute="leading" constant="30" id="a5w-if-wpH"/>
                             <constraint firstItem="JOp-jZ-oKz" firstAttribute="centerX" secondItem="AU7-yg-V0I" secondAttribute="centerX" id="bnh-O2-SPW"/>
-                            <constraint firstItem="H9E-Ns-GRf" firstAttribute="trailing" secondItem="6Vl-KN-dUE" secondAttribute="trailing" constant="20" id="cVR-cS-dgo"/>
-                            <constraint firstItem="H9E-Ns-GRf" firstAttribute="bottom" secondItem="6Vl-KN-dUE" secondAttribute="bottom" constant="20" id="cqV-bn-FT6"/>
+                            <constraint firstItem="H9E-Ns-GRf" firstAttribute="trailing" secondItem="6Vl-KN-dUE" secondAttribute="trailing" constant="30" id="cVR-cS-dgo"/>
                             <constraint firstItem="5QZ-hu-4Or" firstAttribute="top" secondItem="NRC-ob-9vH" secondAttribute="bottom" constant="20" id="cv1-Ye-uMj"/>
                             <constraint firstItem="JOp-jZ-oKz" firstAttribute="top" secondItem="H9E-Ns-GRf" secondAttribute="top" constant="20" id="eWK-4g-SOk"/>
+                            <constraint firstItem="f8k-aR-EGQ" firstAttribute="width" secondItem="5QZ-hu-4Or" secondAttribute="width" constant="20" id="egb-7G-QYl"/>
                             <constraint firstItem="Oh3-6n-IEg" firstAttribute="top" secondItem="hOY-ft-eM1" secondAttribute="bottom" constant="20" id="fis-OR-p8e"/>
                             <constraint firstItem="9jV-Hw-Mms" firstAttribute="top" secondItem="5QZ-hu-4Or" secondAttribute="bottom" constant="20" id="jr6-Rd-xeO"/>
                             <constraint firstItem="cTp-E1-eqo" firstAttribute="top" secondItem="H9E-Ns-GRf" secondAttribute="top" constant="40" id="lG2-Ie-Ygz"/>
                             <constraint firstItem="FSG-R6-Fac" firstAttribute="leading" secondItem="9jV-Hw-Mms" secondAttribute="trailing" constant="20" id="pY5-TV-yXa"/>
-                            <constraint firstItem="hOY-ft-eM1" firstAttribute="leading" secondItem="H9E-Ns-GRf" secondAttribute="leading" id="sOm-ab-VFL"/>
+                            <constraint firstItem="6Vl-KN-dUE" firstAttribute="bottom" secondItem="H9E-Ns-GRf" secondAttribute="bottom" constant="-5" id="rIE-R8-Fwk"/>
+                            <constraint firstItem="hOY-ft-eM1" firstAttribute="leading" secondItem="H9E-Ns-GRf" secondAttribute="leading" constant="50" id="sOm-ab-VFL"/>
                             <constraint firstItem="H9E-Ns-GRf" firstAttribute="trailing" secondItem="cTp-E1-eqo" secondAttribute="trailing" constant="20" id="sSH-Co-8fC"/>
+                            <constraint firstItem="f8k-aR-EGQ" firstAttribute="height" secondItem="5QZ-hu-4Or" secondAttribute="height" constant="20" id="yDu-iZ-SZ7"/>
                             <constraint firstItem="NRC-ob-9vH" firstAttribute="leading" secondItem="H9E-Ns-GRf" secondAttribute="leading" constant="20" id="zix-o9-pJL"/>
                         </constraints>
                     </view>
@@ -146,6 +187,7 @@
                         <outlet property="cityLabel" destination="NRC-ob-9vH" id="wTK-EH-2td"/>
                         <outlet property="mapView" destination="5QZ-hu-4Or" id="KJp-YZ-mzn"/>
                         <outlet property="pickerView" destination="hOY-ft-eM1" id="5N3-Mm-pev"/>
+                        <outlet property="tableOutline" destination="CZh-hF-JFJ" id="HhG-Fi-OrP"/>
                         <outlet property="tableView" destination="6Vl-KN-dUE" id="fWg-oq-vfx"/>
                         <outlet property="zoomSlider" destination="FSG-R6-Fac" id="aIR-bS-LzH"/>
                     </connections>
@@ -158,11 +200,26 @@
     <resources>
         <image name="minus" catalog="system" width="128" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="AccentGreen">
+            <color red="0.29019607843137252" green="0.47843137254901957" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DarkBlue">
+            <color red="0.062745098039215685" green="0.27058823529411763" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MedBlue">
+            <color red="0.058823529411764705" green="0.37254901960784315" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="OffWhite">
+            <color red="0.96470588235294119" green="0.95686274509803915" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PaleBlue">
+            <color red="0.84313725490196079" green="0.89411764705882346" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PalestBlue">
+            <color red="0.89411764705882346" green="0.92941176470588238" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="VeryLightBlue">
+            <color red="0.792156862745098" green="0.85882352941176465" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

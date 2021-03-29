@@ -2,11 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4a7-cC-Xlp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,55 +23,53 @@
                                 <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Map" translatesAutoresizingMaskIntoConstraints="NO" id="cY4-Oc-Cfw">
-                                <rect key="frame" x="0.0" y="-5" width="417" height="605"/>
+                                <rect key="frame" x="0.0" y="-5" width="414" height="761.5"/>
                                 <accessibility key="accessibilityConfiguration" identifier="mapBackground" label="Map background">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQk-Xf-had" customClass="StyledButton" customModule="labs_ios_starter" customModuleProvider="target">
-                                <rect key="frame" x="137" y="613" width="140" height="46"/>
-                                <color key="backgroundColor" name="LightBlue"/>
-                                <accessibility key="accessibilityConfiguration" identifier="signInButton" label="Sign in button"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="3fw-FJ-fCN"/>
-                                    <constraint firstAttribute="width" constant="140" id="Kte-k8-DRJ"/>
-                                </constraints>
-                                <state key="normal" title="Sign in">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="signIn:" destination="4a7-cC-Xlp" eventType="touchUpInside" id="qez-xn-3z4"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rE-Kz-bu3">
                                 <rect key="frame" x="343" y="832" width="51" height="30"/>
                                 <color key="tintColor" name="MedBlue"/>
                                 <state key="normal" title="To Map"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CitySpireLogo-Dark" translatesAutoresizingMaskIntoConstraints="NO" id="41U-LN-ghq">
-                                <rect key="frame" x="87" y="277" width="240" height="128"/>
+                                <rect key="frame" x="90" y="385" width="234" height="66"/>
                                 <accessibility key="accessibilityConfiguration" identifier="cityScapeLogo" label="Logo">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="z7C-82-CiM"/>
-                                </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQk-Xf-had" customClass="StyledButton" customModule="labs_ios_starter" customModuleProvider="target">
+                                <rect key="frame" x="137" y="736" width="140" height="46"/>
+                                <color key="backgroundColor" name="MedBlue"/>
+                                <accessibility key="accessibilityConfiguration" identifier="signInButton" label="Sign in button"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="3fw-FJ-fCN"/>
+                                    <constraint firstAttribute="width" constant="140" id="Kte-k8-DRJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleColor" name="OffWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signIn:" destination="4a7-cC-Xlp" eventType="touchUpInside" id="qez-xn-3z4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R8l-LV-vJe"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="OffWhite"/>
                         <constraints>
-                            <constraint firstItem="41U-LN-ghq" firstAttribute="centerX" secondItem="CQk-Xf-had" secondAttribute="centerX" id="Ft3-cE-afU"/>
+                            <constraint firstItem="41U-LN-ghq" firstAttribute="centerX" secondItem="INU-fS-Snd" secondAttribute="centerX" id="2SN-iv-QPJ"/>
                             <constraint firstItem="CQk-Xf-had" firstAttribute="centerX" secondItem="INU-fS-Snd" secondAttribute="centerX" id="MBI-zP-DgD"/>
                             <constraint firstItem="R8l-LV-vJe" firstAttribute="trailing" secondItem="1rE-Kz-bu3" secondAttribute="trailing" constant="20" id="RNt-tz-aKz"/>
                             <constraint firstItem="R8l-LV-vJe" firstAttribute="bottom" secondItem="mXo-da-Z8S" secondAttribute="bottom" constant="50" id="Wc3-VK-D5X"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cY4-Oc-Cfw" secondAttribute="trailing" constant="-23" id="ZsH-0Y-ml3"/>
+                            <constraint firstItem="cY4-Oc-Cfw" firstAttribute="height" secondItem="INU-fS-Snd" secondAttribute="height" multiplier="0.85" id="Wsk-Yb-i4O"/>
                             <constraint firstItem="R8l-LV-vJe" firstAttribute="trailing" secondItem="mXo-da-Z8S" secondAttribute="trailing" constant="50" id="eWr-Fb-o2F"/>
-                            <constraint firstItem="cY4-Oc-Cfw" firstAttribute="leading" secondItem="INU-fS-Snd" secondAttribute="leading" id="hd3-KG-tlz"/>
                             <constraint firstItem="1rE-Kz-bu3" firstAttribute="bottom" secondItem="R8l-LV-vJe" secondAttribute="bottom" id="jrM-mS-IVc"/>
-                            <constraint firstItem="41U-LN-ghq" firstAttribute="top" secondItem="R8l-LV-vJe" secondAttribute="top" constant="233" id="wh9-I1-M3S"/>
-                            <constraint firstItem="41U-LN-ghq" firstAttribute="leading" secondItem="R8l-LV-vJe" secondAttribute="leading" constant="87" id="x1d-ac-kpw"/>
-                            <constraint firstItem="CQk-Xf-had" firstAttribute="top" secondItem="cY4-Oc-Cfw" secondAttribute="bottom" constant="13" id="zCL-Mq-jUm"/>
+                            <constraint firstItem="R8l-LV-vJe" firstAttribute="bottom" secondItem="CQk-Xf-had" secondAttribute="bottom" constant="80" id="pH4-Jb-D0N"/>
+                            <constraint firstItem="41U-LN-ghq" firstAttribute="centerY" secondItem="INU-fS-Snd" secondAttribute="centerY" constant="-30" id="rS5-3T-LDS"/>
+                            <constraint firstItem="cY4-Oc-Cfw" firstAttribute="leading" secondItem="R8l-LV-vJe" secondAttribute="leading" id="xSS-qX-4Gb"/>
+                            <constraint firstItem="R8l-LV-vJe" firstAttribute="trailing" secondItem="cY4-Oc-Cfw" secondAttribute="trailing" id="yuO-S3-tfA"/>
                             <constraint firstItem="cY4-Oc-Cfw" firstAttribute="top" secondItem="INU-fS-Snd" secondAttribute="topMargin" constant="-49" id="zzE-8j-bym"/>
                         </constraints>
                     </view>
@@ -99,14 +95,11 @@
         <image name="CitySpireLogo-Dark" width="234" height="66"/>
         <image name="Map" width="374.5" height="605"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
-        <namedColor name="LightBlue">
-            <color red="0.043000001460313797" green="0.47499999403953552" blue="0.85100001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="MedBlue">
-            <color red="0.059000000357627869" green="0.37299999594688416" blue="0.65100002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.058823529411764705" green="0.37254901960784315" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="OffWhite">
+            <color red="0.96470588235294119" green="0.95686274509803915" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

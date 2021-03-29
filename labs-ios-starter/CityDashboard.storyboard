@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -20,79 +21,74 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wgc-Vr-GdK">
-                                <rect key="frame" x="20" y="154" width="374" height="476"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="20" y="154" width="374" height="477"/>
+                                <color key="backgroundColor" name="OffWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="cGc-On-eLv">
-                                    <size key="itemSize" width="335" height="200"/>
+                                    <size key="itemSize" width="335" height="220"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CityDashboardCell" id="1cf-Tr-VXd" customClass="CityDashboardCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="19.5" y="0.0" width="335" height="200"/>
+                                        <rect key="frame" x="19.5" y="0.0" width="335" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ye7-lL-PD0">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="220"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9qu-52-zw3" customClass="CircularProgressBarView" customModule="labs_ios_starter" customModuleProvider="target">
-                                                    <rect key="frame" x="28" y="15" width="122" height="150"/>
+                                                    <rect key="frame" x="18" y="60" width="140" height="140"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qv4-N9-vAS">
-                                                            <rect key="frame" x="40" y="65" width="42" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="41" y="56.5" width="58.5" height="27"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="23"/>
+                                                            <color key="textColor" name="DarkBlue"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="140" id="0O1-H7-Fbl"/>
                                                         <constraint firstItem="qv4-N9-vAS" firstAttribute="centerY" secondItem="9qu-52-zw3" secondAttribute="centerY" id="gLJ-uT-bcK"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="hkw-8Y-2aJ"/>
                                                         <constraint firstItem="qv4-N9-vAS" firstAttribute="centerX" secondItem="9qu-52-zw3" secondAttribute="centerX" id="jbO-LJ-INQ"/>
+                                                        <constraint firstAttribute="height" constant="140" id="k1I-Se-cd6"/>
                                                     </constraints>
                                                 </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hS5-Om-yFt">
-                                                    <rect key="frame" x="155" y="0.0" width="175" height="200"/>
-                                                    <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RMh-Wi-QWv">
-                                                            <rect key="frame" x="10" y="0.0" width="155" height="200"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                            <color key="textColor" systemColor="labelColor"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="RMh-Wi-QWv" secondAttribute="trailing" constant="10" id="M3F-Y8-eCO"/>
-                                                        <constraint firstItem="RMh-Wi-QWv" firstAttribute="leading" secondItem="hS5-Om-yFt" secondAttribute="leading" constant="10" id="Yzm-xo-Siv"/>
-                                                    </constraints>
-                                                </stackView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RMh-Wi-QWv">
+                                                    <rect key="frame" x="168" y="10" width="157" height="200"/>
+                                                    <color key="backgroundColor" name="PalestBlue"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <color key="textColor" name="DarkBlue"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City property" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccw-aE-svc">
-                                                    <rect key="frame" x="28" y="175" width="122" height="25"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="25.5" y="10" width="125" height="40"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
+                                                    <color key="textColor" name="DarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" name="PalestBlue"/>
                                             <constraints>
-                                                <constraint firstItem="9qu-52-zw3" firstAttribute="top" secondItem="Ye7-lL-PD0" secondAttribute="top" constant="15" id="4LJ-4m-bgp"/>
-                                                <constraint firstItem="hS5-Om-yFt" firstAttribute="top" secondItem="Ye7-lL-PD0" secondAttribute="top" id="5B8-cO-dFn"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ccw-aE-svc" secondAttribute="trailing" constant="185" id="9so-2Q-DBi"/>
-                                                <constraint firstItem="Ccw-aE-svc" firstAttribute="leading" secondItem="Ye7-lL-PD0" secondAttribute="leading" constant="28" id="B1c-qG-oaU"/>
-                                                <constraint firstAttribute="trailing" secondItem="hS5-Om-yFt" secondAttribute="trailing" constant="5" id="N5o-xe-P8W"/>
-                                                <constraint firstItem="hS5-Om-yFt" firstAttribute="leading" secondItem="9qu-52-zw3" secondAttribute="trailing" constant="5" id="NXn-up-jPz"/>
+                                                <constraint firstAttribute="trailing" secondItem="RMh-Wi-QWv" secondAttribute="trailing" constant="10" id="42z-s0-bsW"/>
+                                                <constraint firstItem="9qu-52-zw3" firstAttribute="top" secondItem="Ccw-aE-svc" secondAttribute="bottom" constant="10" id="KRC-uX-NsG"/>
                                                 <constraint firstItem="Ccw-aE-svc" firstAttribute="centerX" secondItem="9qu-52-zw3" secondAttribute="centerX" id="SWC-Ma-Ea2"/>
-                                                <constraint firstAttribute="bottom" secondItem="9qu-52-zw3" secondAttribute="bottom" constant="35" id="Z7h-eU-Vje"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ccw-aE-svc" secondAttribute="bottom" id="dtU-Gv-lHb"/>
-                                                <constraint firstItem="hS5-Om-yFt" firstAttribute="centerY" secondItem="Ye7-lL-PD0" secondAttribute="centerY" id="fAI-sJ-TGG"/>
-                                                <constraint firstItem="9qu-52-zw3" firstAttribute="leading" secondItem="Ye7-lL-PD0" secondAttribute="leadingMargin" constant="20" id="jhL-PS-qC2"/>
-                                                <constraint firstItem="Ccw-aE-svc" firstAttribute="top" secondItem="9qu-52-zw3" secondAttribute="bottom" constant="10" id="w0O-qM-cKq"/>
+                                                <constraint firstItem="Ccw-aE-svc" firstAttribute="top" secondItem="Ye7-lL-PD0" secondAttribute="top" constant="10" id="Vhh-qL-3oY"/>
+                                                <constraint firstAttribute="bottom" secondItem="9qu-52-zw3" secondAttribute="bottom" constant="20" id="Z7h-eU-Vje"/>
+                                                <constraint firstItem="RMh-Wi-QWv" firstAttribute="top" secondItem="Ye7-lL-PD0" secondAttribute="top" constant="10" id="bBn-3R-uX5"/>
+                                                <constraint firstItem="9qu-52-zw3" firstAttribute="leading" secondItem="Ye7-lL-PD0" secondAttribute="leadingMargin" constant="10" id="jhL-PS-qC2"/>
+                                                <constraint firstAttribute="bottom" secondItem="RMh-Wi-QWv" secondAttribute="bottom" constant="10" id="lbK-b2-YQs"/>
+                                                <constraint firstItem="RMh-Wi-QWv" firstAttribute="leading" secondItem="9qu-52-zw3" secondAttribute="trailing" constant="10" id="qD7-fT-MqR"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="335" height="200"/>
                                         <connections>
                                             <outlet property="cityPropertyNameLabel" destination="Ccw-aE-svc" id="3Oa-Zs-LiY"/>
                                             <outlet property="progressBarView" destination="9qu-52-zw3" id="Wgc-p0-7kT"/>
@@ -101,15 +97,22 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwY-AJ-r8U">
+                                <rect key="frame" x="0.0" y="631" width="414" height="3"/>
+                                <color key="backgroundColor" name="MedBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="N54-gm-enq"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Cities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMl-1O-aft">
-                                <rect key="frame" x="20" y="640" width="174" height="36"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="20" y="641" width="184.5" height="35"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="30"/>
+                                <color key="textColor" name="DarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WwL-gZ-20c">
                                 <rect key="frame" x="20" y="676" width="374" height="130"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="OffWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="ZFA-1n-CJS"/>
                                 </constraints>
@@ -137,11 +140,18 @@
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzr-BY-wXJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
+                                                    <color key="backgroundColor" name="PaleBlue"/>
                                                     <string key="text">San Francisco,
 CA</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <color key="textColor" name="DarkBlue"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -169,25 +179,28 @@ CA</string>
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="90"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2d-nG-JLR">
-                                                <rect key="frame" x="0.0" y="0.0" width="34" height="27"/>
-                                                <state key="normal" title="Back"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="27"/>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                <state key="normal" title="Back">
+                                                    <color key="titleColor" name="MedBlue"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="backButtonPressed:" destination="6dv-8n-cwv" eventType="touchUpInside" id="xCU-p3-Vgn"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="JU5-ZB-vDD">
-                                                <rect key="frame" x="0.0" y="27" width="150.5" height="63"/>
+                                                <rect key="frame" x="0.0" y="27" width="141" height="63"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="City name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qen-Oz-npl">
-                                                        <rect key="frame" x="0.0" y="0.0" width="150.5" height="42.5"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                                                        <nil key="textColor"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="141" height="43"/>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="30"/>
+                                                        <color key="textColor" name="DarkBlue"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Population" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YC-J3-bhI">
-                                                        <rect key="frame" x="0.0" y="42.5" width="81" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <rect key="frame" x="0.0" y="43" width="81" height="20"/>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                        <color key="textColor" name="DarkBlue"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -202,7 +215,7 @@ CA</string>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79Q-YI-zcB">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <color key="backgroundColor" name="MedBlue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="KjA-N0-jOn"/>
                                                 </constraints>
@@ -222,7 +235,7 @@ CA</string>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwA-d9-XEJ">
                                                 <rect key="frame" x="0.0" y="50" width="40" height="40"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <color key="backgroundColor" name="MedBlue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="w1D-bH-fE2"/>
                                                 </constraints>
@@ -256,6 +269,7 @@ CA</string>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEm-Bi-W8O">
                                                 <rect key="frame" x="0.0" y="0.0" width="29.5" height="27"/>
+                                                <color key="tintColor" name="AccentGreen"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="house.fill" catalog="system" symbolScale="large"/>
                                                 </state>
@@ -265,6 +279,7 @@ CA</string>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vep-7p-PD8">
                                                 <rect key="frame" x="109.5" y="0.0" width="23.5" height="27"/>
+                                                <color key="tintColor" name="AccentGreen"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="pin.fill" catalog="system" symbolScale="large"/>
                                                 </state>
@@ -274,6 +289,7 @@ CA</string>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LN2-HR-YUw">
                                                 <rect key="frame" x="213" y="0.0" width="25.5" height="27"/>
+                                                <color key="tintColor" name="AccentGreen"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
                                                 </state>
@@ -284,7 +300,7 @@ CA</string>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="backgroundColor" name="PalestBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="D7B-bZ-iKB" secondAttribute="bottom" constant="30" id="7mS-93-6pz"/>
                                     <constraint firstItem="D7B-bZ-iKB" firstAttribute="centerX" secondItem="2JG-qF-5Pb" secondAttribute="centerX" id="qmL-KB-mlT"/>
@@ -293,17 +309,20 @@ CA</string>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xra-x5-JAS"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="OffWhite"/>
                         <constraints>
                             <constraint firstItem="2JG-qF-5Pb" firstAttribute="top" secondItem="WwL-gZ-20c" secondAttribute="bottom" constant="10" id="0oL-Up-yLy"/>
                             <constraint firstItem="2JG-qF-5Pb" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" id="26U-CZ-h5w"/>
                             <constraint firstItem="gMl-1O-aft" firstAttribute="top" secondItem="wgc-Vr-GdK" secondAttribute="bottom" constant="10" id="8Vf-Kg-wNo"/>
                             <constraint firstItem="wgc-Vr-GdK" firstAttribute="top" secondItem="X7s-TN-1Ht" secondAttribute="bottom" constant="20" id="A8d-Ix-T84"/>
+                            <constraint firstItem="gwY-AJ-r8U" firstAttribute="top" secondItem="wgc-Vr-GdK" secondAttribute="bottom" id="BB9-A9-60d"/>
                             <constraint firstItem="xra-x5-JAS" firstAttribute="trailing" secondItem="wgc-Vr-GdK" secondAttribute="trailing" constant="20" id="DJV-u9-Avz"/>
                             <constraint firstItem="X7s-TN-1Ht" firstAttribute="top" secondItem="xra-x5-JAS" secondAttribute="top" id="GfR-Ig-Wyd"/>
                             <constraint firstItem="xra-x5-JAS" firstAttribute="trailing" secondItem="X7s-TN-1Ht" secondAttribute="trailing" constant="20" id="Kfd-dl-Mhe"/>
+                            <constraint firstItem="xra-x5-JAS" firstAttribute="trailing" secondItem="gwY-AJ-r8U" secondAttribute="trailing" id="O1v-4H-qRb"/>
                             <constraint firstItem="WwL-gZ-20c" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" constant="20" id="TCn-tW-80O"/>
                             <constraint firstItem="xra-x5-JAS" firstAttribute="trailing" secondItem="WwL-gZ-20c" secondAttribute="trailing" constant="20" id="bLf-ff-Fxl"/>
+                            <constraint firstItem="gwY-AJ-r8U" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" id="eM9-q6-FQZ"/>
                             <constraint firstItem="X7s-TN-1Ht" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" constant="20" id="hlw-bZ-Du2"/>
                             <constraint firstItem="wgc-Vr-GdK" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" constant="20" id="lu0-ha-nt2"/>
                             <constraint firstItem="gMl-1O-aft" firstAttribute="leading" secondItem="xra-x5-JAS" secondAttribute="leading" constant="20" id="mi1-W8-Cqf"/>
@@ -343,15 +362,24 @@ CA</string>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="pin" catalog="system" width="119" height="128"/>
         <image name="pin.fill" catalog="system" width="119" height="128"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="AccentGreen">
+            <color red="0.29019607843137252" green="0.47843137254901957" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DarkBlue">
+            <color red="0.062745098039215685" green="0.27058823529411763" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MedBlue">
+            <color red="0.058823529411764705" green="0.37254901960784315" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="OffWhite">
+            <color red="0.96470588235294119" green="0.95686274509803915" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PaleBlue">
+            <color red="0.84313725490196079" green="0.89411764705882346" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PalestBlue">
+            <color red="0.89411764705882346" green="0.92941176470588238" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

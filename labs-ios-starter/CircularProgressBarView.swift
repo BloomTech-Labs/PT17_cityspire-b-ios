@@ -42,7 +42,7 @@ class CircularProgressBarView: UIView {
 
         untrackedProgressLayer.path = circlePath.cgPath
         untrackedProgressLayer.fillColor = UIColor.clear.cgColor
-        untrackedProgressLayer.strokeColor = UIColor.gray.cgColor
+        untrackedProgressLayer.strokeColor = UIColor(named: "PaleBlue")?.cgColor
         untrackedProgressLayer.lineWidth = 16.0
         untrackedProgressLayer.strokeEnd = 1.0
         layer.addSublayer(untrackedProgressLayer)
@@ -61,15 +61,15 @@ class CircularProgressBarView: UIView {
         animation.duration = duration
         animation.fromValue = 0
         if value <= 0.05 {
-            trackedProgressLayer.strokeColor = UIColor.systemRed.cgColor
+            trackedProgressLayer.strokeColor = UIColor(named: "Green1")?.cgColor
         } else if value > 0.05 && value <= 0.3 {
-            trackedProgressLayer.strokeColor = UIColor.systemOrange.cgColor
+            trackedProgressLayer.strokeColor = UIColor(named: "Green2")?.cgColor
         } else if value > 0.3 && value <= 0.5 {
-            trackedProgressLayer.strokeColor = UIColor.systemYellow.cgColor
+            trackedProgressLayer.strokeColor = UIColor(named: "Green3")?.cgColor
         } else if value > 0.5 && value <= 0.75 {
-            trackedProgressLayer.strokeColor = UIColor.systemGreen.cgColor
+            trackedProgressLayer.strokeColor = UIColor(named: "Green4")?.cgColor
         } else if value > 0.75 && value <= 1 {
-            trackedProgressLayer.strokeColor = UIColor.green.cgColor
+            trackedProgressLayer.strokeColor = UIColor(named: "Green5")?.cgColor
         }
         animation.toValue = value
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
