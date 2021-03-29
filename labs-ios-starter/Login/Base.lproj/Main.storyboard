@@ -20,10 +20,17 @@
                                 <rect key="frame" x="-389.5" y="-6" width="1193" height="918"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXo-da-Z8S">
-                                <rect key="frame" x="343" y="790" width="21" height="22"/>
+                                <rect key="frame" x="330" y="778" width="34" height="34"/>
+                                <color key="backgroundColor" name="LightBlue"/>
                                 <accessibility key="accessibilityConfiguration" identifier="skipOkta"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
+                                <state key="normal" title="Test">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="testButtonTapped:" destination="4a7-cC-Xlp" eventType="touchUpInside" id="pOZ-2a-220"/>
+                                    <segue destination="5br-8Y-TMp" kind="show" identifier="TestButtonTapped" id="MwA-Bd-plw"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZg-hJ-jsp">
                                 <rect key="frame" x="0.0" y="-6" width="414" height="360"/>
@@ -103,6 +110,7 @@ city information.</string>
                     <navigationItem key="navigationItem" title="ProfileViewer" id="fm5-ES-PwH"/>
                     <connections>
                         <outlet property="logo" destination="41U-LN-ghq" id="bEM-EL-2GC"/>
+                        <outlet property="testButton" destination="mXo-da-Z8S" id="RQL-Nq-ZcD"/>
                         <segue destination="5br-8Y-TMp" kind="presentation" identifier="toHomeScreen" modalPresentationStyle="fullScreen" id="Ykv-BY-Xzm"/>
                     </connections>
                 </viewController>
@@ -113,12 +121,17 @@ city information.</string>
         <!--HomeScreen-->
         <scene sceneID="Yvt-GX-jNl">
             <objects>
-                <viewControllerPlaceholder storyboardName="HomeScreen" id="5br-8Y-TMp" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="HomeScreen" id="5br-8Y-TMp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iT2-Zu-426"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iaP-en-d3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2265" y="84"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MwA-Bd-plw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="BlueMap" width="1193" height="1788"/>
         <image name="Cities" width="500" height="100"/>
@@ -126,6 +139,8 @@ city information.</string>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <namedColor name="DarkishBlue">
             <color red="0.19200000166893005" green="0.40000000596046448" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="LightBlue">
+            <color red="0.043000001460313797" green="0.47499999403953552" blue="0.85100001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MedBlue">
             <color red="0.059000000357627869" green="0.37299999594688416" blue="0.65100002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

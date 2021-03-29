@@ -10,6 +10,7 @@ import UIKit
 import OktaAuth
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var testButton: UIButton!
     
     @IBOutlet private var logo: UIImageView!
     
@@ -36,6 +37,10 @@ class LoginViewController: UIViewController {
     
     @IBAction func signIn(_ sender: Any) {
         UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
+    }
+    
+    @IBAction func testButtonTapped(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "TestButtonTapped", sender: nil)
     }
     
     // MARK: - Private Methods

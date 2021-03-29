@@ -132,6 +132,7 @@ CA</string>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oum-9I-ajR">
                                                 <rect key="frame" x="0.0" y="0.0" width="29.5" height="27"/>
                                                 <color key="tintColor" name="MedBlue"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="homeButton"/>
                                                 <state key="normal" image="house.fill" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                 </state>
@@ -139,6 +140,7 @@ CA</string>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsl-0P-NZi">
                                                 <rect key="frame" x="109.5" y="0.0" width="23.5" height="27"/>
                                                 <color key="tintColor" name="AccentGreen"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="pinnedList"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="pin.fill" catalog="system" symbolScale="large"/>
                                                 </state>
