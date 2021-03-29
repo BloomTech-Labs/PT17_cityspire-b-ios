@@ -21,13 +21,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinned Cities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20Q-gm-Sg9">
-                                <rect key="frame" x="20" y="64" width="191.5" height="41"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="20" y="64" width="209" height="39.5"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="34"/>
+                                <color key="textColor" name="DarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Ce-gk-cqj">
-                                <rect key="frame" x="0.0" y="349" width="414" height="457"/>
+                                <rect key="frame" x="0.0" y="367.5" width="414" height="438.5"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N8d-Jz-nGY">
                                     <size key="itemSize" width="414" height="232"/>
@@ -49,13 +49,14 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jT-R8-b6T">
                                                             <rect key="frame" x="0.0" y="0.0" width="354.5" height="100"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="cityLabel"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="28"/>
                                                             <color key="textColor" name="DarkBlue"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hj-Vw-4aT">
                                                             <rect key="frame" x="354.5" y="0.0" width="39.5" height="100"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="favoriteButton"/>
+                                                            <color key="tintColor" name="MedBlue"/>
                                                             <state key="normal" image="pin.slash.fill" catalog="system"/>
                                                         </button>
                                                     </subviews>
@@ -64,7 +65,7 @@
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" name="PalestBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="NZJ-Gy-RMc" secondAttribute="trailing" constant="10" id="4Kj-jt-qFQ"/>
                                                 <constraint firstItem="NZJ-Gy-RMc" firstAttribute="top" secondItem="bSG-nU-HTw" secondAttribute="top" id="6jK-sz-th7"/>
@@ -84,8 +85,12 @@
                                     <outlet property="delegate" destination="fhG-KI-gxj" id="XKv-Pz-GOU"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xf7-xf-J7e">
+                                <rect key="frame" x="15" y="118.5" width="384" height="234"/>
+                                <color key="backgroundColor" name="AccentGreen"/>
+                            </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="atX-ce-iZz">
-                                <rect key="frame" x="0.0" y="115" width="414" height="224"/>
+                                <rect key="frame" x="20" y="123.5" width="374" height="224"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnn-GI-Lwu">
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
@@ -95,6 +100,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDr-Mr-tW1">
                                                 <rect key="frame" x="0.0" y="0.0" width="29.5" height="27"/>
+                                                <color key="tintColor" name="AccentGreen"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="house.fill" catalog="system" symbolScale="large"/>
                                                 </state>
@@ -104,12 +110,14 @@
                                             </button>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2e-pU-F0u">
                                                 <rect key="frame" x="109.5" y="0.0" width="23.5" height="27"/>
+                                                <color key="tintColor" name="MedBlue"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="pin.fill" catalog="system" symbolScale="large"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vP-jb-Hg8">
                                                 <rect key="frame" x="213" y="0.0" width="25.5" height="27"/>
+                                                <color key="tintColor" name="AccentGreen"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
                                                 </state>
@@ -120,7 +128,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="backgroundColor" name="PalestBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="LTA-DA-HDd"/>
                                     <constraint firstItem="lmC-uV-KKu" firstAttribute="centerX" secondItem="pnn-GI-Lwu" secondAttribute="centerX" id="OtW-M0-W3y"/>
@@ -129,20 +137,24 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AhX-OJ-OTO"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="OffWhite"/>
                         <constraints>
+                            <constraint firstItem="xf7-xf-J7e" firstAttribute="width" secondItem="atX-ce-iZz" secondAttribute="width" constant="10" id="7UZ-p1-6wZ"/>
                             <constraint firstItem="AhX-OJ-OTO" firstAttribute="trailing" secondItem="5Ce-gk-cqj" secondAttribute="trailing" id="7sB-O2-XPB"/>
                             <constraint firstItem="pnn-GI-Lwu" firstAttribute="top" secondItem="5Ce-gk-cqj" secondAttribute="bottom" constant="10" id="8No-MO-rdz"/>
                             <constraint firstItem="5Ce-gk-cqj" firstAttribute="leading" secondItem="AhX-OJ-OTO" secondAttribute="leading" id="HdI-9n-ter"/>
+                            <constraint firstItem="xf7-xf-J7e" firstAttribute="height" secondItem="atX-ce-iZz" secondAttribute="height" constant="10" id="P8B-ej-cgY"/>
                             <constraint firstItem="AhX-OJ-OTO" firstAttribute="trailing" secondItem="pnn-GI-Lwu" secondAttribute="trailing" id="P9A-uf-vFi"/>
-                            <constraint firstItem="atX-ce-iZz" firstAttribute="trailing" secondItem="AhX-OJ-OTO" secondAttribute="trailing" id="Ver-de-SqX"/>
+                            <constraint firstItem="atX-ce-iZz" firstAttribute="trailing" secondItem="AhX-OJ-OTO" secondAttribute="trailing" constant="-20" id="Ver-de-SqX"/>
                             <constraint firstItem="atX-ce-iZz" firstAttribute="height" secondItem="6Pg-Lc-WNU" secondAttribute="height" multiplier="0.25" id="a59-Gv-ONc"/>
+                            <constraint firstItem="xf7-xf-J7e" firstAttribute="centerX" secondItem="atX-ce-iZz" secondAttribute="centerX" id="byD-7o-sBn"/>
                             <constraint firstItem="pnn-GI-Lwu" firstAttribute="leading" secondItem="AhX-OJ-OTO" secondAttribute="leading" id="dBW-2k-two"/>
-                            <constraint firstItem="5Ce-gk-cqj" firstAttribute="top" secondItem="atX-ce-iZz" secondAttribute="bottom" constant="10" id="e2P-zL-hda"/>
+                            <constraint firstItem="5Ce-gk-cqj" firstAttribute="top" secondItem="atX-ce-iZz" secondAttribute="bottom" constant="20" id="e2P-zL-hda"/>
                             <constraint firstItem="20Q-gm-Sg9" firstAttribute="leading" secondItem="AhX-OJ-OTO" secondAttribute="leading" constant="20" id="eN8-fa-s9y"/>
                             <constraint firstAttribute="bottom" secondItem="pnn-GI-Lwu" secondAttribute="bottom" id="fVF-iR-1F6"/>
-                            <constraint firstItem="atX-ce-iZz" firstAttribute="leading" secondItem="AhX-OJ-OTO" secondAttribute="leading" id="hWg-1b-Jmr"/>
-                            <constraint firstItem="atX-ce-iZz" firstAttribute="top" secondItem="20Q-gm-Sg9" secondAttribute="bottom" constant="10" id="koL-2T-7cA"/>
+                            <constraint firstItem="atX-ce-iZz" firstAttribute="leading" secondItem="AhX-OJ-OTO" secondAttribute="leading" constant="20" id="hWg-1b-Jmr"/>
+                            <constraint firstItem="atX-ce-iZz" firstAttribute="top" secondItem="20Q-gm-Sg9" secondAttribute="bottom" constant="20" id="koL-2T-7cA"/>
+                            <constraint firstItem="xf7-xf-J7e" firstAttribute="centerY" secondItem="atX-ce-iZz" secondAttribute="centerY" id="nnf-S4-FLr"/>
                             <constraint firstItem="20Q-gm-Sg9" firstAttribute="top" secondItem="AhX-OJ-OTO" secondAttribute="top" constant="20" id="xoZ-1c-9PP"/>
                         </constraints>
                     </view>
@@ -170,16 +182,22 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="pin.fill" catalog="system" width="119" height="128"/>
         <image name="pin.slash.fill" catalog="system" width="116" height="128"/>
+        <namedColor name="AccentGreen">
+            <color red="0.29019607843137252" green="0.47843137254901957" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="DarkBlue">
-            <color red="0.063000001013278961" green="0.27099999785423279" blue="0.45100000500679016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.062745098039215685" green="0.27058823529411763" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MedBlue">
+            <color red="0.058823529411764705" green="0.37254901960784315" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="OffWhite">
+            <color red="0.96470588235294119" green="0.95686274509803915" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PalestBlue">
+            <color red="0.89411764705882346" green="0.92941176470588238" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>

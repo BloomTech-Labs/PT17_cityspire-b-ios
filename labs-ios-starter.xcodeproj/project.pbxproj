@@ -165,14 +165,14 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
-		465DAA2724BD0BC100D94C24 /* App Lifecycle */ = {
+		465DAA2724BD0BC100D94C24 /* AppLifecycle */ = {
 			isa = PBXGroup;
 			children = (
 				466C4273249A8748007D033E /* AppDelegate.swift */,
 				466C4275249A8748007D033E /* SceneDelegate.swift */,
 				466C427E249A8749007D033E /* LaunchScreen.storyboard */,
 			);
-			path = "App Lifecycle";
+			path = AppLifecycle;
 			sourceTree = "<group>";
 		};
 		466C4267249A8748007D033E = {
@@ -204,7 +204,7 @@
 				C3BEDE8725C2723D006BF31A /* MapScreen */,
 				C3BEDE8825C27249006BF31A /* Favorites */,
 				46BEB4EA24C98EA300FE0CD1 /* Helpers */,
-				465DAA2724BD0BC100D94C24 /* App Lifecycle */,
+				465DAA2724BD0BC100D94C24 /* AppLifecycle */,
 				466C427C249A8749007D033E /* Assets.xcassets */,
 				466C4281249A8749007D033E /* Info.plist */,
 				C380305425E4C2F400CB8B60 /* CitySpire.xcdatamodeld */,

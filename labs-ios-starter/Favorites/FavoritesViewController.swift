@@ -138,6 +138,7 @@ extension FavoritesViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let fav = annotation as? FavAnnotation else { return nil }
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: ReuseIdentifier.favAnnotation, for: fav) as! MKMarkerAnnotationView
+        annotationView.markerTintColor = UIColor(named: "DarkAccentGreen")
         annotationView.titleVisibility = .hidden
         annotationView.displayPriority = .required
         annotationView.canShowCallout = true

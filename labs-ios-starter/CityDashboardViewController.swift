@@ -227,8 +227,6 @@ extension CityDashboardViewController: UICollectionViewDataSource, UICollectionV
             if let city = currentCity?.recommendations[indexPath.item] {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.homeScreenCell, for: indexPath) as! HomeScreenCollectionViewCell
                 cell.city = city
-                cell.layer.borderWidth = 3
-                cell.layer.borderColor = UIColor.black.cgColor
                 return cell
             }
         }

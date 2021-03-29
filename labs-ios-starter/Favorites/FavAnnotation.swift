@@ -30,15 +30,27 @@ class FavDetailView: UIView {
     }
     
     private let nameLabel = UILabel()
+    private let background = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        background.backgroundColor = UIColor(named: "PaleBlue")
+        background.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(background)
+        background.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        background.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        background.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        background.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(nameLabel)
-        nameLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        nameLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        nameLabel.textColor = UIColor(named: "DarkBlue")
+        nameLabel.font = UIFont(name: "TrebuchetMS", size: 16)
+        background.addSubview(nameLabel)
+        nameLabel.leftAnchor.constraint(equalTo: background.leftAnchor, constant: 10).isActive = true
+        nameLabel.rightAnchor.constraint(equalTo: background.rightAnchor, constant: -10).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: background.topAnchor, constant: 10).isActive = true
+        nameLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -10).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
