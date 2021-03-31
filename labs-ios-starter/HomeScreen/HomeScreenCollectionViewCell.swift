@@ -13,6 +13,8 @@ class HomeScreenCollectionViewCell: UICollectionViewCell {
     // MARK: - Outlets
     
     @IBOutlet private var cityLabel: UILabel!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var background: UIView!
     
     // MARK: - Properties
     
@@ -27,6 +29,9 @@ class HomeScreenCollectionViewCell: UICollectionViewCell {
     private func updateViews() {
         guard let city = city else { return }
         cityLabel.text = city.city + ",\n" + city.state
+        imageView.image = UIImage(named: city.state)
+        background.layer.borderWidth = 1
+        background.layer.borderColor = UIColor(named: "DarkishBlue")?.cgColor
     }
     
 }

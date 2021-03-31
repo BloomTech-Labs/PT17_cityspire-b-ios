@@ -220,6 +220,9 @@ extension CityDashboardViewController: UICollectionViewDataSource, UICollectionV
             cell.cityPropertyNameLabel.text = propertyData[indexPath.item].propertyLabel
             cell.propertyValueLabel.text = propertyData[indexPath.item].valueLabel
             cell.progressBarView.setTrackedProgressWithAnimation(duration: 1.0, value: propertyData[indexPath.item].percentage)
+            cell.layer.cornerRadius = 15
+            cell.layer.borderColor = UIColor(named: "DarkishBlue")?.cgColor
+            cell.layer.borderWidth = 1
             return cell
         }
         

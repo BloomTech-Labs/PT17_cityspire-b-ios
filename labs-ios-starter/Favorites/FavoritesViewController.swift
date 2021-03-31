@@ -100,6 +100,8 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.favoriteButton.tag = indexPath.row
         cell.favoriteButton.addTarget(self, action: #selector(buttonClicked), for: UIControl.Event.touchUpInside)
         cell.cityTitleLabel.text = favorites![indexPath.row].cityName! + ", " + favorites![indexPath.row].stateName!
+        cell.background.layer.borderColor = UIColor(named: "DarkishBlue")?.cgColor
+        cell.background.layer.borderWidth = 1
         return cell
     }
 

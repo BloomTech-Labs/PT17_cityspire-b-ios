@@ -20,6 +20,7 @@ class HomeScreenViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet private var collectionView: UICollectionView!
+    @IBOutlet private var logo: UIImageView!
     @IBOutlet private var searchBar: UISearchBar!
     
     // MARK: - Properties
@@ -67,8 +68,12 @@ class HomeScreenViewController: UIViewController {
     
     private func updateViews() {
         fetchTopCities()
+        logo.layer.shadowColor = UIColor(named: "OffWhite")?.cgColor
+        logo.layer.shadowOpacity = 1
+        logo.layer.shadowOffset = CGSize(width: 2, height: 2)
         searchBar.searchTextField.backgroundColor = UIColor(named: "PalestBlue")
         searchBar.searchTextField.textColor = UIColor(named: "DarkBlue")
+        searchBar.searchTextField.font = UIFont(name: "TrebuchetMS", size: 16)
     }
     
     private func fetchTopCities() {

@@ -95,6 +95,8 @@ class MapViewController: UIViewController {
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: true)
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: ReuseIdentifier.poiAnnotation)
+        pickerView.layer.borderColor = UIColor(named: "DarkishBlue")?.cgColor
+        pickerView.layer.borderWidth = 1
     }
     
     private func requestPointsOfInterest(category: POICategory) {
@@ -156,7 +158,7 @@ extension MapViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
-        pickerLabel.font = UIFont(name: "TrebuchetMS", size: 18)
+        pickerLabel.font = UIFont(name: "TrebuchetMS-Bold", size: 18)
         pickerLabel.textAlignment = .center
         pickerLabel.text = categories.cats[row].plural
         pickerLabel.textColor = UIColor(named: "DarkBlue")
