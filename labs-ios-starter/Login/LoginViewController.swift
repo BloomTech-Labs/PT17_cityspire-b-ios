@@ -11,11 +11,15 @@ import OktaAuth
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet private var logo: UIImageView!
+    
     let profileController = ProfileController.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        logo.layer.shadowColor = UIColor(named: "OffWhite")?.cgColor
+        logo.layer.shadowOpacity = 1
+        logo.layer.shadowOffset = CGSize(width: 2, height: 2)
         NotificationCenter.default.addObserver(forName: .oktaAuthenticationSuccessful,
                                                object: nil,
                                                queue: .main,

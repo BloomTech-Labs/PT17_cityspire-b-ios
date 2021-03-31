@@ -42,8 +42,8 @@ class CircularProgressBarView: UIView {
 
         untrackedProgressLayer.path = circlePath.cgPath
         untrackedProgressLayer.fillColor = UIColor.clear.cgColor
-        untrackedProgressLayer.strokeColor = UIColor(named: "PaleBlue")?.cgColor
-        untrackedProgressLayer.lineWidth = 16.0
+        untrackedProgressLayer.strokeColor = UIColor(named: "PalestBlue")?.cgColor
+        untrackedProgressLayer.lineWidth = 20.0
         untrackedProgressLayer.strokeEnd = 1.0
         layer.addSublayer(untrackedProgressLayer)
         
@@ -51,7 +51,7 @@ class CircularProgressBarView: UIView {
         trackedProgressLayer.fillColor = UIColor.clear.cgColor
         trackedProgressLayer.strokeColor = trackedProgressColor.cgColor
         trackedProgressLayer.lineCap = .round
-        trackedProgressLayer.lineWidth = 16.0
+        trackedProgressLayer.lineWidth = 20.0
         trackedProgressLayer.strokeEnd = 1.0
         layer.addSublayer(trackedProgressLayer)
     }
@@ -60,17 +60,7 @@ class CircularProgressBarView: UIView {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
         animation.fromValue = 0
-        if value <= 0.05 {
-            trackedProgressLayer.strokeColor = UIColor(named: "Green1")?.cgColor
-        } else if value > 0.05 && value <= 0.3 {
-            trackedProgressLayer.strokeColor = UIColor(named: "Green2")?.cgColor
-        } else if value > 0.3 && value <= 0.5 {
-            trackedProgressLayer.strokeColor = UIColor(named: "Green3")?.cgColor
-        } else if value > 0.5 && value <= 0.75 {
-            trackedProgressLayer.strokeColor = UIColor(named: "Green4")?.cgColor
-        } else if value > 0.75 && value <= 1 {
-            trackedProgressLayer.strokeColor = UIColor(named: "Green5")?.cgColor
-        }
+        trackedProgressLayer.strokeColor = UIColor(named: "LightBlue")?.cgColor
         animation.toValue = value
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         trackedProgressLayer.strokeEnd = CGFloat(value)

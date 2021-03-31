@@ -16,5 +16,6 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var cityTitleLabel: UILabel!
     @IBOutlet var favoriteButton: UIButton!
+    @IBOutlet var background: UIView!
     
 }
