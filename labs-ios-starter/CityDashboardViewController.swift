@@ -156,6 +156,9 @@ class CityDashboardViewController: UIViewController {
         }
     }
     
+    /// Finds the city values of the current city selected in the city dashboard.
+    /// Converts values Int or String to a float value to use as an endpoint in the circular progress bar.
+    /// Appends the value to the property data array, which is used to populate the city property collection view cell.
     private func getPropertyData() {
         guard let city = currentCity else { return }
         

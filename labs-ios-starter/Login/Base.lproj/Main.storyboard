@@ -19,12 +19,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueMap" translatesAutoresizingMaskIntoConstraints="NO" id="xzo-hQ-MMT">
                                 <rect key="frame" x="-389.5" y="-6" width="1193" height="918"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXo-da-Z8S">
-                                <rect key="frame" x="343" y="790" width="21" height="22"/>
-                                <accessibility key="accessibilityConfiguration" identifier="skipOkta"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZg-hJ-jsp">
                                 <rect key="frame" x="0.0" y="-6" width="414" height="360"/>
                                 <subviews>
@@ -61,18 +55,12 @@ city information.</string>
                                     <constraint firstAttribute="height" constant="360" id="j3v-gI-51b"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rE-Kz-bu3">
-                                <rect key="frame" x="343" y="832" width="51" height="30"/>
-                                <color key="tintColor" name="MedBlue"/>
-                                <state key="normal" title="To Map"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQk-Xf-had" customClass="StyledButton" customModule="labs_ios_starter" customModuleProvider="target">
-                                <rect key="frame" x="137" y="525" width="140" height="46"/>
+                                <rect key="frame" x="180.5" y="525" width="53" height="46"/>
                                 <color key="backgroundColor" name="DarkishBlue"/>
                                 <accessibility key="accessibilityConfiguration" identifier="signInButton" label="Sign in button"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="3fw-FJ-fCN"/>
-                                    <constraint firstAttribute="width" constant="140" id="Kte-k8-DRJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
                                 <state key="normal" title="Sign in">
@@ -82,20 +70,35 @@ city information.</string>
                                     <action selector="signIn:" destination="4a7-cC-Xlp" eventType="touchUpInside" id="qez-xn-3z4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXo-da-Z8S">
+                                <rect key="frame" x="166" y="387" width="82" height="38"/>
+                                <color key="backgroundColor" name="LightBlue"/>
+                                <accessibility key="accessibilityConfiguration" identifier="skipOkta"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="LkD-z4-OTP"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Test">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="testButtonTapped:" destination="4a7-cC-Xlp" eventType="touchUpInside" id="pOZ-2a-220"/>
+                                    <segue destination="5br-8Y-TMp" kind="presentation" identifier="TestButtonTapped" modalPresentationStyle="fullScreen" id="MwA-Bd-plw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R8l-LV-vJe"/>
                         <color key="backgroundColor" name="OffWhite"/>
                         <constraints>
                             <constraint firstItem="CQk-Xf-had" firstAttribute="centerY" secondItem="INU-fS-Snd" secondAttribute="centerY" constant="100" id="5ST-Ol-s9J"/>
+                            <constraint firstItem="mXo-da-Z8S" firstAttribute="leading" secondItem="R8l-LV-vJe" secondAttribute="leading" constant="166" id="6iG-8x-arb"/>
+                            <constraint firstItem="mXo-da-Z8S" firstAttribute="top" secondItem="lZg-hJ-jsp" secondAttribute="bottom" constant="33" id="Bx0-tZ-y7e"/>
                             <constraint firstItem="R8l-LV-vJe" firstAttribute="bottom" secondItem="xzo-hQ-MMT" secondAttribute="bottom" constant="-50" id="Inq-xV-Pfh"/>
                             <constraint firstItem="CQk-Xf-had" firstAttribute="centerX" secondItem="INU-fS-Snd" secondAttribute="centerX" id="MBI-zP-DgD"/>
-                            <constraint firstItem="R8l-LV-vJe" firstAttribute="trailing" secondItem="1rE-Kz-bu3" secondAttribute="trailing" constant="20" id="RNt-tz-aKz"/>
-                            <constraint firstItem="R8l-LV-vJe" firstAttribute="bottom" secondItem="mXo-da-Z8S" secondAttribute="bottom" constant="50" id="Wc3-VK-D5X"/>
+                            <constraint firstItem="R8l-LV-vJe" firstAttribute="trailing" secondItem="mXo-da-Z8S" secondAttribute="trailing" constant="166" id="T3P-jU-g5x"/>
                             <constraint firstItem="xzo-hQ-MMT" firstAttribute="top" secondItem="R8l-LV-vJe" secondAttribute="top" constant="-50" id="d0s-Nl-Tci"/>
                             <constraint firstItem="xzo-hQ-MMT" firstAttribute="centerX" secondItem="INU-fS-Snd" secondAttribute="centerX" id="eRX-kj-4J5"/>
-                            <constraint firstItem="R8l-LV-vJe" firstAttribute="trailing" secondItem="mXo-da-Z8S" secondAttribute="trailing" constant="50" id="eWr-Fb-o2F"/>
                             <constraint firstItem="lZg-hJ-jsp" firstAttribute="leading" secondItem="R8l-LV-vJe" secondAttribute="leading" id="h1S-ux-aUa"/>
-                            <constraint firstItem="1rE-Kz-bu3" firstAttribute="bottom" secondItem="R8l-LV-vJe" secondAttribute="bottom" id="jrM-mS-IVc"/>
                             <constraint firstItem="R8l-LV-vJe" firstAttribute="trailing" secondItem="lZg-hJ-jsp" secondAttribute="trailing" id="lRY-p4-PqP"/>
                             <constraint firstItem="lZg-hJ-jsp" firstAttribute="top" secondItem="R8l-LV-vJe" secondAttribute="top" constant="-50" id="vIF-CY-uKf"/>
                         </constraints>
@@ -103,6 +106,7 @@ city information.</string>
                     <navigationItem key="navigationItem" title="ProfileViewer" id="fm5-ES-PwH"/>
                     <connections>
                         <outlet property="logo" destination="41U-LN-ghq" id="bEM-EL-2GC"/>
+                        <outlet property="testButton" destination="mXo-da-Z8S" id="RQL-Nq-ZcD"/>
                         <segue destination="5br-8Y-TMp" kind="presentation" identifier="toHomeScreen" modalPresentationStyle="fullScreen" id="Ykv-BY-Xzm"/>
                     </connections>
                 </viewController>
@@ -113,22 +117,26 @@ city information.</string>
         <!--HomeScreen-->
         <scene sceneID="Yvt-GX-jNl">
             <objects>
-                <viewControllerPlaceholder storyboardName="HomeScreen" id="5br-8Y-TMp" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="HomeScreen" id="5br-8Y-TMp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iT2-Zu-426"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iaP-en-d3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2265" y="84"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MwA-Bd-plw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="BlueMap" width="1193" height="1788"/>
         <image name="Cities" width="500" height="100"/>
         <image name="CitySpireLogo-Light" width="234" height="66"/>
-        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <namedColor name="DarkishBlue">
             <color red="0.19200000166893005" green="0.40000000596046448" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="MedBlue">
-            <color red="0.059000000357627869" green="0.37299999594688416" blue="0.65100002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="LightBlue">
+            <color red="0.31000000238418579" green="0.48199999332427979" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="OffWhite">
             <color red="0.9649999737739563" green="0.9570000171661377" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

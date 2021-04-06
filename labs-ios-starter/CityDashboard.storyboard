@@ -75,6 +75,7 @@
                                                     <rect key="frame" x="25.5" y="10" width="125" height="40"/>
                                                     <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
                                                     <color key="textColor" name="DarkBlue"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="City Property"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -216,6 +217,7 @@ CA</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="141" height="43"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="30"/>
                                                         <color key="textColor" name="OffWhite"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="City name"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Population" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YC-J3-bhI">
@@ -234,9 +236,12 @@ CA</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P25-Id-cVF">
                                         <rect key="frame" x="334" y="0.0" width="40" height="90"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79Q-YI-zcB">
+                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79Q-YI-zcB">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <color key="backgroundColor" name="OffWhite"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="PinnedButton">
+                                                    <accessibilityTraits key="traits" button="YES"/>
+                                                </accessibility>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="KjA-N0-jOn"/>
                                                 </constraints>
@@ -291,6 +296,7 @@ CA</string>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEm-Bi-W8O">
                                                 <rect key="frame" x="0.0" y="0.0" width="29.5" height="27"/>
                                                 <color key="tintColor" name="AccentGreen"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="homeButton"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="house.fill" catalog="system" symbolScale="large"/>
                                                 </state>
@@ -301,6 +307,7 @@ CA</string>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vep-7p-PD8">
                                                 <rect key="frame" x="109.5" y="0.0" width="23.5" height="27"/>
                                                 <color key="tintColor" name="AccentGreen"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="pinnedList"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="pin.fill" catalog="system" symbolScale="large"/>
                                                 </state>

@@ -10,6 +10,7 @@
 		112570D726058C750016480A /* CityDashboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112570D626058C750016480A /* CityDashboardCollectionViewCell.swift */; };
 		112570DB2605A1F40016480A /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112570DA2605A1F40016480A /* CircularProgressBarView.swift */; };
 		1178448526093EA800155C57 /* SimilarCityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1178448426093EA800155C57 /* SimilarCityCollectionViewCell.swift */; };
+		1182A749260D850800FCE525 /* UserProfileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A748260D850800FCE525 /* UserProfileUITests.swift */; };
 		11A646452602DF890004CF5D /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A646442602DF890004CF5D /* City.swift */; };
 		11A646542602E12A0004CF5D /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A646532602E12A0004CF5D /* ApiController.swift */; };
 		11A6465E2602E4400004CF5D /* CityDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A6465D2602E4400004CF5D /* CityDashboardViewController.swift */; };
@@ -49,10 +50,6 @@
 		C3BEDE8D25C2728D006BF31A /* MapScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3BEDE8C25C2728D006BF31A /* MapScreen.storyboard */; };
 		C3BEDE9025C272A0006BF31A /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3BEDE8F25C272A0006BF31A /* Favorites.storyboard */; };
 		C3BEDE9925C2733B006BF31A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEDE9825C2733B006BF31A /* FavoritesViewController.swift */; };
-		F33B8B8A25E4C9020057A1E5 /* LoginScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B8B8925E4C9020057A1E5 /* LoginScreenTests.swift */; };
-		F33B8B8E25E4CBDD0057A1E5 /* SearchScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B8B8D25E4CBDD0057A1E5 /* SearchScreenTests.swift */; };
-		F33B8BA125E5FED00057A1E5 /* MapScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B8BA025E5FED00057A1E5 /* MapScreenUITests.swift */; };
-		F33B8BA725E6113D0057A1E5 /* FavoritesScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B8BA625E6113D0057A1E5 /* FavoritesScreenTests.swift */; };
 		F35C107C25C78949000AA795 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35C107B25C78949000AA795 /* Colors.xcassets */; };
 		F363987C25CEEA53008C5102 /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F363987B25CEEA53008C5102 /* StyledButton.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +68,7 @@
 		112570D626058C750016480A /* CityDashboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDashboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		112570DA2605A1F40016480A /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		1178448426093EA800155C57 /* SimilarCityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarCityCollectionViewCell.swift; sourceTree = "<group>"; };
+		1182A748260D850800FCE525 /* UserProfileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileUITests.swift; sourceTree = "<group>"; };
 		11A646442602DF890004CF5D /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		11A646532602E12A0004CF5D /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		11A6465D2602E4400004CF5D /* CityDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDashboardViewController.swift; sourceTree = "<group>"; };
@@ -114,10 +112,6 @@
 		C3BEDE9825C2733B006BF31A /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F33B8B6025E4C6820057A1E5 /* labs-ios-starterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "labs-ios-starterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33B8B6425E4C6820057A1E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F33B8B8925E4C9020057A1E5 /* LoginScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenTests.swift; sourceTree = "<group>"; };
-		F33B8B8D25E4CBDD0057A1E5 /* SearchScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenTests.swift; sourceTree = "<group>"; };
-		F33B8BA025E5FED00057A1E5 /* MapScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenUITests.swift; sourceTree = "<group>"; };
-		F33B8BA625E6113D0057A1E5 /* FavoritesScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenTests.swift; sourceTree = "<group>"; };
 		F35C107B25C78949000AA795 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F363987B25CEEA53008C5102 /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,10 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				F33B8B6425E4C6820057A1E5 /* Info.plist */,
-				F33B8B8925E4C9020057A1E5 /* LoginScreenTests.swift */,
-				F33B8B8D25E4CBDD0057A1E5 /* SearchScreenTests.swift */,
-				F33B8BA025E5FED00057A1E5 /* MapScreenUITests.swift */,
-				F33B8BA625E6113D0057A1E5 /* FavoritesScreenTests.swift */,
+				1182A748260D850800FCE525 /* UserProfileUITests.swift */,
 			);
 			path = "labs-ios-starterUITests";
 			sourceTree = "<group>";
@@ -450,10 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F33B8B8A25E4C9020057A1E5 /* LoginScreenTests.swift in Sources */,
-				F33B8B8E25E4CBDD0057A1E5 /* SearchScreenTests.swift in Sources */,
-				F33B8BA125E5FED00057A1E5 /* MapScreenUITests.swift in Sources */,
-				F33B8BA725E6113D0057A1E5 /* FavoritesScreenTests.swift in Sources */,
+				1182A749260D850800FCE525 /* UserProfileUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
