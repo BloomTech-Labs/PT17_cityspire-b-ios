@@ -99,6 +99,8 @@ class MapViewController: UIViewController {
         pickerView.layer.borderWidth = 1
     }
     
+    /// The user will be able to select a map item category. Once the category is selected, the map view will add annotations for all items matching the category within the region that the user is currently over on the map.
+    /// - Parameter category: Accepts a point of interest item from a list of categories shown in a picker format.
     private func requestPointsOfInterest(category: POICategory) {
         if span.latitudeDelta > 0.03 {
             span.latitudeDelta = 0.03

@@ -12,7 +12,7 @@ class UserProfileTests: XCTestCase {
     
     private var app: XCUIApplication!
     
-    func testUserSearchForCity() {
+    func testUserMisspellsCity() {
         app = XCUIApplication()
         app.launch()
         app.buttons["Test"].tap()
@@ -20,36 +20,48 @@ class UserProfileTests: XCTestCase {
         app.typeText("San Francisco")
         app.keyboards.buttons["search"].tap()
         sleep(2)
-        app.alerts.element.buttons["OK"].tap()
-        app.searchFields.element.buttons["Clear text"].tap()
-        XCTAssertFalse(app.searchFields.staticTexts[""].exists)
+        XCTAssertTrue(app.alerts.element.buttons["OK"].exists)
+    }
+    
+    func testUserSearchesForACity() {
+        app = XCUIApplication()
+        app.launch()
+        app.buttons["Test"].tap()
+        app.searchFields.element.tap()
         app.typeText("San Francisco, CA")
         app.keyboards.buttons["search"].tap()
         sleep(2)
         app.alerts.element.buttons["View City"].tap()
         
         XCTAssertEqual(app.staticTexts["City name"].label, "San Francisco, CA")
-        XCTAssertTrue(app.collectionViews.children(matching: .cell).count >= 1)
+        XCTAssertTrue(app.collectionViews.cells.count >= 1)
     }
     
-    func testUserAddsCityAndRemovesCity() {
+    func testUserCanPinACityToFavorites() {
+        app = XCUIApplication()
+        app.launch()
+        app.buttons["Test"].tap()
+        app.searchFields.element.tap()
+        app.typeText("San Francisco, CA")
+        app.keyboards.buttons["search"].tap()
+        sleep(2)
+        app.alerts.element.buttons["View City"].tap()
+        app.buttons["PinnedButton"].tap()
+        app.buttons["pinnedList"].tap()
+        
+        XCTAssertEqual(app.staticTexts["cityLabel"].label, "San Francisco, CA")
+    }
+    
+    func testUserCanRemovePinnedCity() {
         app = XCUIApplication()
         app.launch()
         app.buttons["Test"].tap()
         app.buttons["pinnedList"].tap()
+        app.buttons["favoriteButton"].tap()
         
-        if app.staticTexts["San Francisco, CA"].exists {
-            app.buttons["favoriteButton"].tap()
-        } else {
-            app.buttons["home"].tap()
-            app.collectionViews.cells.firstMatch.tap()
-            app.buttons["PinnedButton"].tap()
-            app.buttons["pinnedList"].tap()
-            XCTAssertEqual(app.staticTexts["cityLabel"].label, "San Francisco, CA")
-            app.buttons["favoriteButton"].tap()
-        }
-        XCTAssertFalse(app.staticTexts["cityLabel"].exists)
+        XCTAssertFalse(app.staticTexts["San Francisco, CA"].exists)
     }
+    
     
     
 }

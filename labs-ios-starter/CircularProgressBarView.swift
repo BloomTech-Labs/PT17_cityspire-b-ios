@@ -34,7 +34,10 @@ class CircularProgressBarView: UIView {
             trackedProgressLayer.strokeColor = trackedProgressColor.cgColor
         }
     }
-
+    
+    /// Creates a clear circle that will be the path for the stroke of the animation.
+    /// Untracked progress will be represented by a set color showing the user the trail of the progress bar
+    /// Tracked progress will be represented by the animation color.
     func createCircularPath() {
         self.backgroundColor = UIColor.clear
         self.layer.cornerRadius = self.frame.size.width / 2
@@ -55,7 +58,11 @@ class CircularProgressBarView: UIView {
         trackedProgressLayer.strokeEnd = 1.0
         layer.addSublayer(trackedProgressLayer)
     }
-
+    
+    /// Takes a duration and value parameters to find the start of the stroke and animated the tracked progress color to the given value.
+    /// - Parameters:
+    ///   - duration: Accepts a double value that will set the number of seconds for animation
+    ///   - value: Accepts a float value that will be the end point for the animation
     func setTrackedProgressWithAnimation(duration: TimeInterval, value: Float) {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
