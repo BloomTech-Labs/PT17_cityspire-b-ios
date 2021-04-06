@@ -33,6 +33,8 @@ class ProfileController {
         getAllProfiles()
     }
     
+    /// called during login process to fetch an array of all profiles in Okta
+    /// - Parameter completion: populates profiles array in ProfileController, which is unused
     func getAllProfiles(completion: @escaping () -> Void = {}) {
         
         var oktaCredentials: OktaCredentials
@@ -91,6 +93,8 @@ class ProfileController {
         dataTask.resume()
     }
     
+    /// called in checkForExistingAuthenticatedUserProfile (below)
+    /// - Parameter completion: fetches the authenticated user's profile and stores it in profile variable in ProfileController
     func getAuthenticatedUserProfile(completion: @escaping () -> Void = { }) {
         var oktaCredentials: OktaCredentials
         
@@ -121,12 +125,18 @@ class ProfileController {
         }
     }
     
+    /// called in checkForExistingProfile in LoginVC
+    /// - Parameter completion: returns a Bool indicating whether the authenticated user profile was successfully fetched
     func checkForExistingAuthenticatedUserProfile(completion: @escaping (Bool) -> Void) {
         getAuthenticatedUserProfile {
             completion(self.authenticatedUserProfile != nil)
         }
     }
     
+    /// called in getAuthenticatedUserProfile (above) to fetch a profile from Okta
+    /// - Parameters:
+    ///   - userID: accepts a userID
+    ///   - completion: if successful, returns a user profile
     func getSingleProfile(_ userID: String, completion: @escaping (Profile?) -> Void) {
         
         var oktaCredentials: OktaCredentials
@@ -186,6 +196,7 @@ class ProfileController {
         dataTask.resume()
     }
     
+    /// could be used to update a user profile in Okta, unused in this project
     func updateAuthenticatedUserProfile(_ profile: Profile, with name: String, email: String, avatarURL: URL, completion: @escaping (Profile) -> Void) {
         
         var oktaCredentials: OktaCredentials
@@ -334,6 +345,8 @@ class ProfileController {
         dataTask.resume()
     }
     
+    /// could be used to fetch the avatar image associated with the user
+    /// unused in this project due to the avatarURLs of test users not being present or functional
     func image(for url: URL, completion: @escaping (UIImage?) -> Void) {
         let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
             

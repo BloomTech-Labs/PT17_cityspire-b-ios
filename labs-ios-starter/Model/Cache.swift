@@ -8,6 +8,8 @@
 
 import UIKit
 
+/// a generic cache class, used in this project to store City data to avoid unnecessary network calls
+/// implemented in ApiController
 class Cache<Key: Hashable, Value> {
     
     // MARK: - Properties

@@ -8,6 +8,10 @@
 
 import Foundation
 
+/// initialized in HomeScreenVC, and passed by segue to other VCs as needed
+/// includes a cache to store city data as it is fetched to improve performance and reduce unnecessary network calls
+/// includes a dataLoader to allow switching between mock data and URLSession
+/// currently configured to use mock data, as no endpoints are available as of this writing
 class ApiController {
     
     // MARK: - Properties
@@ -23,6 +27,10 @@ class ApiController {
     
     // MARK: - Functions
     
+    /// used to fetch city data, first checking if the city is already in the cache, and performing a network call if needed
+    /// - Parameters:
+    ///   - city: accepts an instance of City, usually containing only the name of city and state, and the coordinates
+    ///   - completion: returns an updated instance of City with all available city data
     func fetchCityData(city: City, completion: @escaping (City) -> Void) {
         let fullCityName = city.cityName + ", " + city.cityState
         if let cachedCity = cache.value(for: fullCityName),
@@ -36,9 +44,11 @@ class ApiController {
         }
     }
     
+    /// fetches a list of the top cities, to be displayed on HomeScreenVC
+    /// needs editing once the endpoint is available, currently configured to use mock data
+    /// - Parameter completion: returns an array of top cities as [Recommendation]
     func fetchTopCities(completion: @escaping ([Recommendation]) -> Void) {
-        // edit networking code when endpoint is available
-        let path = "top_cities"
+        let path = "top_cities" // edit path when endpoint is available
         guard let request = getRequest(url: baseURL, urlPathComponent: path) else {
             completion([])
             return
@@ -61,7 +71,11 @@ class ApiController {
         }
     }
     
-    func stringToInt(word: String) -> Int { // edit once list is available from DS
+    /// called in getPropertyData in CityDashboardVC to interpret string values into integers for use in configuring the CircularProgressBarView
+    /// needs editing once the list of predetermined words is available from DS/Web
+    /// - Parameter word: accepts a string from a predetermined list
+    /// - Returns: returns an integer interpreting the string into a value between 0 and 100
+    func stringToInt(word: String) -> Int {
         switch word {
         case "Poor", "Very Low":
             return 5
@@ -80,9 +94,13 @@ class ApiController {
     
     // MARK: - Private Functions
     
+    /// performs a network request to fetch city data
+    /// needs updating once endpoint is available, currently configured to use mock data
+    /// - Parameters:
+    ///   - city: accepts an instance of City, usually containing only the name of city and state, and the coordinates
+    ///   - completion: returns the updated City if request was successful, otherwise returns the original City
     private func getData(city: City, completion: @escaping (City) -> Void) {
-        // edit networking code when endpoint is available
-        let path = "\(city.cityName)/\(city.cityState)"
+        let path = "\(city.cityName)/\(city.cityState)" // edit path when endpoint is available
         guard let request = getRequest(url: baseURL, urlPathComponent: path) else {
             completion(city)
             return
