@@ -41,8 +41,8 @@ class HomeScreenViewController: UIViewController {
         updateViews()
     }
     
-    func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         searchBar.text = ""
     }
 

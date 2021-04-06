@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// used in both the City model for its recommendations array, and as the basic data structure for the TopCities array
 struct Recommendation: Codable {
     var city: String
     var state: String
@@ -22,6 +23,7 @@ struct Recommendation: Codable {
     }
 }
 
+/// an array: [Recommendation], used to decode the top cities array for display on HomeScreenVC
 struct TopCities: Codable {
     
     enum Keys: String, CodingKey {
