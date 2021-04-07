@@ -38,7 +38,6 @@ struct City: Codable {
     var population: Int?
     var livability: Int?
     var walkability: Int?
-    var traffic: Int? // not on Whimsical data model
     var diversityIndex: Int?
     var crime: String?
     var rentalPrice: Int?

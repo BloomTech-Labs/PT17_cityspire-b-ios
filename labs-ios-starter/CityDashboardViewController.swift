@@ -161,6 +161,7 @@ class CityDashboardViewController: UIViewController {
     /// Appends the value to the property data array, which is used to populate the city property collection view cell.
     private func getPropertyData() {
         guard let city = currentCity else { return }
+        propertyData = []
         
         // Livability
         if let livability = city.livability,
@@ -246,10 +247,7 @@ extension CityDashboardViewController: UICollectionViewDataSource, UICollectionV
             let stateName = nextCity.state
             controller?.fetchCityData(city: City(cityName: cityName, cityState: stateName), completion: { city in
                 DispatchQueue.main.async {
-                    var newCity = city
-                    newCity.latitude = nextCity.latitude
-                    newCity.longitude = nextCity.longitude
-                    self.cityStack.append(newCity)
+                    self.cityStack.append(city)
                     self.backButton.isEnabled = true
                     self.backButton.setTitleColor(.systemBlue, for: .normal)
                 }

@@ -114,12 +114,14 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
               let cityName = city.cityName,
               let stateName = city.stateName else { return }
         controller?.fetchCityData(city: City(cityName: cityName, cityState: stateName), completion: { favoriteCity in
-            self.city = favoriteCity
-            if self.city?.latitude == 0 || self.city?.longitude == 0 {
-                self.city?.latitude = city.latitude
-                self.city?.longitude = city.longitude
+            DispatchQueue.main.async {
+                self.city = favoriteCity
+                if self.city?.latitude == 0 || self.city?.longitude == 0 {
+                    self.city?.latitude = city.latitude
+                    self.city?.longitude = city.longitude
+                }
+                self.performSegue(withIdentifier: "favoritesToCity", sender: self)
             }
-            self.performSegue(withIdentifier: "favoritesToCity", sender: self)
         })
     }
 

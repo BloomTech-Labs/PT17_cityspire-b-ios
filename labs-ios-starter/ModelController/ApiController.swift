@@ -11,17 +11,16 @@ import Foundation
 /// initialized in HomeScreenVC, and passed by segue to other VCs as needed
 /// includes a cache to store city data as it is fetched to improve performance and reduce unnecessary network calls
 /// includes a dataLoader to allow switching between mock data and URLSession
-/// currently configured to use mock data, as no endpoints are available as of this writing
 class ApiController {
     
     // MARK: - Properties
     
-    private let baseURL = URL(string: "https://notTheRealURL.herokuapp.com/api")! // needs editing!!!
+    private let webBaseURL = URL(string: "https://notTheRealURL.herokuapp.com/api")! // needs editing!!!
+    private let dsBaseURL = URL(string: "http://cityspire-b-ds.eba-jesgmne9.us-east-1.elasticbeanstalk.com/api")!
     let dataLoader: NetworkDataLoader
     private let cache = Cache<String, City>()
 
-//    init(dataLoader: NetworkDataLoader = URLSession.shared) { // replace next line with this when api is available
-    init(dataLoader: NetworkDataLoader = MockLoader(data: validSFJSON)) {
+    init(dataLoader: NetworkDataLoader = URLSession.shared) {
         self.dataLoader = dataLoader
     }
     
@@ -48,17 +47,18 @@ class ApiController {
     /// needs editing once the endpoint is available, currently configured to use mock data
     /// - Parameter completion: returns an array of top cities as [Recommendation]
     func fetchTopCities(completion: @escaping ([Recommendation]) -> Void) {
+        let mockDataLoader = MockLoader(data: topCitiesData)
         let path = "top_cities" // edit path when endpoint is available
-        guard let request = getRequest(url: baseURL, urlPathComponent: path) else {
+        guard let request = getRequest(url: webBaseURL, urlPathComponent: path) else {
             completion([])
             return
         }
-        dataLoader.dataRequest(with: request) { data, response, error in
+        mockDataLoader.dataRequest(with: request) { data, response, error in
             self.checkResponse(for: "fetchTopCities", data, response, error) { result in
                 switch result {
-                case .success(_): // replace _ with let data when data is available
-                    do { // replace topCitiesData with data once endpoint is available
-                        let cities = try JSONDecoder().decode(TopCities.self, from: topCitiesData)
+                case .success(let data):
+                    do {
+                        let cities = try JSONDecoder().decode(TopCities.self, from: data)
                         completion(cities.top_cities)
                     } catch {
                         NSLog("Error decoding top cities data: \(error)")
@@ -95,13 +95,13 @@ class ApiController {
     // MARK: - Private Functions
     
     /// performs a network request to fetch city data
-    /// needs updating once endpoint is available, currently configured to use mock data
+    /// if city data is unavailable in the data science api, calls getWalkability (the only property currently available for all cities nationwide)
     /// - Parameters:
-    ///   - city: accepts an instance of City, usually containing only the name of city and state, and the coordinates
+    ///   - city: accepts an instance of City, usually containing only the name of city and state, and possibly coordinates
     ///   - completion: returns the updated City if request was successful, otherwise returns the original City
     private func getData(city: City, completion: @escaping (City) -> Void) {
-        let path = "\(city.cityName)/\(city.cityState)" // edit path when endpoint is available
-        guard let request = getRequest(url: baseURL, urlPathComponent: path) else {
+        let path = "get_data"
+        guard let request = postRequestWithCity(url: dsBaseURL, urlPathComponent: path, city: city) else {
             completion(city)
             return
         }
@@ -113,11 +113,42 @@ class ApiController {
                         var newCityData = try JSONDecoder().decode(City.self, from: data)
                         newCityData.cityName = city.cityName
                         newCityData.cityState = city.cityState
-                        newCityData.latitude = city.latitude
-                        newCityData.longitude = city.longitude
                         completion(newCityData)
                     } catch {
                         NSLog("Error decoding city data: \(error)")
+                        completion(city)
+                    }
+                default:
+                    self.getWalkability(city: city) { city in
+                        completion(city)
+                    }
+                }
+            }
+        }
+    }
+    
+    /// performs a network request to fetch the walkability score for a city
+    /// called in getData when the city is not found in the data science api
+    /// - Parameters:
+    ///   - city: accepts an instance of City, usually only containing the name of city and state, and possibly coordinates
+    ///   - completion: returns the updated City if request was successful, otherwise returns the original City
+    private func getWalkability(city: City, completion: @escaping (City) -> Void) {
+        let path = "walkability"
+        guard let request = postRequestWithCity(url: dsBaseURL, urlPathComponent: path, city: city) else {
+            completion(city)
+            return
+        }
+        dataLoader.dataRequest(with: request) { data, response, error in
+            self.checkResponse(for: "getWalkability", data, response, error) { result in
+                switch result {
+                case .success(let data):
+                    do {
+                        let walkability = try JSONDecoder().decode(Walkability.self, from: data)
+                        var newCity = city
+                        newCity.walkability = walkability.walkability
+                        completion(newCity)
+                    } catch {
+                        NSLog("Error decoding walkability: \(error)")
                         completion(city)
                     }
                 default:
@@ -131,7 +162,7 @@ class ApiController {
     /// - Parameters:
     ///   - url: accepts a url
     ///   - urlPathComponent: optional String to add a urlPathComponent
-    /// - Returns: returns a get request after applying the bearer token, path component, and JSON extension
+    /// - Returns: returns a get request after applying the path component and JSON extension
     private func getRequest(url: URL, urlPathComponent: String?) -> URLRequest? {
         var urlPath = url
         if let path = urlPathComponent {
@@ -139,6 +170,24 @@ class ApiController {
         }
         var request = URLRequest(url: urlPath)
         request.httpMethod = HTTPMethod.get.rawValue
+        return request
+    }
+    
+    /// sets up a post request using a url, urlPathComponent, and City to fetch data from the data science api
+    /// - Parameters:
+    ///   - url: accepts a url
+    ///   - urlPathComponent: accepts a urlPathComponent
+    ///   - city: accepts an instance of City, usually only containing the name of city and state, and possibly coordinates
+    /// - Returns: returns a configured post request
+    private func postRequestWithCity(url: URL, urlPathComponent: String, city: City) -> URLRequest? {
+        let urlPath = url.appendingPathComponent(urlPathComponent)
+        var request = URLRequest(url: urlPath)
+        request.httpMethod = HTTPMethod.post.rawValue
+        let parameters = PostCity(city: city.cityName, state: city.cityState)
+        guard let jsonData = try? JSONEncoder().encode(parameters) else { return nil }
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpBody = jsonData
         return request
     }
     
