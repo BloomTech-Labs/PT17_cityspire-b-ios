@@ -138,8 +138,10 @@ class HomeScreenViewController: UIViewController {
                     self.city.longitude = (response?.boundingRegion.center.longitude)!
                     self.city.latitude = (response?.boundingRegion.center.latitude)!
                     self.controller.fetchCityData(city: self.city) { city in
-                        self.city = city
-                        self.performSegue(withIdentifier: "homeToCityDashboard", sender: self)
+                        DispatchQueue.main.async {
+                            self.city = city
+                            self.performSegue(withIdentifier: "homeToCityDashboard", sender: self)
+                        }
                     }
                 }
                 alert.addAction(noButton)

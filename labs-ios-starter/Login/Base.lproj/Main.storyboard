@@ -56,7 +56,7 @@ city information.</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQk-Xf-had" customClass="StyledButton" customModule="labs_ios_starter" customModuleProvider="target">
-                                <rect key="frame" x="180.5" y="525" width="53" height="46"/>
+                                <rect key="frame" x="145" y="525" width="124" height="46"/>
                                 <color key="backgroundColor" name="DarkishBlue"/>
                                 <accessibility key="accessibilityConfiguration" identifier="signInButton" label="Sign in button"/>
                                 <constraints>
@@ -93,6 +93,7 @@ city information.</string>
                             <constraint firstItem="CQk-Xf-had" firstAttribute="centerY" secondItem="INU-fS-Snd" secondAttribute="centerY" constant="100" id="5ST-Ol-s9J"/>
                             <constraint firstItem="mXo-da-Z8S" firstAttribute="leading" secondItem="R8l-LV-vJe" secondAttribute="leading" constant="166" id="6iG-8x-arb"/>
                             <constraint firstItem="mXo-da-Z8S" firstAttribute="top" secondItem="lZg-hJ-jsp" secondAttribute="bottom" constant="33" id="Bx0-tZ-y7e"/>
+                            <constraint firstItem="CQk-Xf-had" firstAttribute="width" secondItem="INU-fS-Snd" secondAttribute="width" multiplier="0.3" id="DQN-HX-52z"/>
                             <constraint firstItem="R8l-LV-vJe" firstAttribute="bottom" secondItem="xzo-hQ-MMT" secondAttribute="bottom" constant="-50" id="Inq-xV-Pfh"/>
                             <constraint firstItem="CQk-Xf-had" firstAttribute="centerX" secondItem="INU-fS-Snd" secondAttribute="centerX" id="MBI-zP-DgD"/>
                             <constraint firstItem="R8l-LV-vJe" firstAttribute="trailing" secondItem="mXo-da-Z8S" secondAttribute="trailing" constant="166" id="T3P-jU-g5x"/>
@@ -136,7 +137,7 @@ city information.</string>
             <color red="0.19200000166893005" green="0.40000000596046448" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LightBlue">
-            <color red="0.31000000238418579" green="0.48199999332427979" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.30980392156862746" green="0.4823529411764706" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="OffWhite">
             <color red="0.9649999737739563" green="0.9570000171661377" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

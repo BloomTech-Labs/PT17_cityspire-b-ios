@@ -107,19 +107,21 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height / 8)
-        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let city = favorites?[indexPath.row],
               let cityName = city.cityName,
               let stateName = city.stateName else { return }
         controller?.fetchCityData(city: City(cityName: cityName, cityState: stateName), completion: { favoriteCity in
-            self.city = favoriteCity
-            if self.city?.latitude == 0 || self.city?.longitude == 0 {
-                self.city?.latitude = city.latitude
-                self.city?.longitude = city.longitude
+            DispatchQueue.main.async {
+                self.city = favoriteCity
+                if self.city?.latitude == 0 || self.city?.longitude == 0 {
+                    self.city?.latitude = city.latitude
+                    self.city?.longitude = city.longitude
+                }
+                self.performSegue(withIdentifier: "favoritesToCity", sender: self)
             }
-            self.performSegue(withIdentifier: "favoritesToCity", sender: self)
         })
     }
 
