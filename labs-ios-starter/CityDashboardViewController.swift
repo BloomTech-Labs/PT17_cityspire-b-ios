@@ -36,10 +36,7 @@ class CityDashboardViewController: UIViewController {
     var currentCity: City? {
         didSet {
             if isViewLoaded {
-                getPropertyData()
-                updateViews()
-                cityDashboardCollectionView.reloadData()
-                similarCitiesCollectionView.reloadData()
+                reloadView()
             }
         }
     }
@@ -122,6 +119,13 @@ class CityDashboardViewController: UIViewController {
     }
     
     // MARK: - Private Functions
+    
+    private func reloadView() {
+        getPropertyData()
+        updateViews()
+        cityDashboardCollectionView.reloadData()
+        similarCitiesCollectionView.reloadData()
+    }
     
     private func updateViews() {
         guard let city = currentCity else { return }
