@@ -12,4 +12,5 @@ struct PropertyData {
     var propertyLabel: String
     var valueLabel: String
     var percentage: Float
+    var propertyDescription: String
 }

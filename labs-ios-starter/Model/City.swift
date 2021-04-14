@@ -62,6 +62,13 @@ struct City: Codable {
         crime = try container.decodeIfPresent(String.self, forKey: .crime)
         rentalPrice = try container.decodeIfPresent(Int.self, forKey: .rental_price)
         airQuality = try container.decodeIfPresent(String.self, forKey: .air_quality_index)
+        if let air = airQuality {
+            if let airQualityWord = airQualityDictionary[air] {
+                airQuality = airQualityWord
+            } else {
+                airQuality = "Good"
+            }
+        }
         recommendations = try container.decodeIfPresent([Recommendation].self, forKey: .recommendations) ?? []
     }
 }

@@ -77,16 +77,18 @@ class ApiController {
     /// - Returns: returns an integer interpreting the string into a value between 0 and 100
     func stringToInt(word: String) -> Int {
         switch word {
-        case "Poor", "Very Low":
+        case "Hazardous":
             return 5
-        case "Fair", "Low":
+        case "Poor", "Low":
             return 30
-        case "Good", "Medium":
+        case "Fair":
             return 50
-        case "Very Good", "High":
+        case "Medium":
+            return 60
+        case "Good":
             return 75
-        case "Excellent", "Very High":
-            return 100
+        case "Excellent", "High":
+            return 90
         default:
             return 0
         }

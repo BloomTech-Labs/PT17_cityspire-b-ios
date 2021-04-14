@@ -169,43 +169,49 @@ class CityDashboardViewController: UIViewController {
         
         // Livability
         if let livability = city.livability,
-           livability != 0 {
-            let property = PropertyData(propertyLabel: "Livability", valueLabel: "\(livability)", percentage: Float(livability) / 100)
+           livability != 0,
+           let description = propertyDescriptionDictionary["livability"] {
+            let property = PropertyData(propertyLabel: "Livability", valueLabel: "\(livability)", percentage: Float(livability) / 100, propertyDescription: description)
             propertyData.append(property)
         }
         
         // Walkability
         if let walkability = city.walkability,
-           walkability != 0 {
-            let property = PropertyData(propertyLabel: "Walkability", valueLabel: "\(walkability)", percentage: Float(walkability) / 100)
+           walkability != 0,
+           let description = propertyDescriptionDictionary["walkability"] {
+            let property = PropertyData(propertyLabel: "Walkability", valueLabel: "\(walkability)", percentage: Float(walkability) / 100, propertyDescription: description)
             propertyData.append(property)
         }
         
         // Diversity Score
         if let diversity = city.diversityIndex,
-           diversity != 0 {
-            let property = PropertyData(propertyLabel: "Diversity Index", valueLabel: "\(diversity)", percentage: Float(diversity) / 100)
+           diversity != 0,
+           let description = propertyDescriptionDictionary["diversityIndex"] {
+            let property = PropertyData(propertyLabel: "Diversity Index", valueLabel: "\(diversity)", percentage: Float(diversity) / 100, propertyDescription: description)
             propertyData.append(property)
         }
         
         // Crime
         if let crime = city.crime,
-           let crimeScore = controller?.stringToInt(word: crime) {
-            let property = PropertyData(propertyLabel: "Crime", valueLabel: "\(crime)", percentage: Float(crimeScore) / 100)
+           let crimeScore = controller?.stringToInt(word: crime),
+           let description = propertyDescriptionDictionary["crime"] {
+            let property = PropertyData(propertyLabel: "Crime", valueLabel: "\(crime)", percentage: Float(crimeScore) / 100, propertyDescription: description)
             propertyData.append(property)
         }
         
         // Air Quality
         if let airQuality = city.airQuality,
-           let airScore = controller?.stringToInt(word: airQuality) {
-            let property = PropertyData(propertyLabel: "Air Quality", valueLabel: "\(airQuality)", percentage: Float(airScore) / 100)
+           let airScore = controller?.stringToInt(word: airQuality),
+           let description = propertyDescriptionDictionary["airQuality"] {
+            let property = PropertyData(propertyLabel: "Air Quality", valueLabel: "\(airQuality)", percentage: Float(airScore) / 100, propertyDescription: description)
             propertyData.append(property)
         }
         
         // Rental Price
         if let rentalPrice = city.rentalPrice,
-           rentalPrice != 0 {
-            let property = PropertyData(propertyLabel: "Rental Price", valueLabel: "$\(rentalPrice)", percentage: Float(rentalPrice) / 3600)
+           rentalPrice != 0,
+           let description = propertyDescriptionDictionary["rentalPrice"] {
+            let property = PropertyData(propertyLabel: "Rental Price", valueLabel: "$\(rentalPrice)", percentage: Float(rentalPrice) / 3600, propertyDescription: description)
             propertyData.append(property)
         }
     }
@@ -228,6 +234,7 @@ extension CityDashboardViewController: UICollectionViewDataSource, UICollectionV
             cell.cityPropertyNameLabel.text = propertyData[indexPath.item].propertyLabel
             cell.propertyValueLabel.text = propertyData[indexPath.item].valueLabel
             cell.progressBarView.setTrackedProgressWithAnimation(duration: 1.0, value: propertyData[indexPath.item].percentage)
+            cell.propertyDescriptionTextView.text = propertyData[indexPath.item].propertyDescription
             cell.layer.cornerRadius = 15
             cell.layer.borderColor = UIColor(named: "DarkishBlue")?.cgColor
             cell.layer.borderWidth = 1

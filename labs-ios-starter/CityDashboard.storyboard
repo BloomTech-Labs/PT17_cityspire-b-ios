@@ -68,7 +68,7 @@
                                                     <color key="backgroundColor" name="VeryLightBlue"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" name="DarkBlue"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City property" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccw-aE-svc">
@@ -101,6 +101,7 @@
                                         <connections>
                                             <outlet property="cityPropertyNameLabel" destination="Ccw-aE-svc" id="3Oa-Zs-LiY"/>
                                             <outlet property="progressBarView" destination="9qu-52-zw3" id="Wgc-p0-7kT"/>
+                                            <outlet property="propertyDescriptionTextView" destination="RMh-Wi-QWv" id="yXg-AY-8UB"/>
                                             <outlet property="propertyValueLabel" destination="qv4-N9-vAS" id="lo4-di-fuY"/>
                                         </connections>
                                     </collectionViewCell>

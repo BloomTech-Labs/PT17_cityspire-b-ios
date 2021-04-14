@@ -15,5 +15,6 @@ class CityDashboardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cityPropertyNameLabel: UILabel!
     @IBOutlet weak var propertyValueLabel: UILabel!
     @IBOutlet weak var progressBarView: CircularProgressBarView!
-
+    @IBOutlet weak var propertyDescriptionTextView: UITextView!
+    
 }
