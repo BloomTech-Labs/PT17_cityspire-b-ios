@@ -44,6 +44,9 @@ class HomeScreenViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         searchBar.text = ""
+        city = City(cityName: "", cityState: "")
+        cityName = ""
+        stateName = ""
     }
 
     // MARK: - Navigation
