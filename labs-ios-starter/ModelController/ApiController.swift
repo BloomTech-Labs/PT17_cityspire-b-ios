@@ -15,7 +15,7 @@ class ApiController {
     
     // MARK: - Properties
     
-    private let webBaseURL = URL(string: "https://notTheRealURL.herokuapp.com/api")! // needs editing!!!
+    private let webBaseURL = URL(string: "https://pt17-cityspire-b.herokuapp.com/api")!
     private let dsBaseURL = URL(string: "http://cityspire-b-ds.eba-jesgmne9.us-east-1.elasticbeanstalk.com/api")!
     let dataLoader: NetworkDataLoader
     private let cache = Cache<String, City>()
@@ -94,6 +94,35 @@ class ApiController {
         }
     }
     
+    func fetchWeather(city: City, completion: @escaping (Weather?) -> Void) {
+        let path = "weather_monthly_forecast"
+        guard let request = postRequestWithCity(url: dsBaseURL, urlPathComponent: path, city: city) else {
+            completion(nil)
+            return
+        }
+        dataLoader.dataRequest(with: request) { data, response, error in
+            self.checkResponse(for: "fetchWeather", data, response, error) { result in
+                switch result {
+                case .success(let data):
+                    do {
+                        let weather = try JSONDecoder().decode(Weather.self, from: data)
+                        let fullCityName = city.cityName + ", " + city.cityState
+                        if var cachedCity = self.cache.value(for: fullCityName) {
+                            cachedCity.weather = weather
+                            self.updateCachedCity(city: cachedCity)
+                        }
+                        completion(weather)
+                    } catch {
+                        NSLog("Error decoding weather data: \(error)")
+                        completion(nil)
+                    }
+                default:
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
     // MARK: - Private Functions
     
     /// performs a network request to fetch city data
@@ -127,6 +156,11 @@ class ApiController {
                 }
             }
         }
+    }
+    
+    private func updateCachedCity(city: City) {
+        let fullCityName = city.cityName + ", " + city.cityState
+        self.cache.cache(value: city, for: fullCityName)
     }
     
     /// performs a network request to fetch the walkability score for a city
