@@ -34,6 +34,7 @@
 		1A26008A260920B800BDE6EA /* HomeScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A260089260920B800BDE6EA /* HomeScreenCollectionViewCell.swift */; };
 		1A2600AC260E347400BDE6EA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2600AB260E347400BDE6EA /* SettingsViewController.swift */; };
 		1A40AB6A261E110400D2DDEC /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A40AB69261E110400D2DDEC /* NetworkModels.swift */; };
+		1A40AB7C2627F4B000D2DDEC /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A40AB7B2627F4B000D2DDEC /* WeatherViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
 		466C4276249A8748007D033E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4275249A8748007D033E /* SceneDelegate.swift */; };
 		466C427B249A8748007D033E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466C4279249A8748007D033E /* Main.storyboard */; };
@@ -93,6 +94,7 @@
 		1A260089260920B800BDE6EA /* HomeScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A2600AB260E347400BDE6EA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1A40AB69261E110400D2DDEC /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
+		1A40AB7B2627F4B000D2DDEC /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466C4273249A8748007D033E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		466C4275249A8748007D033E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				112570DA2605A1F40016480A /* CircularProgressBarView.swift */,
 				1A2600742608122900BDE6EA /* PropertyData.swift */,
 				1178448426093EA800155C57 /* SimilarCityCollectionViewCell.swift */,
+				1A40AB7B2627F4B000D2DDEC /* WeatherViewController.swift */,
 			);
 			name = "City Dashboard";
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				1A26004526050F7600BDE6EA /* Constants.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				112570D726058C750016480A /* CityDashboardCollectionViewCell.swift in Sources */,
+				1A40AB7C2627F4B000D2DDEC /* WeatherViewController.swift in Sources */,
 				1A26006F2606C9DC00BDE6EA /* MockData.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				1A40AB6A261E110400D2DDEC /* NetworkModels.swift in Sources */,
