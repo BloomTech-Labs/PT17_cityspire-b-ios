@@ -29,7 +29,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wgc-Vr-GdK">
-                                <rect key="frame" x="20" y="154" width="374" height="477"/>
+                                <rect key="frame" x="20" y="154" width="374" height="537"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="cGc-On-eLv">
                                     <size key="itemSize" width="335" height="220"/>
@@ -68,7 +68,7 @@
                                                     <color key="backgroundColor" name="VeryLightBlue"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" name="DarkBlue"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City property" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccw-aE-svc">
@@ -108,44 +108,44 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwY-AJ-r8U">
-                                <rect key="frame" x="0.0" y="631" width="414" height="3"/>
+                                <rect key="frame" x="0.0" y="691" width="414" height="3"/>
                                 <color key="backgroundColor" name="DarkishBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="N54-gm-enq"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Cities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMl-1O-aft">
-                                <rect key="frame" x="20" y="641" width="184.5" height="35"/>
+                                <rect key="frame" x="20" y="701" width="184.5" height="35"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="30"/>
                                 <color key="textColor" name="DarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WwL-gZ-20c">
-                                <rect key="frame" x="20" y="676" width="374" height="130"/>
+                                <rect key="frame" x="20" y="736" width="374" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="ZFA-1n-CJS"/>
+                                    <constraint firstAttribute="height" constant="70" id="ZFA-1n-CJS"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PqM-ce-D1h">
-                                    <size key="itemSize" width="150" height="120"/>
+                                    <size key="itemSize" width="150" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="homeScreenCell" id="fhu-dv-DgY" customClass="HomeScreenCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="5" width="150" height="120"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="similarCityCell" id="fhu-dv-DgY" customClass="SimilarCityCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="5" width="150" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fhS-uy-QUd">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WbO-W8-25L">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
                                                     <color key="backgroundColor" name="VeryLightBlue"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="Gee-Fy-vzV"/>
-                                                        <constraint firstAttribute="height" constant="120" id="imq-aT-rx1"/>
+                                                        <constraint firstAttribute="height" constant="60" id="imq-aT-rx1"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -154,36 +154,28 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzr-BY-wXJ">
-                                                    <rect key="frame" x="10" y="10" width="109.5" height="39.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzr-BY-wXJ">
+                                                    <rect key="frame" x="20.5" y="10.5" width="109.5" height="39.5"/>
                                                     <string key="text">San Francisco,
 CA</string>
                                                     <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                                     <color key="textColor" name="DarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CA" translatesAutoresizingMaskIntoConstraints="NO" id="GaW-Qc-PZf">
-                                                    <rect key="frame" x="50" y="50" width="90" height="60"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="WbO-W8-25L" secondAttribute="bottom" id="4b6-cg-cmG"/>
                                                 <constraint firstItem="WbO-W8-25L" firstAttribute="leading" secondItem="fhS-uy-QUd" secondAttribute="leading" id="9zi-b5-MiH"/>
-                                                <constraint firstAttribute="trailing" secondItem="GaW-Qc-PZf" secondAttribute="trailing" constant="10" id="GsH-HW-aLO"/>
-                                                <constraint firstItem="GaW-Qc-PZf" firstAttribute="leading" secondItem="fhS-uy-QUd" secondAttribute="leading" constant="50" id="Uab-pw-9Za"/>
-                                                <constraint firstItem="GaW-Qc-PZf" firstAttribute="top" secondItem="fhS-uy-QUd" secondAttribute="top" constant="50" id="Wke-5y-mZn"/>
+                                                <constraint firstItem="zzr-BY-wXJ" firstAttribute="centerX" secondItem="fhS-uy-QUd" secondAttribute="centerX" id="Eg9-TI-579"/>
+                                                <constraint firstItem="zzr-BY-wXJ" firstAttribute="centerY" secondItem="fhS-uy-QUd" secondAttribute="centerY" id="TAZ-bF-5TV"/>
                                                 <constraint firstItem="WbO-W8-25L" firstAttribute="top" secondItem="fhS-uy-QUd" secondAttribute="top" id="adb-Jh-xfw"/>
-                                                <constraint firstItem="zzr-BY-wXJ" firstAttribute="leading" secondItem="fhS-uy-QUd" secondAttribute="leading" constant="10" id="bjJ-1F-ezq"/>
-                                                <constraint firstItem="zzr-BY-wXJ" firstAttribute="top" secondItem="fhS-uy-QUd" secondAttribute="top" constant="10" id="bwj-iK-H62"/>
-                                                <constraint firstAttribute="bottom" secondItem="GaW-Qc-PZf" secondAttribute="bottom" constant="10" id="faz-QE-h57"/>
                                                 <constraint firstAttribute="trailing" secondItem="WbO-W8-25L" secondAttribute="trailing" id="v6Q-38-3H4"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="150" height="120"/>
+                                        <size key="customSize" width="150" height="60"/>
                                         <connections>
                                             <outlet property="background" destination="WbO-W8-25L" id="OIG-hY-cKn"/>
                                             <outlet property="cityLabel" destination="zzr-BY-wXJ" id="XEW-0V-6iZ"/>
-                                            <outlet property="imageView" destination="GaW-Qc-PZf" id="jAp-cW-9LU"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -396,7 +388,6 @@ CA</string>
     </scenes>
     <resources>
         <image name="BlueMap" width="1193" height="1788"/>
-        <image name="CA" width="1200" height="800"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="map" catalog="system" width="128" height="110"/>

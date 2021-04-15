@@ -9,6 +9,26 @@
 import UIKit
 
 class SimilarCityCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var similarCityNameLabel: UILabel!
-    @IBOutlet weak var similarCityStateLabel: UILabel!
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet private var background: UIView!
+    
+    // MARK: - Properties
+    
+    var city: Recommendation? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    // MARK: - Private Functions
+    
+    private func updateViews() {
+        guard let city = city else { return }
+        cityLabel.text = city.city + ",\n" + city.state
+        background.layer.borderWidth = 1
+        background.layer.borderColor = UIColor(named: "DarkishBlue")?.cgColor
+    }
 }
