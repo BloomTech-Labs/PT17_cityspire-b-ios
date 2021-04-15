@@ -243,7 +243,7 @@ extension CityDashboardViewController: UICollectionViewDataSource, UICollectionV
         
         if collectionView == self.similarCitiesCollectionView {
             if let city = currentCity?.recommendations[indexPath.item] {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.homeScreenCell, for: indexPath) as! HomeScreenCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.similarCityCell, for: indexPath) as! SimilarCityCollectionViewCell
                 cell.city = city
                 return cell
             }
@@ -260,7 +260,7 @@ extension CityDashboardViewController: UICollectionViewDataSource, UICollectionV
                 DispatchQueue.main.async {
                     self.cityStack.append(city)
                     self.backButton.isEnabled = true
-                    self.backButton.setTitleColor(.systemBlue, for: .normal)
+                    self.backButton.setTitleColor(UIColor(named: "OffWhite"), for: .normal)
                 }
             })
         }
