@@ -106,12 +106,16 @@ class ApiController {
                 case .success(let data):
                     do {
                         let weather = try JSONDecoder().decode(Weather.self, from: data)
-                        let fullCityName = city.cityName + ", " + city.cityState
-                        if var cachedCity = self.cache.value(for: fullCityName) {
-                            cachedCity.weather = weather
-                            self.updateCachedCity(city: cachedCity)
+                        if weather.months.count == 0 {
+                            completion(nil)
+                        } else {
+                            let fullCityName = city.cityName + ", " + city.cityState
+                            if var cachedCity = self.cache.value(for: fullCityName) {
+                                cachedCity.weather = weather
+                                self.updateCachedCity(city: cachedCity)
+                            }
+                            completion(weather)
                         }
-                        completion(weather)
                     } catch {
                         NSLog("Error decoding weather data: \(error)")
                         completion(nil)
