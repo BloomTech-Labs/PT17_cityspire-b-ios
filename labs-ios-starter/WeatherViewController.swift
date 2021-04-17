@@ -60,7 +60,7 @@ class WeatherViewController: UIViewController {
             let lowBar = SCNBox(width: 1, height: lowHeight, length: 1.5, chamferRadius: 0.1)
             lowBar.materials.first?.diffuse.contents = UIColor(named: "LightBlue")
             let lowNode = SCNNode(geometry: lowBar)
-            lowNode.position = SCNVector3(position, (lowYAdjust), 0)
+            lowNode.position = SCNVector3(position, lowYAdjust, 0)
             lowScene.rootNode.addChildNode(lowNode)
             
             let lowTemp = String(Int(weather.months[index].minTemp))
