@@ -21,7 +21,10 @@ City Spire analyzes data from cities such as populations, cost of living, rental
 </p>
 
 ## UI in action
-<img src="https://github.com/FabiolaSaga/GOL/blob/main/UI.gif" width="350" />
+<p float="left">
+  <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/CitySpire1.gif" width="350" />
+  <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/CitySpire2.gif" width="350" />
+</p>
 
 ### iOS Frameworks used:
 - UIKit
