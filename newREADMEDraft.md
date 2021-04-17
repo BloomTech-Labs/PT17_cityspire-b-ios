@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/FabiolaSaga/GOL/blob/main/CitySpireLogo-Dark.png">
+  <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/labs-ios-starter/Assets.xcassets/CitySpireLogo-Dark.imageset/CitySpireLogo-Dark.png">
 </p>
 
 ## Mission
@@ -12,10 +12,12 @@ City Spire analyzes data from cities such as populations, cost of living, rental
 
 ## Main UI
 <p float="left">
-  <img src="https://github.com/FabiolaSaga/GOL/blob/main/LaunchScreen.png" width="300" />
-  <img src="https://github.com/FabiolaSaga/GOL/blob/main/Login.png" width="300" /> 
-  <img src="https://github.com/FabiolaSaga/GOL/blob/main/Search.png" width="300" />
-  <img src="https://github.com/FabiolaSaga/GOL/blob/main/Map.png" width="300" />
+  <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/LoginScreen.png" width="300" />
+  <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/HomeScreen.png" width="300" /> 
+  <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/CityDashboard.png" width="300" />
+  <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/MapScreen.png" width="300" />
+  <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/WeatherScreen.png" width="300" />
+  <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/PinnedCities.png" width="300" />
 </p>
 
 ## UI in action
@@ -45,23 +47,24 @@ City Spire analyzes data from cities such as populations, cost of living, rental
 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/cora-jacobson/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kevin-stewart-5119b41a6/)                 |           
 
 
-### [Data Science Contributors](https://github.com/Lambda-School-Labs/cityspire-ds-h)
-|                                                      [Jennifer Banks](https://github.com/JenBanks8585)                                                      |                                                       [Zachary Hamilton](https://github.com/zachary-hamilton)                                                     
-| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://avatars.githubusercontent.com/u/59672512?s=400&u=d86b9369f4a61d757cde9181dc2561a4393be225&v=4" width = "150" />](https://github.com/JenBanks8585) | [<img src="https://avatars.githubusercontent.com/u/57552986?s=400&u=929fc46fb460a9d60e8d5f1172cf2fa76e876953&v=4" width = "150" />](https://github.com/zachary-hamilton) | 
-|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JenBanks8585)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/zachary-hamilton)                             |                            
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jenniferobanks/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/zacharyleehamilton/)                 |    
-
-### [Back End Contributors](https://github.com/Lambda-School-Labs/cityspire-be-h)
-|                                                      [Aidan Dang](https://github.com/aidandang)                                                      |
-| :-----------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://avatars.githubusercontent.com/u/59453200?s=400&u=b63fe7ed29d4cc93a650433585d987c635f59b20&v=4" width = "150" />](https://github.com/aidandang) |
-|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/aidandang)                                |
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/aidandang/)                | 
-
-### [Front End Contributors](https://github.com/Lambda-School-Labs/cityspire-fe-h)    
-|                                                      [Jordan Shehane](https://github.com/0neMiss)                                                      |                                                       [Daniel Gipson](https://github.com/dannygipson95)                                      |                                                       [Aidan Dang](https://github.com/aidandang)                                                                
+### [Data Science Contributors](https://github.com/Lambda-School-Labs/PT17_cityspire-b-ds)
+|                                                      [Julio Escalera](https://github.com/julioe27)                                                      |                                                       [Kush Rawal](https://github.com/rawalk)                                      |                                                       [Andrew Rust](https://github.com/DrewRust)                                      |                                                       [Iuliia Stanina](https://github.com/tigju)                                                                
 | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://avatars.githubusercontent.com/u/56180519?s=400&u=eaf65cab8a744dc23806afb0cd6458d74dd76721&v=4" width = "150" />](https://github.com/0neMiss) | [<img src="https://avatars.githubusercontent.com/u/63303612?s=400&u=e2ad2ebb68dd3d625fb0fe5a53fba48ec633dc31&v=4" width = "150" />](https://github.com/dannygipson95) | [<img src="https://avatars.githubusercontent.com/u/59453200?s=400&u=b63fe7ed29d4cc93a650433585d987c635f59b20&v=4" width = "150" />](https://github.com/aidandang) |
-|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/0neMiss)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/dannygipson95)                             |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/aidandang)                             |                              
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jordan-shehane-b2807a196/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/daniel-gipson/)                 |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/aidandang/)                 |    
+:-------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars.githubusercontent.com/u/57122203?s=400&v=4" width = "150" />](https://github.com/julioe27) | [<img src="https://avatars.githubusercontent.com/u/6515572?s=400&v=4" width = "150" />](https://github.com/rawalk) | [<img src="https://avatars.githubusercontent.com/u/23638365?s=400&v=4" width = "150" />](https://github.com/DrewRust) | [<img src="https://avatars.githubusercontent.com/u/12003177?s=400&v=4" width = "150" />](https://github.com/tigju) |
+|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/julioe27)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/rawalk)                             |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/DrewRust)                             |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/tigju)                             |                              
+|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/julio-escalera/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kush-rawal/)                 |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/andrew-rust-ds/)                 |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/julia-stanina/)                 |    
+
+### [Back End Contributors](https://github.com/Lambda-School-Labs/PT17_cityspire-b-be)
+|                                                      [Carlos Baez](https://github.com/Heart8reak)                                                      |                                                       [Steven Waldron](https://github.com/stevenwaldron)                                                     
+| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars.githubusercontent.com/u/21344090?s=400&v=4" width = "150" />](https://github.com/Heart8reak) | [<img src="https://avatars.githubusercontent.com/u/57245025?s=400&v=4" width = "150" />](https://github.com/stevenwaldron) | 
+|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Heart8reak)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/stevenwaldron)                             |                            
+|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/steven-waldron-088610110/)                 | 
+
+### [Front End Contributors](https://github.com/Lambda-School-Labs/PT17_cityspire-b-fe)    
+|                                                      [Angelyn Liem](https://github.com/angelynaliem)                                                      |                                                       [Kyla Oyamot](https://github.com/Koyamot)                                                     
+| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars.githubusercontent.com/u/5790717?s=400&v=4" width = "150" />](https://github.com/angelynaliem) | [<img src="https://avatars.githubusercontent.com/u/47949273?s=400&v=4" width = "150" />](https://github.com/Koyamot) | 
+|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/angelynaliem)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Koyamot)                             |                            
+|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/angelynaliem/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kylaoyamot/)                 |    
