@@ -64,6 +64,21 @@ class CityDashboardViewController: UIViewController {
         }
     }
     
+    @IBAction func moreButtonTapped(_ sender: UIButton) {
+        let actionSheet = UIAlertController(title: "More Information", message: nil, preferredStyle: .actionSheet)
+        let mapOption = UIAlertAction(title: "Map", style: .default) { _ in
+            self.performSegue(withIdentifier: "MapSegue", sender: self)
+        }
+        let weatherOption = UIAlertAction(title: "Weather", style: .default) { _ in
+            self.getWeatherAndSegue()
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        actionSheet.addAction(mapOption)
+        actionSheet.addAction(weatherOption)
+        actionSheet.addAction(cancel)
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
     @IBAction func pinToProfileButtonTapped(_ sender: UIButton) {
         guard let cityName = currentCity?.cityName,
               let stateName = currentCity?.cityState,
@@ -115,6 +130,10 @@ class CityDashboardViewController: UIViewController {
         if segue.identifier == "MapSegue" {
             let mapVC = segue.destination as! MapViewController
             mapVC.city = currentCity
+        }
+        if segue.identifier == "weatherSegue" {
+            let weatherVC = segue.destination as! WeatherViewController
+            weatherVC.city = currentCity
         }
     }
     
@@ -214,6 +233,29 @@ class CityDashboardViewController: UIViewController {
             let property = PropertyData(propertyLabel: "Rental Price", valueLabel: "$\(rentalPrice)", percentage: Float(rentalPrice) / 3600, propertyDescription: description)
             propertyData.append(property)
         }
+    }
+    
+    private func getWeatherAndSegue() {
+        guard let city = currentCity else { return }
+        controller?.fetchWeather(city: city, completion: { weather in
+            if let weather = weather {
+                DispatchQueue.main.async {
+                    self.currentCity?.weather = weather
+                    self.performSegue(withIdentifier: "weatherSegue", sender: self)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.noWeatherDataAlert()
+                }
+            }
+        })
+    }
+    
+    private func noWeatherDataAlert() {
+        let alert = UIAlertController(title: "Sorry!", message: "No weather data is available for this city.", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .cancel)
+        alert.addAction(okButton)
+        present(alert, animated: true, completion: nil)
     }
 }
 

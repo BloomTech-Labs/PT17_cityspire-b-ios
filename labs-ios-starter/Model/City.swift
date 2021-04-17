@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-struct City: Codable {
+struct City: Decodable {
     
     enum Keys: String, CodingKey {
         case latitude
@@ -43,6 +43,7 @@ struct City: Codable {
     var rentalPrice: Int?
     var airQuality: String?
     var recommendations: [Recommendation] = []
+    var weather: Weather? = nil
     
     init(cityName: String, cityState: String) {
         self.cityName = cityName
