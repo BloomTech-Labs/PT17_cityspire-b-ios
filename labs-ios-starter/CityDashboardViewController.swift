@@ -165,6 +165,8 @@ class CityDashboardViewController: UIViewController {
     }
     
     private func fetchFavorites() {
+        pinToProfileButton.setImage(UIImage(systemName: "pin"), for: .normal)
+        favorited = nil
         do {
             self.favorites = try context.fetch(Favorite.fetchRequest())
             for favorite in favorites {

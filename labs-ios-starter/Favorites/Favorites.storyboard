@@ -37,9 +37,8 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Ce-gk-cqj">
                                 <rect key="frame" x="0.0" y="386" width="414" height="430"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="N8d-Jz-nGY">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="10" id="N8d-Jz-nGY">
                                     <size key="itemSize" width="320" height="80"/>
-                                    <size key="estimatedItemSize" width="320" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -74,9 +73,9 @@
                                                         <constraint firstItem="4jT-R8-b6T" firstAttribute="centerY" secondItem="A52-SH-Qyx" secondAttribute="centerY" id="8zC-vF-6sq"/>
                                                         <constraint firstItem="4jT-R8-b6T" firstAttribute="leading" secondItem="A52-SH-Qyx" secondAttribute="leading" constant="20" id="Gbi-5U-3dT"/>
                                                         <constraint firstAttribute="trailing" secondItem="6hj-Vw-4aT" secondAttribute="trailing" constant="20" id="Gdq-tR-qKN"/>
-                                                        <constraint firstAttribute="height" constant="80" id="ORy-HR-N6A"/>
                                                         <constraint firstItem="6hj-Vw-4aT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4jT-R8-b6T" secondAttribute="trailing" constant="20" id="RQN-DM-08I"/>
-                                                        <constraint firstAttribute="width" constant="320" id="aWr-kq-SDN"/>
+                                                        <constraint firstAttribute="width" constant="320" id="Wag-bK-pN3"/>
+                                                        <constraint firstAttribute="height" constant="80" id="ZrT-Dx-gs0"/>
                                                         <constraint firstItem="6hj-Vw-4aT" firstAttribute="centerY" secondItem="A52-SH-Qyx" secondAttribute="centerY" id="eXd-Uh-4hw"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -223,22 +222,22 @@
         <image name="pin.fill" catalog="system" width="119" height="128"/>
         <image name="pin.slash.fill" catalog="system" width="116" height="128"/>
         <namedColor name="AccentGreen">
-            <color red="0.28999999165534973" green="0.4779999852180481" blue="0.54900002479553223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.29019607843137252" green="0.47843137254901957" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="DarkBlue">
-            <color red="0.063000001013278961" green="0.27099999785423279" blue="0.45100000500679016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.062745098039215685" green="0.27058823529411763" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="DarkishBlue">
-            <color red="0.19200000166893005" green="0.40000000596046448" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.19215686274509802" green="0.40000000000000002" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MedBlue">
-            <color red="0.059000000357627869" green="0.37299999594688416" blue="0.65100002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.058823529411764705" green="0.37254901960784315" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="OffWhite">
-            <color red="0.9649999737739563" green="0.9570000171661377" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.96470588235294119" green="0.95686274509803915" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="VeryLightBlue">
-            <color red="0.79199999570846558" green="0.85900002717971802" blue="0.88999998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.792156862745098" green="0.85882352941176465" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
