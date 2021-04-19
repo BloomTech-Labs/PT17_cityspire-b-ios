@@ -200,7 +200,7 @@ class CityDashboardViewController: UIViewController {
         if let livability = city.livability,
            livability != 0,
            let description = propertyDescriptionDictionary["livability"] {
-            let property = PropertyData(propertyLabel: "Livability", valueLabel: "\(livability)", percentage: Float(livability) / 100, propertyDescription: description)
+            let property = PropertyData(propertyLabel: "Livability", valueLabel: "\(livability)", percentage: Float(livability) / 100, propertyDescription: description, color: UIColor(named: "AccentGreen")!)
             propertyData.append(property)
         }
         
@@ -208,7 +208,7 @@ class CityDashboardViewController: UIViewController {
         if let walkability = city.walkability,
            walkability != 0,
            let description = propertyDescriptionDictionary["walkability"] {
-            let property = PropertyData(propertyLabel: "Walkability", valueLabel: "\(walkability)", percentage: Float(walkability) / 100, propertyDescription: description)
+            let property = PropertyData(propertyLabel: "Walkability", valueLabel: "\(walkability)", percentage: Float(walkability) / 100, propertyDescription: description, color: UIColor(named: "PieChartPurple")!)
             propertyData.append(property)
         }
         
@@ -216,7 +216,7 @@ class CityDashboardViewController: UIViewController {
         if let diversity = city.diversityIndex,
            diversity != 0,
            let description = propertyDescriptionDictionary["diversityIndex"] {
-            let property = PropertyData(propertyLabel: "Diversity Index", valueLabel: "\(diversity)", percentage: Float(diversity) / 100, propertyDescription: description)
+            let property = PropertyData(propertyLabel: "Diversity Index", valueLabel: "\(diversity)", percentage: Float(diversity) / 100, propertyDescription: description, color: UIColor(named: "PieChartYellow")!)
             propertyData.append(property)
         }
         
@@ -224,7 +224,7 @@ class CityDashboardViewController: UIViewController {
         if let crime = city.crime,
            let crimeScore = controller?.stringToInt(word: crime),
            let description = propertyDescriptionDictionary["crime"] {
-            let property = PropertyData(propertyLabel: "Crime", valueLabel: "\(crime)", percentage: Float(crimeScore) / 100, propertyDescription: description)
+            let property = PropertyData(propertyLabel: "Crime", valueLabel: "\(crime)", percentage: Float(crimeScore) / 100, propertyDescription: description, color: UIColor(named: "PieChartRed")!)
             propertyData.append(property)
         }
         
@@ -232,7 +232,7 @@ class CityDashboardViewController: UIViewController {
         if let airQuality = city.airQuality,
            let airScore = controller?.stringToInt(word: airQuality),
            let description = propertyDescriptionDictionary["airQuality"] {
-            let property = PropertyData(propertyLabel: "Air Quality", valueLabel: "\(airQuality)", percentage: Float(airScore) / 100, propertyDescription: description)
+            let property = PropertyData(propertyLabel: "Air Quality", valueLabel: "\(airQuality)", percentage: Float(airScore) / 100, propertyDescription: description, color: UIColor(named: "PieChartBlue")!)
             propertyData.append(property)
         }
         
@@ -240,7 +240,7 @@ class CityDashboardViewController: UIViewController {
         if let rentalPrice = city.rentalPrice,
            rentalPrice != 0,
            let description = propertyDescriptionDictionary["rentalPrice"] {
-            let property = PropertyData(propertyLabel: "Rental Price", valueLabel: "$\(rentalPrice)", percentage: Float(rentalPrice) / 3600, propertyDescription: description)
+            let property = PropertyData(propertyLabel: "Rental Price", valueLabel: "$\(rentalPrice)", percentage: Float(rentalPrice) / 3600, propertyDescription: description, color: UIColor(named: "PieChartGreen")!)
             propertyData.append(property)
         }
     }
@@ -303,6 +303,7 @@ extension CityDashboardViewController: UICollectionViewDataSource, UICollectionV
             cell.propertyValueLabel.text = propertyData[indexPath.item].valueLabel
             cell.progressBarView.setTrackedProgressWithAnimation(duration: 1.0, value: propertyData[indexPath.item].percentage)
             cell.propertyDescriptionTextView.text = propertyData[indexPath.item].propertyDescription
+            cell.color = propertyData[indexPath.item].color
             cell.layer.cornerRadius = 15
             cell.layer.borderColor = UIColor(named: "DarkishBlue")?.cgColor
             cell.layer.borderWidth = 1

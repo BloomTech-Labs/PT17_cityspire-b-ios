@@ -69,7 +69,7 @@ class HousingViewController: UIViewController {
             let position = ((CGFloat(index) * 2) - 5)
             
             let bar = SCNBox(width: 2, height: height, length: 1.5, chamferRadius: 0.1)
-            bar.materials.first?.diffuse.contents = UIColor(named: "LightBlue")
+            bar.materials.first?.diffuse.contents = UIColor(named: "PieChartGreen")
             let node = SCNNode(geometry: bar)
             node.position = SCNVector3(position, yAdjust, 0)
             scene.rootNode.addChildNode(node)
@@ -79,7 +79,7 @@ class HousingViewController: UIViewController {
             let priceString = "$\(price)K"
             let priceText = SCNText(string: priceString, extrusionDepth: 0)
             priceText.font = UIFont(name: "TrebuchetMS-Bold", size: 0.5)
-            priceText.materials.first?.diffuse.contents = UIColor(named: "OffWhite")
+            priceText.materials.first?.diffuse.contents = UIColor(named: "DarkBlue")
             let priceTextNode = SCNNode(geometry: priceText)
             priceTextNode.position = SCNVector3(-1.5, yAdjust - 1, 0.8)
             priceTextNode.rotation = SCNVector4(0, 0, 1, -0.75)
@@ -88,7 +88,7 @@ class HousingViewController: UIViewController {
             let bedroomString = "\(bedrooms[index])"
             let bedroomText = SCNText(string: bedroomString, extrusionDepth: 0)
             bedroomText.font = UIFont(name: "TrebuchetMS-Bold", size: 0.6)
-            bedroomText.materials.first?.diffuse.contents = UIColor(named: "OffWhite")
+            bedroomText.materials.first?.diffuse.contents = UIColor(named: "DarkBlue")
             let bedroomNode = SCNNode(geometry: bedroomText)
             bedroomNode.position = SCNVector3(-0.3, -yAdjust, 0.8)
             node.addChildNode(bedroomNode)
