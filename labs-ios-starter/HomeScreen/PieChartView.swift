@@ -20,8 +20,9 @@ class PieChartView: UIView {
     }
     
     var segments = [PieChartSegment]() {
+        // re-draw view when the values get set
         didSet {
-            setNeedsDisplay() // re-draw view when the values get set
+            setNeedsDisplay()
         }
     }
     

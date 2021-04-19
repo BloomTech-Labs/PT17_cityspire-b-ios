@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     // MARK: - Outlets
+    
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var walkabilityPercentageLabel: UILabel!
     @IBOutlet weak var rentalPricePercentageLabel: UILabel!
@@ -22,17 +23,17 @@ class SettingsViewController: UIViewController {
     
     var tabDelegate: TabButtonDelegate?
     var settings: [CGFloat] = [20, 20, 20, 20, 20]
-    let colors: [UIColor] = [UIColor(named: "PieChartRed")!, UIColor(named: "PieChartPurple")!, UIColor(named: "PieChartGreen")!, UIColor(named: "PieChartBlue")!, UIColor(named: "PieChartYellow")!]
+    let colors: [UIColor] = [UIColor(named: "PieChartPurple")!, UIColor(named: "PieChartGreen")!, UIColor(named: "PieChartRed")!, UIColor(named: "PieChartYellow")!, UIColor(named: "PieChartBlue")!]
     let defaults = UserDefaults.standard
+    
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         setUpViews()
     }
     
@@ -207,7 +208,9 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    func updatePieChartValues() {
+    // MARK: - Private Functions
+    
+    private func updatePieChartValues() {
         pieChartView.backgroundColor = UIColor.clear
         let chartView = PieChartView()
         var segments: [PieChartSegment] = []
@@ -221,12 +224,12 @@ class SettingsViewController: UIViewController {
         updateLabels()
     }
     
-    func resetLabels() {
+    private func resetLabels() {
         settings = [20, 20, 20, 20, 20]
         updatePieChartValues()
     }
     
-    func updateLabels() {
+    private func updateLabels() {
         let sum = CGFloat(settings.reduce(0, +))
         walkabilityPercentageLabel.text = "\(Int(settings[0] / sum * 100))%"
         rentalPricePercentageLabel.text = "\(Int(settings[1] / sum * 100))%"
@@ -235,8 +238,11 @@ class SettingsViewController: UIViewController {
         airQualityPercentageLabel.text = "\(Int(settings[4] / sum * 100))%"
     }
     
-    func setUpViews() {
-        guard let settingInts = defaults.object(forKey: "Settings") as? [Int] else { return }
+    private func setUpViews() {
+        guard let settingInts = defaults.object(forKey: "Settings") as? [Int] else {
+            updatePieChartValues()
+            return
+        }
         settings = []
         for int in settingInts {
             let float = CGFloat(int)

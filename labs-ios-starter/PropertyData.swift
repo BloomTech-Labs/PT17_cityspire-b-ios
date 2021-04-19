@@ -6,11 +6,12 @@
 //  Copyright © 2021 Spencer Curtis. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct PropertyData {
     var propertyLabel: String
     var valueLabel: String
     var percentage: Float
     var propertyDescription: String
+    var color: UIColor
 }

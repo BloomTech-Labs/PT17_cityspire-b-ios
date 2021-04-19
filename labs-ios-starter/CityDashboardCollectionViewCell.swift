@@ -17,4 +17,14 @@ class CityDashboardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var progressBarView: CircularProgressBarView!
     @IBOutlet weak var propertyDescriptionTextView: UITextView!
     
+    // MARK: - Properties
+    
+    var color: UIColor? {
+        didSet {
+            if let colorCG = color?.cgColor {
+                progressBarView.trackedProgressColor = colorCG
+            }
+        }
+    }
+    
 }

@@ -23,15 +23,10 @@ class CircularProgressBarView: UIView {
         createCircularPath()
     }
 
-    var untrackedProgressColor = UIColor.gray {
+    var untrackedProgressColor = UIColor(named: "PalestBlue")?.cgColor
+    var trackedProgressColor = UIColor(named: "AccentGreen")?.cgColor {
         didSet {
-            untrackedProgressLayer.strokeColor = untrackedProgressColor.cgColor
-        }
-    }
-
-    var trackedProgressColor = UIColor.blue {
-        didSet {
-            trackedProgressLayer.strokeColor = trackedProgressColor.cgColor
+            trackedProgressLayer.strokeColor = trackedProgressColor
         }
     }
     
@@ -45,14 +40,14 @@ class CircularProgressBarView: UIView {
 
         untrackedProgressLayer.path = circlePath.cgPath
         untrackedProgressLayer.fillColor = UIColor.clear.cgColor
-        untrackedProgressLayer.strokeColor = UIColor(named: "PalestBlue")?.cgColor
+        untrackedProgressLayer.strokeColor = untrackedProgressColor
         untrackedProgressLayer.lineWidth = 20.0
         untrackedProgressLayer.strokeEnd = 1.0
         layer.addSublayer(untrackedProgressLayer)
         
         trackedProgressLayer.path = circlePath.cgPath
         trackedProgressLayer.fillColor = UIColor.clear.cgColor
-        trackedProgressLayer.strokeColor = trackedProgressColor.cgColor
+        trackedProgressLayer.strokeColor = trackedProgressColor
         trackedProgressLayer.lineCap = .round
         trackedProgressLayer.lineWidth = 20.0
         trackedProgressLayer.strokeEnd = 1.0
@@ -67,7 +62,7 @@ class CircularProgressBarView: UIView {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
         animation.fromValue = 0
-        trackedProgressLayer.strokeColor = UIColor(named: "LightBlue")?.cgColor
+        trackedProgressLayer.strokeColor = trackedProgressColor
         animation.toValue = value
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         trackedProgressLayer.strokeEnd = CGFloat(value)

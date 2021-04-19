@@ -58,7 +58,7 @@ class WeatherViewController: UIViewController {
             let position = (CGFloat(index) - 6)
             
             let lowBar = SCNBox(width: 1, height: lowHeight, length: 1.5, chamferRadius: 0.1)
-            lowBar.materials.first?.diffuse.contents = UIColor(named: "LightBlue")
+            lowBar.materials.first?.diffuse.contents = UIColor(named: "PieChartBlue")
             let lowNode = SCNNode(geometry: lowBar)
             lowNode.position = SCNVector3(position, lowYAdjust, 0)
             lowScene.rootNode.addChildNode(lowNode)
@@ -66,13 +66,13 @@ class WeatherViewController: UIViewController {
             let lowTemp = String(Int(weather.months[index].minTemp))
             let lowText = SCNText(string: lowTemp, extrusionDepth: 0)
             lowText.font = UIFont(name: "TrebuchetMS-Bold", size: 0.6)
-            lowText.materials.first?.diffuse.contents = UIColor(named: "OffWhite")
+            lowText.materials.first?.diffuse.contents = UIColor(named: "DarkBlue")
             let lowTextNode = SCNNode(geometry: lowText)
             lowTextNode.position = SCNVector3(-0.35, lowYAdjust - 2, 0.8)
             lowNode.addChildNode(lowTextNode)
             
             let highBar = SCNBox(width: 1, height: highHeight, length: 1.5, chamferRadius: 0.1)
-            highBar.materials.first?.diffuse.contents = UIColor(named: "AccentYellow")
+            highBar.materials.first?.diffuse.contents = UIColor(named: "PieChartYellow")
             let highNode = SCNNode(geometry: highBar)
             highNode.position = SCNVector3(position, (highYAdjust), 0)
             highScene.rootNode.addChildNode(highNode)
@@ -89,7 +89,7 @@ class WeatherViewController: UIViewController {
             
             let lowMonthText = SCNText(string: monthString, extrusionDepth: 0)
             lowMonthText.font = UIFont(name: "TrebuchetMS-Bold", size: 0.6)
-            lowMonthText.materials.first?.diffuse.contents = UIColor(named: "OffWhite")
+            lowMonthText.materials.first?.diffuse.contents = UIColor(named: "DarkBlue")
             let lowMonthNode = SCNNode(geometry: lowMonthText)
             lowMonthNode.position = SCNVector3(1, -lowYAdjust, 0.8)
             lowMonthNode.rotation = SCNVector4(0, 0, 1, 1.25)
