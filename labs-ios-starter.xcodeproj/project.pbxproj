@@ -11,6 +11,8 @@
 		112570DB2605A1F40016480A /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112570DA2605A1F40016480A /* CircularProgressBarView.swift */; };
 		1178448526093EA800155C57 /* SimilarCityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1178448426093EA800155C57 /* SimilarCityCollectionViewCell.swift */; };
 		1182A749260D850800FCE525 /* UserProfileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1182A748260D850800FCE525 /* UserProfileUITests.swift */; };
+		11992BE1262A76F1003266D1 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11992BE0262A76F1003266D1 /* PieChart.swift */; };
+		11992BE6262A788C003266D1 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11992BE5262A788C003266D1 /* PieChartView.swift */; };
 		11A646452602DF890004CF5D /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A646442602DF890004CF5D /* City.swift */; };
 		11A646542602E12A0004CF5D /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A646532602E12A0004CF5D /* ApiController.swift */; };
 		11A6465E2602E4400004CF5D /* CityDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A6465D2602E4400004CF5D /* CityDashboardViewController.swift */; };
@@ -72,6 +74,8 @@
 		112570DA2605A1F40016480A /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		1178448426093EA800155C57 /* SimilarCityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarCityCollectionViewCell.swift; sourceTree = "<group>"; };
 		1182A748260D850800FCE525 /* UserProfileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileUITests.swift; sourceTree = "<group>"; };
+		11992BE0262A76F1003266D1 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		11992BE5262A788C003266D1 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		11A646442602DF890004CF5D /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		11A646532602E12A0004CF5D /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		11A6465D2602E4400004CF5D /* CityDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDashboardViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				1A26007E2609174B00BDE6EA /* HomeScreenViewController.swift */,
 				1A260089260920B800BDE6EA /* HomeScreenCollectionViewCell.swift */,
 				1A2600AB260E347400BDE6EA /* SettingsViewController.swift */,
+				11992BE5262A788C003266D1 /* PieChartView.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				1A26005A2606892800BDE6EA /* Favorite+Convenience.swift */,
 				1A26007A260916D700BDE6EA /* Recommendation.swift */,
 				1A40AB69261E110400D2DDEC /* NetworkModels.swift */,
+				11992BE0262A76F1003266D1 /* PieChart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -423,6 +429,7 @@
 				1A26006F2606C9DC00BDE6EA /* MockData.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				1A40AB6A261E110400D2DDEC /* NetworkModels.swift in Sources */,
+				11992BE6262A788C003266D1 /* PieChartView.swift in Sources */,
 				C37D6E3625D07F150025842E /* FavoritesCollectionViewCell.swift in Sources */,
 				1A26005B2606892800BDE6EA /* Favorite+Convenience.swift in Sources */,
 				1178448526093EA800155C57 /* SimilarCityCollectionViewCell.swift in Sources */,
@@ -438,6 +445,7 @@
 				1A26007B260916D700BDE6EA /* Recommendation.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
 				1A26004926054DDF00BDE6EA /* POICategory.swift in Sources */,
+				11992BE1262A76F1003266D1 /* PieChart.swift in Sources */,
 				1A26004D26055EB600BDE6EA /* POITableViewCell.swift in Sources */,
 				1A260040260505F500BDE6EA /* POIAnnotation.swift in Sources */,
 				C3BEDE9925C2733B006BF31A /* FavoritesViewController.swift in Sources */,
