@@ -372,6 +372,7 @@ CA</string>
                         <outlet property="similarCitiesCollectionView" destination="WwL-gZ-20c" id="pUH-Fs-SIO"/>
                         <segue destination="Kc7-8Z-ohD" kind="presentation" identifier="weatherSegue" id="stD-2O-dWm"/>
                         <segue destination="Wwu-9L-BgQ" kind="presentation" identifier="MapSegue" id="8Gb-Dq-7if"/>
+                        <segue destination="hcf-GU-QTK" kind="presentation" identifier="housingSegue" id="Fg5-pI-R5y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQy-aU-bCa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -386,7 +387,7 @@ CA</string>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lpp-wC-y85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="347" y="121"/>
+            <point key="canvasLocation" x="345" y="-84"/>
         </scene>
         <!--Weather View Controller-->
         <scene sceneID="2xE-PV-5Oj">
@@ -496,7 +497,146 @@ CA</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haO-nr-fbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="575" y="601"/>
+            <point key="canvasLocation" x="572" y="304"/>
+        </scene>
+        <!--Housing View Controller-->
+        <scene sceneID="6nZ-dc-dpX">
+            <objects>
+                <viewController id="hcf-GU-QTK" customClass="HousingViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1zb-RZ-iwd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueMap" translatesAutoresizingMaskIntoConstraints="NO" id="awX-wh-E5R">
+                                <rect key="frame" x="-389.5" y="0.0" width="1193" height="858"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4f1-xd-R2h">
+                                <rect key="frame" x="0.0" y="-50" width="414" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTH-nt-rN4">
+                                        <rect key="frame" x="20" y="75" width="134" height="33"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="28"/>
+                                        <color key="textColor" name="OffWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FuQ-d5-agw">
+                                        <rect key="frame" x="355" y="76" width="39" height="32"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" name="OffWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="hcf-GU-QTK" eventType="touchUpInside" id="pNn-Om-7uo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="DarkishBlue"/>
+                                <constraints>
+                                    <constraint firstItem="kTH-nt-rN4" firstAttribute="leading" secondItem="4f1-xd-R2h" secondAttribute="leading" constant="20" id="8AZ-od-zFc"/>
+                                    <constraint firstAttribute="trailing" secondItem="FuQ-d5-agw" secondAttribute="trailing" constant="20" id="8tl-rs-AIE"/>
+                                    <constraint firstAttribute="height" constant="128" id="De2-hY-7pz"/>
+                                    <constraint firstAttribute="bottom" secondItem="FuQ-d5-agw" secondAttribute="bottom" constant="20" id="PyO-CC-b5J"/>
+                                    <constraint firstAttribute="bottom" secondItem="kTH-nt-rN4" secondAttribute="bottom" constant="20" id="zhf-di-RR5"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LfX-0f-54c">
+                                <rect key="frame" x="20" y="146" width="374" height="67"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VSU-Mh-hp1">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="23.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Single Family Homes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YtY-J6-NpB">
+                                                <rect key="frame" x="0.0" y="0.0" width="198.5" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
+                                                <color key="textColor" name="DarkBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4I-R8-Pbw">
+                                                <rect key="frame" x="326" y="0.0" width="48" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
+                                                <color key="textColor" name="DarkBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XNl-m4-QxI">
+                                        <rect key="frame" x="0.0" y="43.5" width="374" height="23.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hu8-jm-qqW">
+                                                <rect key="frame" x="0.0" y="0.0" width="74.5" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
+                                                <color key="textColor" name="DarkBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CP-z2-Fsr">
+                                                <rect key="frame" x="326" y="0.0" width="48" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
+                                                <color key="textColor" name="DarkBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Real Estate Prices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4c-4T-ecO">
+                                <rect key="frame" x="58.5" y="98" width="297" height="28"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="24"/>
+                                <color key="textColor" name="DarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Homes by Bedrooms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iS9-E3-Kmq">
+                                <rect key="frame" x="20" y="253" width="189" height="23.5"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
+                                <color key="textColor" name="DarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NU-5t-weA">
+                                <rect key="frame" x="18" y="294.5" width="378" height="304"/>
+                                <color key="backgroundColor" name="DarkishBlue"/>
+                            </view>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glO-eB-ZHu">
+                                <rect key="frame" x="20" y="296.5" width="374" height="300"/>
+                                <color key="backgroundColor" name="PaleBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="GTO-Vn-NsV"/>
+                                </constraints>
+                            </sceneKitView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BP3-la-Zh3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="awX-wh-E5R" firstAttribute="centerX" secondItem="1zb-RZ-iwd" secondAttribute="centerX" id="03f-tc-Mes"/>
+                            <constraint firstItem="BP3-la-Zh3" firstAttribute="trailing" secondItem="glO-eB-ZHu" secondAttribute="trailing" constant="20" id="7Sd-WO-lCz"/>
+                            <constraint firstItem="4NU-5t-weA" firstAttribute="width" secondItem="glO-eB-ZHu" secondAttribute="width" constant="4" id="Ah2-Fo-Tgl"/>
+                            <constraint firstItem="glO-eB-ZHu" firstAttribute="leading" secondItem="BP3-la-Zh3" secondAttribute="leading" constant="20" id="Cvf-yP-wyd"/>
+                            <constraint firstItem="LfX-0f-54c" firstAttribute="top" secondItem="P4c-4T-ecO" secondAttribute="bottom" constant="20" id="G6t-w6-YWs"/>
+                            <constraint firstItem="4f1-xd-R2h" firstAttribute="leading" secondItem="BP3-la-Zh3" secondAttribute="leading" id="GCV-PG-IHc"/>
+                            <constraint firstItem="BP3-la-Zh3" firstAttribute="trailing" secondItem="LfX-0f-54c" secondAttribute="trailing" constant="20" id="LQQ-2Y-wSh"/>
+                            <constraint firstItem="4NU-5t-weA" firstAttribute="centerY" secondItem="glO-eB-ZHu" secondAttribute="centerY" id="LeN-is-cwD"/>
+                            <constraint firstItem="iS9-E3-Kmq" firstAttribute="top" secondItem="LfX-0f-54c" secondAttribute="bottom" constant="40" id="RYP-nW-iJY"/>
+                            <constraint firstItem="iS9-E3-Kmq" firstAttribute="leading" secondItem="BP3-la-Zh3" secondAttribute="leading" constant="20" id="UQD-7x-upx"/>
+                            <constraint firstItem="BP3-la-Zh3" firstAttribute="bottom" secondItem="awX-wh-E5R" secondAttribute="bottom" constant="-50" id="ZdV-7Y-mWe"/>
+                            <constraint firstItem="glO-eB-ZHu" firstAttribute="top" secondItem="iS9-E3-Kmq" secondAttribute="bottom" constant="20" id="hMn-UF-kod"/>
+                            <constraint firstItem="P4c-4T-ecO" firstAttribute="top" secondItem="4f1-xd-R2h" secondAttribute="bottom" constant="20" id="hw1-hH-1yu"/>
+                            <constraint firstItem="LfX-0f-54c" firstAttribute="leading" secondItem="BP3-la-Zh3" secondAttribute="leading" constant="20" id="jTL-zt-bUK"/>
+                            <constraint firstItem="4NU-5t-weA" firstAttribute="centerX" secondItem="glO-eB-ZHu" secondAttribute="centerX" id="kF5-LN-chT"/>
+                            <constraint firstItem="BP3-la-Zh3" firstAttribute="trailing" secondItem="4f1-xd-R2h" secondAttribute="trailing" id="kzj-xt-8E4"/>
+                            <constraint firstItem="P4c-4T-ecO" firstAttribute="centerX" secondItem="1zb-RZ-iwd" secondAttribute="centerX" id="mKr-1o-Bm2"/>
+                            <constraint firstItem="4NU-5t-weA" firstAttribute="height" secondItem="glO-eB-ZHu" secondAttribute="height" constant="4" id="s9M-eL-2ig"/>
+                            <constraint firstItem="awX-wh-E5R" firstAttribute="top" secondItem="BP3-la-Zh3" secondAttribute="top" id="sWg-H7-32k"/>
+                            <constraint firstItem="4f1-xd-R2h" firstAttribute="top" secondItem="BP3-la-Zh3" secondAttribute="top" constant="-50" id="shg-E9-s8Q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="kTH-nt-rN4" id="HWs-u6-qAz"/>
+                        <outlet property="condoLabel" destination="6CP-z2-Fsr" id="MBw-bA-PBr"/>
+                        <outlet property="sceneView" destination="glO-eB-ZHu" id="Xnc-TC-04H"/>
+                        <outlet property="singleFamilyLabel" destination="f4I-R8-Pbw" id="cYt-4S-iEe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qkm-uO-ehO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1396" y="303"/>
         </scene>
     </scenes>
     <resources>
@@ -517,6 +657,9 @@ CA</string>
         </namedColor>
         <namedColor name="OffWhite">
             <color red="0.96470588235294119" green="0.95686274509803915" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PaleBlue">
+            <color red="0.84313725490196079" green="0.89411764705882346" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PalestBlue">
             <color red="0.89411764705882346" green="0.92941176470588238" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

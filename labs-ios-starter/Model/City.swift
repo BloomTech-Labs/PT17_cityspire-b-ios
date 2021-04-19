@@ -44,6 +44,7 @@ struct City: Decodable {
     var airQuality: String?
     var recommendations: [Recommendation] = []
     var weather: Weather? = nil
+    var housing: Housing? = nil
     
     init(cityName: String, cityState: String) {
         self.cityName = cityName
