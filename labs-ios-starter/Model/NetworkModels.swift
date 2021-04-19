@@ -61,3 +61,31 @@ struct Weather: Decodable {
         }
     }
 }
+
+struct Housing: Decodable {
+    enum Keys: String, CodingKey {
+        case singleFamily = "single_family_housing_avg_price"
+        case condo = "condo_avg_price"
+        case oneBedroom = "1_bedroom_avg_price"
+        case twoBedroom = "2_bedroom_avg_price"
+        case threeBedroom = "3_bedroom_avg_price"
+        case fourBedroom = "4_bedroom_avg_price"
+        case fiveBedroom = "5_and_up_bedroom_avg_price"
+    }
+    
+    let singleFamily: Int
+    let condo: Int
+    let bedrooms: [Int]
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+        singleFamily = try container.decode(Int.self, forKey: .singleFamily)
+        condo = try container.decode(Int.self, forKey: .condo)
+        let one = try container.decode(Int.self, forKey: .oneBedroom)
+        let two = try container.decode(Int.self, forKey: .twoBedroom)
+        let three = try container.decode(Int.self, forKey: .threeBedroom)
+        let four = try container.decode(Int.self, forKey: .fourBedroom)
+        let five = try container.decode(Int.self, forKey: .fiveBedroom)
+        bedrooms = [one, two, three, four, five]
+    }
+}

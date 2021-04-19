@@ -17,6 +17,7 @@ City Spire analyzes data from cities such as populations, cost of living, rental
   <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/CityDashboard.png" width="300" />
   <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/MapScreen.png" width="300" />
   <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/WeatherScreen.png" width="300" />
+  <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/HousingScreen.png" width="300" />
   <img src="https://github.com/Lambda-School-Labs/PT17_cityspire-b-ios/blob/main/Screens/PinnedCities.png" width="300" />
 </p>
 

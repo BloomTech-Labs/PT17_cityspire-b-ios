@@ -72,9 +72,13 @@ class CityDashboardViewController: UIViewController {
         let weatherOption = UIAlertAction(title: "Weather", style: .default) { _ in
             self.getWeatherAndSegue()
         }
+        let housingOption = UIAlertAction(title: "Housing Prices", style: .default) { _ in
+            self.getHousingAndSegue()
+        }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         actionSheet.addAction(mapOption)
         actionSheet.addAction(weatherOption)
+        actionSheet.addAction(housingOption)
         actionSheet.addAction(cancel)
         present(actionSheet, animated: true, completion: nil)
     }
@@ -134,6 +138,10 @@ class CityDashboardViewController: UIViewController {
         if segue.identifier == "weatherSegue" {
             let weatherVC = segue.destination as! WeatherViewController
             weatherVC.city = currentCity
+        }
+        if segue.identifier == "housingSegue" {
+            let housingVC = segue.destination as! HousingViewController
+            housingVC.city = currentCity
         }
     }
     
@@ -247,14 +255,30 @@ class CityDashboardViewController: UIViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.noWeatherDataAlert()
+                    self.noDataAlert(dataRequest: "weather")
                 }
             }
         })
     }
     
-    private func noWeatherDataAlert() {
-        let alert = UIAlertController(title: "Sorry!", message: "No weather data is available for this city.", preferredStyle: .alert)
+    private func getHousingAndSegue() {
+        guard let city = currentCity else { return }
+        controller?.fetchHousing(city: city, completion: { housing in
+            if let housing = housing {
+                DispatchQueue.main.async {
+                    self.currentCity?.housing = housing
+                    self.performSegue(withIdentifier: "housingSegue", sender: self)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.noDataAlert(dataRequest: "housing")
+                }
+            }
+        })
+    }
+    
+    private func noDataAlert(dataRequest: String) {
+        let alert = UIAlertController(title: "Sorry!", message: "No \(dataRequest) data is available for this city.", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .cancel)
         alert.addAction(okButton)
         present(alert, animated: true, completion: nil)

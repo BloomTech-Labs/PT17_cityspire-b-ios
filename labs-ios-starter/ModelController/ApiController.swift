@@ -94,7 +94,18 @@ class ApiController {
         }
     }
     
+    /// called in CityDashboard when the user selects Weather from the action sheet
+    /// checks if Weather has already been saved in the cached City, and makes network request if needed
+    /// - Parameters:
+    ///   - city: accepts a City
+    ///   - completion: upon success, saves Weather to the cached City, and returns Weather
     func fetchWeather(city: City, completion: @escaping (Weather?) -> Void) {
+        let fullCityName = city.cityName + ", " + city.cityState
+        if let cachedCity = cache.value(for: fullCityName),
+           cachedCity.weather != nil {
+            completion(cachedCity.weather)
+            return
+        }
         let path = "weather_monthly_forecast"
         guard let request = postRequestWithCity(url: dsBaseURL, urlPathComponent: path, city: city) else {
             completion(nil)
@@ -118,6 +129,46 @@ class ApiController {
                         }
                     } catch {
                         NSLog("Error decoding weather data: \(error)")
+                        completion(nil)
+                    }
+                default:
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    /// called in CityDashboard when the user selects Housing Prices from the action sheet
+    /// checks if Housing has already been saved in the cached City, and makes network request if needed
+    /// - Parameters:
+    ///   - city: accepts a City
+    ///   - completion: upon success, saves Housing to the cached City, and returns Housing
+    func fetchHousing(city: City, completion: @escaping (Housing?) -> Void) {
+        let fullCityName = city.cityName + ", " + city.cityState
+        if let cachedCity = cache.value(for: fullCityName),
+           cachedCity.housing != nil {
+            completion(cachedCity.housing)
+            return
+        }
+        let path = "housing_price_averages"
+        guard let request = postRequestWithCity(url: dsBaseURL, urlPathComponent: path, city: city) else {
+            completion(nil)
+            return
+        }
+        dataLoader.dataRequest(with: request) { data, response, error in
+            self.checkResponse(for: "fetchHousing", data, response, error) { result in
+                switch result {
+                case .success(let data):
+                    do {
+                        let housing = try JSONDecoder().decode(Housing.self, from: data)
+                        let fullCityName = city.cityName + ", " + city.cityState
+                        if var cachedCity = self.cache.value(for: fullCityName) {
+                            cachedCity.housing = housing
+                            self.updateCachedCity(city: cachedCity)
+                        }
+                        completion(housing)
+                    } catch {
+                        NSLog("Error decoding housing data: \(error)")
                         completion(nil)
                     }
                 default:
