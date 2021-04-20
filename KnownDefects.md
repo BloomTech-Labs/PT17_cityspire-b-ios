@@ -1,29 +1,16 @@
 # Known Defects
 
-## Search
-### UI:
-- UI constraints don't autosize for larger devices.
-### Code:
-- Known errors with the user's search. More error handling needed here to prevent incorrect user input/format.
-- Does not pull all data that is accessible from the api due to incorrect JSON formatting.
+## Endpoints
+### Top Cities:
+- using mock data for top cities, as no endpoint was available
+### City Data:
+- get_data endpoint from DS api is limited to certain citiies
+- errors are handled such that walkability score is fetched (available for all cities) in the event that a searched city is not in the DS api
+### Pinned Cities
+- local persistance is in place for pinned cities, but endpoints were not available to sync data across multiple devices
 
-## Map
-### UI:
-- Favorite icon does not toggle colors if favorited/unfavorited.
-- Does not display all data we created buttons/icons for.
-### Code:
-- Did not implement callout views on the annotations for the mapview.
+## Settings/Livability:
+- Settings page allows user to set thresholds for various data points in order to recalculate the livability score for each city, but this feature is not implemented with the api
 
-## Login
-### UI:
--Okta sign in redirects user to safari instead of staying in the app to complete sign in.
-### Code:
-- New user can't create an account with Okta
-
-## Favorites
-### UI:
-- There are placeholder labels in the cells for use with important data pulled from JSON that we were unable to attain.
-### Code:
-- Cells from CollectionView are unclickable. Does not segue to map viewcontroller.
-
-[Video Overview](https://www.loom.com/share/44386b011fc34f599ae2d15e49a561e1)
+## Top Cities Images:
+- state flags are used as placeholder images for the Top Cities on the HomeScreen
