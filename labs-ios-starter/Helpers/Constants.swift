@@ -36,8 +36,10 @@ enum NetworkError: Error {
     case otherError
 }
 
+// dictionary used to convert the Air Quality Index words to the words used in our app
 let airQualityDictionary: [String: String] = ["Good": "Excellent", "Moderate": "Good", "Unhealthy for Sensitive Groups": "Fair", "Unhealthy": "Fair", "Very Unhealthy": "Poor", "Hazardous": "Hazardous" ]
 
+// explanations of city properties displayed on CityDashboard
 let propertyDescriptionDictionary: [String: String] =
     ["livability": "CitySpire's livability score is calculated using many of the city's attributes, and soon will be adjusted to your personal preferences to assess how well the city might fit your needs. Please visit the Settings page once this feature is available, to set your preferences.",
      "walkability": "A city's walkability score is determined by analyzing the distance to various amenities as well as the level of pedestrian friendliness. The score will be higher if most errands do not require a car and many amenities are located within a 5 minute walk. Lower scores indicate that fewer errands could be done on foot, and amenities are closer to 30 minutes away.",

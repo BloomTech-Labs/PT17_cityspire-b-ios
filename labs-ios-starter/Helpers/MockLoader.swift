@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// used to provide mock data for unit tests and for display in the UI in the absence of endpoints
+/// used to provide mock data for display in the UI in the absence of endpoints
 class MockLoader: NetworkDataLoader {
     
     var data: Data?

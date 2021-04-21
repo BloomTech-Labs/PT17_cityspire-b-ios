@@ -15,7 +15,7 @@ class ApiController {
     
     // MARK: - Properties
     
-    private let webBaseURL = URL(string: "https://pt17-cityspire-b.herokuapp.com/api")!
+    private let webBaseURL = URL(string: "https://pt17-cityspire-b.herokuapp.com/")!
     private let dsBaseURL = URL(string: "http://cityspire-b-ds.eba-jesgmne9.us-east-1.elasticbeanstalk.com/api")!
     let dataLoader: NetworkDataLoader
     private let cache = Cache<String, City>()
@@ -72,7 +72,7 @@ class ApiController {
     }
     
     /// called in getPropertyData in CityDashboardVC to interpret string values into integers for use in configuring the CircularProgressBarView
-    /// needs editing once the list of predetermined words is available from DS/Web
+    /// Note: airQualityDictionary in Constants is used when saving the City to convert Air Quality Index words to the words used in this app
     /// - Parameter word: accepts a string from a predetermined list
     /// - Returns: returns an integer interpreting the string into a value between 0 and 100
     func stringToInt(word: String) -> Int {
@@ -213,6 +213,8 @@ class ApiController {
         }
     }
     
+    /// updates a city in the cache
+    /// - Parameter city: accepts a City
     private func updateCachedCity(city: City) {
         let fullCityName = city.cityName + ", " + city.cityState
         self.cache.cache(value: city, for: fullCityName)

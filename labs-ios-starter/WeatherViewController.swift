@@ -14,6 +14,7 @@ class WeatherViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet private var cityLabel: UILabel!
+    @IBOutlet private var conditionsView: SCNView!
     @IBOutlet private var lowView: SCNView!
     @IBOutlet private var highView: SCNView!
     
@@ -24,13 +25,15 @@ class WeatherViewController: UIViewController {
     var lowCameraNode = SCNNode()
     var highScene = SCNScene()
     var highCameraNode = SCNNode()
+    var conditionsScene = SCNScene()
+    var conditionsCameraNode = SCNNode()
     
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        setupCamera()
+        setupViews()
+        setupCameras()
         updateViews()
     }
     
@@ -46,10 +49,50 @@ class WeatherViewController: UIViewController {
         guard let city = city,
               let weather = city.weather else { return }
         cityLabel.text = city.cityName + ", " + city.cityState
-        drawBars(weather: weather)
+        drawTemperatureBars(weather: weather)
+        guard let conditions = city.conditions else { return }
+        drawConditionsBars(conditions: conditions)
     }
     
-    private func drawBars(weather: Weather) {
+    /// draws the bar graph for weather conditions
+    /// - Parameter conditions: accepts an unwrapped version of the City's conditions
+    private func drawConditionsBars(conditions: Conditions) {
+        for index in 0..<conditions.conditions.count {
+            let height = CGFloat(conditions.conditions[index]) / 35
+            let yAdjust = height / 2
+            let position = ((CGFloat(index) * 3) - 6)
+            
+            let bar = SCNBox(width: 3, height: height, length: 1.5, chamferRadius: 0.1)
+            bar.materials.first?.diffuse.contents = UIColor(named: "PieChartPurple")
+            let node = SCNNode(geometry: bar)
+            node.position = SCNVector3(position, yAdjust + 0.5, 0)
+            conditionsScene.rootNode.addChildNode(node)
+            
+            var daysHeightAdjust = CGFloat(-1.6)
+            if conditions.conditions[index] < 25 {
+                daysHeightAdjust = 0.5
+            }
+            let daysString = String(conditions.conditions[index])
+            let daysText = SCNText(string: daysString, extrusionDepth: 0)
+            daysText.font = UIFont(name: "TrebuchetMS-Bold", size: 0.7)
+            daysText.materials.first?.diffuse.contents = UIColor(named: "DarkBlue")
+            let daysTextNode = SCNNode(geometry: daysText)
+            daysTextNode.position = SCNVector3(-0.6, yAdjust + daysHeightAdjust, 0.8)
+            node.addChildNode(daysTextNode)
+            
+            let labelString = conditions.labels[index]
+            let labelText = SCNText(string: labelString, extrusionDepth: 0)
+            labelText.font = UIFont(name: "TrebuchetMS-Bold", size: 0.6)
+            labelText.materials.first?.diffuse.contents = UIColor(named: "DarkBlue")
+            let labelNode = SCNNode(geometry: labelText)
+            labelNode.position = SCNVector3(-0.9, -yAdjust - 1.5, 0.8)
+            node.addChildNode(labelNode)
+        }
+    }
+    
+    /// draws the bar graphs for average low temperatures and average high temperatures
+    /// - Parameter weather: accepts an unwrapped version of the City's weather data
+    private func drawTemperatureBars(weather: Weather) {
         for index in 0..<weather.months.count {
             let lowHeight = CGFloat(weather.months[index].minTemp / 10)
             let lowYAdjust = lowHeight / 2
@@ -68,7 +111,7 @@ class WeatherViewController: UIViewController {
             lowText.font = UIFont(name: "TrebuchetMS-Bold", size: 0.6)
             lowText.materials.first?.diffuse.contents = UIColor(named: "DarkBlue")
             let lowTextNode = SCNNode(geometry: lowText)
-            lowTextNode.position = SCNVector3(-0.35, lowYAdjust - 2, 0.8)
+            lowTextNode.position = SCNVector3(-0.35, lowYAdjust - 1.6, 0.8)
             lowNode.addChildNode(lowTextNode)
             
             let highBar = SCNBox(width: 1, height: highHeight, length: 1.5, chamferRadius: 0.1)
@@ -82,7 +125,7 @@ class WeatherViewController: UIViewController {
             highText.font = UIFont(name: "TrebuchetMS-Bold", size: 0.6)
             highText.materials.first?.diffuse.contents = UIColor(named: "DarkBlue")
             let highTextNode = SCNNode(geometry: highText)
-            highTextNode.position = SCNVector3(-0.35, lowYAdjust - 2, 0.8)
+            highTextNode.position = SCNVector3(-0.35, highYAdjust - 1.6, 0.8)
             highNode.addChildNode(highTextNode)
             
             guard let monthString = weather.months[index].month else { return }
@@ -105,26 +148,39 @@ class WeatherViewController: UIViewController {
         }
     }
     
-    private func setupView() {
+    /// configures each SceneKit view, and attaches the scene to the view
+    private func setupViews() {
         lowView.allowsCameraControl = false
         lowView.autoenablesDefaultLighting = true
         highView.allowsCameraControl = false
         highView.autoenablesDefaultLighting = true
+        conditionsView.allowsCameraControl = false
+        conditionsView.autoenablesDefaultLighting = true
+        
         lowView.scene = lowScene
         lowScene.background.contents = UIColor(named: "VeryLightBlue")
         highView.scene = highScene
         highScene.background.contents = UIColor(named: "VeryLightBlue")
+        conditionsView.scene = conditionsScene
+        conditionsScene.background.contents = UIColor(named: "VeryLightBlue")
     }
     
-    private func setupCamera() {
+    /// sets up the camera for each SceneKit view, configuring its position and rotation angle
+    private func setupCameras() {
         lowCameraNode.camera = SCNCamera()
         lowCameraNode.position = SCNVector3(x: -3, y: 8, z: 8)
         lowCameraNode.eulerAngles = SCNVector3(-0.4, -0.2, 0)
         lowScene.rootNode.addChildNode(lowCameraNode)
+        
         highCameraNode.camera = SCNCamera()
         highCameraNode.position = SCNVector3(x: -3, y: 8, z: 8)
         highCameraNode.eulerAngles = SCNVector3(-0.4, -0.2, 0)
         highScene.rootNode.addChildNode(highCameraNode)
+        
+        conditionsCameraNode.camera = SCNCamera()
+        conditionsCameraNode.position = SCNVector3(x: -3, y: 8, z: 8)
+        conditionsCameraNode.eulerAngles = SCNVector3(-0.4, -0.2, 0)
+        conditionsScene.rootNode.addChildNode(conditionsCameraNode)
     }
 
 }

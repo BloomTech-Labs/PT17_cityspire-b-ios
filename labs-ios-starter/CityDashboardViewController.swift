@@ -8,6 +8,10 @@
 
 import UIKit
 
+/// this VC makes use of a stack to display one City after another as the user selects Similar Cities to view
+/// a Back button appears when there is more than one City in cityStack to allow the user to revisit a previous City
+/// as the user selects a new city, it is appended to cityStack, which is configured to always display the last element in the stack
+/// the Back button pops the last element from cityStack, triggering the display to reload
 class CityDashboardViewController: UIViewController {
     
     // MARK: - Outlets

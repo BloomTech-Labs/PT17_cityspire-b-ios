@@ -14,35 +14,39 @@ let validSFJSON = """
     "city": "San Francisco",
     "state": "CA"
   },
-  "latitude": 37.758840565722686,
-  "longitude": -122.44588851928711,
-  "rental_price": 2800,
-  "crime": "Low",
+  "latitude": 37.773972,
+  "longitude": -122.431297,
+  "rental_price": 3700,
+  "crime": "High",
   "air_quality_index": "Good",
-  "population": 874961,
-  "diversity_index": 80,
-  "walkability": 88,
-  "livability": 70,
+  "population": 886007,
+  "diversity_index": 69,
+  "sunny_days_avg_year": 80,
+  "cloudy_days_avg_year": 236,
+  "rainy_days_avg_year": 49,
+  "snowy_days_avg_year": 0,
+  "walkability": 87,
+  "livability": 50,
   "recommendations": [
     {
-      "city": "Seattle",
-      "state": "WA"
-    },
-    {
-      "city": "Portland",
-      "state": "OR"
-    },
-    {
-      "city": "Austin",
+      "city": "Odessa",
       "state": "TX"
     },
     {
-      "city": "New York",
-      "state": "NY"
+      "city": "Provo",
+      "state": "UT"
     },
     {
-      "city": "Boston",
-      "state": "MA"
+      "city": "Sanford",
+      "state": "FL"
+    },
+    {
+      "city": "Santa Clara",
+      "state": "CA"
+    },
+    {
+      "city": "Sheridan",
+      "state": "WY"
     }
   ]
 }

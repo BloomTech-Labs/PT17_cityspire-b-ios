@@ -89,3 +89,10 @@ struct Housing: Decodable {
         bedrooms = [one, two, three, four, five]
     }
 }
+
+/// four properties in the DS api's get_data endpoint are for weather conditions
+/// this data structure combines them into a format that is easily used in displaying the data in WeatherVC
+struct Conditions: Decodable {
+    var labels = ["Sunny", "Cloudy", "Rainy", "Snowy"]
+    var conditions: [Int]
+}

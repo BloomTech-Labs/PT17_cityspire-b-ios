@@ -59,6 +59,8 @@ class HousingViewController: UIViewController {
         drawBars(housing: housing)
     }
     
+    /// draws the bar graph for housing prices by bedroom
+    /// - Parameter housing: accepts an unwrapped version of the City's housing data
     private func drawBars(housing: Housing) {
         guard housing.bedrooms.count == 5 else { return }
         let maxPrice = CGFloat(housing.bedrooms[4])
@@ -95,6 +97,7 @@ class HousingViewController: UIViewController {
         }
     }
     
+    /// configures the SceneKit view, and attaches the scene to the view
     private func setupView() {
         sceneView.allowsCameraControl = false
         sceneView.autoenablesDefaultLighting = true
@@ -102,6 +105,7 @@ class HousingViewController: UIViewController {
         scene.background.contents = UIColor(named: "VeryLightBlue")
     }
     
+    /// sets up the camera for the SceneKit view, configuring its position and rotation angle
     private func setupCamera() {
         cameraNode.camera = SCNCamera()
         cameraNode.position = SCNVector3(x: -3, y: 8, z: 8)

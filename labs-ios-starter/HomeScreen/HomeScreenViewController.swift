@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 
+/// the delegate method used to convey the user's selections on the "Mock Tab Bar"
+/// HomeScreenVC and FavoritesVC both conform to TabButtonDelegate
 protocol TabButtonDelegate {
     func homeSelected()
     func pinsSelected()

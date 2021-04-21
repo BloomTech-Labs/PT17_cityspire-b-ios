@@ -100,6 +100,7 @@ class MapViewController: UIViewController {
     }
     
     /// The user will be able to select a map item category. Once the category is selected, the map view will add annotations for all items matching the category within the region that the user is currently over on the map.
+    /// Note: MapKit appears to have a 25 item limit on results from a point of interest search
     /// - Parameter category: Accepts a point of interest item from a list of categories shown in a picker format.
     private func requestPointsOfInterest(category: POICategory) {
         if span.latitudeDelta > 0.03 {

@@ -21,6 +21,10 @@ struct City: Decodable {
         case diversity_index
         case walkability
         case livability
+        case sunny_days_avg_year
+        case cloudy_days_avg_year
+        case rainy_days_avg_year
+        case snowy_days_avg_year
         case recommendations
         
         enum recommendationKeys: String, CodingKey {
@@ -44,6 +48,7 @@ struct City: Decodable {
     var airQuality: String?
     var recommendations: [Recommendation] = []
     var weather: Weather? = nil
+    var conditions: Conditions? = nil
     var housing: Housing? = nil
     
     init(cityName: String, cityState: String) {
@@ -63,6 +68,7 @@ struct City: Decodable {
         diversityIndex = try container.decodeIfPresent(Int.self, forKey: .diversity_index)
         crime = try container.decodeIfPresent(String.self, forKey: .crime)
         rentalPrice = try container.decodeIfPresent(Int.self, forKey: .rental_price)
+        
         airQuality = try container.decodeIfPresent(String.self, forKey: .air_quality_index)
         if let air = airQuality {
             if let airQualityWord = airQualityDictionary[air] {
@@ -71,6 +77,14 @@ struct City: Decodable {
                 airQuality = "Good"
             }
         }
+        
+        if let sunnyDays = try container.decodeIfPresent(Int.self, forKey: .sunny_days_avg_year),
+           let cloudyDays = try container.decodeIfPresent(Int.self, forKey: .cloudy_days_avg_year),
+           let rainyDays = try container.decodeIfPresent(Int.self, forKey: .rainy_days_avg_year),
+           let snowyDays = try container.decodeIfPresent(Int.self, forKey: .snowy_days_avg_year) {
+            conditions = Conditions(conditions: [sunnyDays, cloudyDays, rainyDays, snowyDays])
+        }
+        
         recommendations = try container.decodeIfPresent([Recommendation].self, forKey: .recommendations) ?? []
     }
 }
