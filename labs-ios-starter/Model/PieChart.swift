@@ -11,7 +11,5 @@ import UIKit
 
 struct PieChartSegment {
     var color: UIColor
-    var value: CGFloat
-    
-    static let savedSegment = "SavedSegment"
+    var value: CGFloat    
 }
