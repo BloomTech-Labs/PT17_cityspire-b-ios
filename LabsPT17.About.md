@@ -1,6 +1,12 @@
 # About this App
 ### from LabsPT17 - [Cora Jacobson](https://github.com/CoraJacobson) and [Kevin Stewart](https://github.com/Kstu24)
 
+## Links
+
+[Trello Board](https://trello.com/b/lHklvNAt/labspt17-cityspire-b)
+[Whimsical](https://whimsical.com/cityspire-b-6b24Bc6MfwKCypGWjXF2XT)
+[DS API Documentation](http://cityspire-b-ds.eba-jesgmne9.us-east-1.elasticbeanstalk.com/#/)
+
 ## Okta Authentication
 
 As a Lambda Labs project, we were required to use Okta Auth as third party authentication. This was already set up for us, and as far as we know, it was also provided to the previous cohort. When the user taps the Sign In button on the LoginVC, they are taken to Safari to enter a username and password. Upon successfully signing in, they are automatically taken back to the iOS app.
@@ -23,6 +29,10 @@ Due to the way that the LoginVC was set up, the rest of the app is being present
 
 Another approach could be to restructure the app so that the LoginVC presents modally on top of the HomeScreenVC, and is dismissed upon successful sign in. We did not implement this because we were advised to avoid any unnecessary refactoring.
 
+## Settings Screen
+
+The Settings Screen was our idea for how to collect thresholds from the user in order to recalculate the livability scores based on the user's preferences. The Livability endpoint that exists in the DS api was created prior to our Labs unit, and did not have sufficient documentation for us to use it. At this time, the settings are able to be saved in User Defaults, but they are not used in any algorithm to modify livability scores.
+
 ## Networking & Mock Data
 
 ### Mock Data
@@ -39,3 +49,7 @@ The Web team set up an endpoint with the idea that we would be able to sync a us
 - The coordinates do not have enough decimal places
 
 Therefore, we chose not to implement this endpoint at this time.
+
+### Jobs & School District Endpoints - from DS
+
+These endpoints were added at the very end of our Labs unit, and we did not use them in the iOS app.
